@@ -3,11 +3,11 @@ import PunzalanResume from './../../assets/Punzalan Resume.pdf';
 
 const Hero = () => {
   return (
-    <div className="hero-container">
+    <div className="hero-container" style={{ overflow: 'hidden' }}>
       <div className="dot-pattern"></div>
       <div className="hero-content">
-        <h1><span>I&apos;m Ralph Matthew Punzalan,</span> frontend developer based in PH</h1>
-        <p>I&apos;m a mobile and web developer focused on creating smooth and engaging digital experiences.</p>
+        <h1><span>Welcome to my homepage, </span> I&apos;m Ralph Matthew Punzalan</h1>
+        <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>I&apos;m here to bring your ideas to life with passion, precision, and creativity. </p>
         <div className="hero-action">
           <a 
             className="hero-connect" 

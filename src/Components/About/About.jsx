@@ -1,4 +1,12 @@
 import './About.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookF,
+  faInstagram,
+  faGithub,
+  faXTwitter,
+  faThreads
+} from '@fortawesome/free-brands-svg-icons';
 import boracay1 from '../../assets/img/boracay1.jpg';
 import boracay2 from '../../assets/img/boracay2.jpg';
 import boracay3 from '../../assets/img/boracay3.jpg';
@@ -9,7 +17,7 @@ const About = () => {
     {
       src: boracay1,
       alt: "Presenting research in Boracay",
-      title: "Research Presentation",
+      title: "Research Presentation", 
       description: "Sharing our findings with the academic community"
     },
     {
@@ -20,7 +28,7 @@ const About = () => {
     },
     {
       src: boracay3,
-      alt: "Panel discussion in Boracay",
+      alt: "Panel discussion in Boracay", 
       title: "Panel Discussion",
       description: "Engaging with experts in the field"
     },
@@ -36,13 +44,12 @@ const About = () => {
     <main className="about">
       <section className="hero">
         <h1>Ralph Matthew Delarosa Punzalan</h1>
-        <p>Frontend Developer | UI/UX Designer | Graphic Designer</p>
+        <p>Relentless dedication transforms dreams into success</p>
       </section>
 
       <section className="about-me">
         <p>
-          I am a passionate BSIT student specializing in UI/UX design, graphic design, and front-end development.
-          With expertise in React.js, React Native, and Tailwind CSS, I create seamless digital experiences.
+          I&apos;m a BSIT student specializing in UI/UX design, graphic design, and front-end development. With expertise in React.js, React Native, and Tailwind CSS, I provide technical services and work as a freelance project developer, focusing on seamless and user-friendly digital experiences.
         </p>
         <p>
           I have worked on various projects, including e-commerce applications, quiz apps, and freelancing platforms.
@@ -99,7 +106,46 @@ const About = () => {
         </ul>
       </section>
 
-      
+      <section className="contact">
+        <div className="contact-content-wrapper">
+          <div className="contact-header-section">
+            <h2>Get in Touch</h2>
+            <p>Let&apos;s connect and create something amazing together</p>
+          </div>
+          
+          <div className="contact-info">
+            <div className="info-item">
+              <span className="label">Email</span>
+              <a href="mailto:ralphmatthewpunzalan23@gmail.com">
+                ralphmatthewpunzalan23@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="social-links">
+            <h3>Social Profiles</h3>
+            <div className="social-grid">
+              {[
+                { icon: faFacebookF, url: "https://facebook.com/Jigglypuffzy" },
+                { icon: faInstagram, url: "https://instagram.com/jigglypufzzz" },
+                { icon: faGithub, url: "https://github.com/JigglyPuffZy" },
+                { icon: faXTwitter, url: "https://x.com/ralphmatt__?s=21" },
+                { icon: faThreads, url: "https://www.threads.net/@jigglypufzzz?igshid=NTc4MTIwNjQ2YQ==" }
+              ].map((social, index) => (
+                <a 
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-item"
+                >
+                  <FontAwesomeIcon icon={social.icon} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
