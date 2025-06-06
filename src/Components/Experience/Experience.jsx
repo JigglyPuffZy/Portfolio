@@ -23,9 +23,13 @@ import Newspaper5 from "../../assets/img/NewsPaper5.jpg";
 import Newspaper6 from "../../assets/img/NewsPaper6.jpg";
 import Marians from "../../assets/img/Marian's.png";
 import QuizWhirl from "../../assets/img/QuizWHirl.png";
+import Shoes1 from "../../assets/img/Shoes1.png";
+import Shoes2 from "../../assets/img/Shoes2.png";
+import Shoes3 from "../../assets/img/Shoes3.png";
+import Shoes4 from "../../assets/img/shoes4.png";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper } from 'lucide-react';
+import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints } from 'lucide-react';
 
 const Experience = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -445,6 +449,73 @@ const Experience = () => {
     }
   ];
 
+  const shoesProjects = [
+    {
+      title: 'Shoe Design 1',
+      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
+      mainImage: Shoes1,
+      images: [Shoes1],
+      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
+      features: [
+        'Modern design elements',
+        'Ergonomic considerations',
+        'Material selection',
+        'Color coordination',
+        'Brand alignment'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Shoe Design 2',
+      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
+      mainImage: Shoes2,
+      images: [Shoes2],
+      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
+      features: [
+        'Modern design elements',
+        'Ergonomic considerations',
+        'Material selection',
+        'Color coordination',
+        'Brand alignment'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Shoe Design 3',
+      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
+      mainImage: Shoes3,
+      images: [Shoes3],
+      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
+      features: [
+        'Modern design elements',
+        'Ergonomic considerations',
+        'Material selection',
+        'Color coordination',
+        'Brand alignment'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Shoe Design 4',
+      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
+      mainImage: Shoes4,
+      images: [Shoes4],
+      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
+      features: [
+        'Modern design elements',
+        'Ergonomic considerations',
+        'Material selection',
+        'Color coordination',
+        'Brand alignment'
+      ],
+      github: '#',
+      live: '#'
+    }
+  ];
+
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
@@ -487,6 +558,8 @@ const Experience = () => {
         return newspaperProjects;
       case 'web':
         return webProjects;
+      case 'shoes':
+        return shoesProjects;
       default:
         return mobileProjects;
     }
@@ -552,6 +625,13 @@ const Experience = () => {
             >
               <Code className="w-5 h-5" />
               Web Portfolio
+            </button>
+            <button
+              onClick={() => setActiveCategory('shoes')}
+              className={`category-tab ${activeCategory === 'shoes' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
+            >
+              <Footprints className="w-5 h-5" />
+              Shoe Designs
             </button>
           </motion.div>
 
