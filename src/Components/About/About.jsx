@@ -5,6 +5,7 @@ import boracay1 from '../../assets/img/boracay1.jpg';
 import boracay2 from '../../assets/img/boracay2.jpg';
 import boracay3 from '../../assets/img/boracay3.jpg';
 import boracay4 from '../../assets/img/boracay4.jpg';
+import heroImage from '../../assets/img/Hero Image.jpg';
 import { useState } from 'react';
 
 const About = () => {
@@ -149,11 +150,15 @@ const About = () => {
           >
             <div className="relative">
               <motion.div 
-                className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center mx-auto shadow-2xl"
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mx-auto shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-4xl md:text-6xl font-bold text-white">RM</span>
+                <img 
+                  src={heroImage} 
+                  alt="Ralph Matthew Delarosa Punzalan" 
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
               <motion.div
                 className="absolute -inset-4 rounded-full border-4 border-primary-500/20"
@@ -163,6 +168,18 @@ const About = () => {
                 }}
                 transition={{
                   duration: 8,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+              <motion.div
+                className="absolute -inset-8 rounded-full border-4 border-secondary-500/20"
+                animate={{
+                  scale: [1.2, 1, 1.2],
+                  rotate: [360, 0, 360],
+                }}
+                transition={{
+                  duration: 12,
                   repeat: Infinity,
                   ease: "linear"
                 }}
