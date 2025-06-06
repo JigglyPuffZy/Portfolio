@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Experience.css";
 import WebPortfolio1 from "../../assets/img/webportfolio1.png";
 import WebPortfolio2 from "../../assets/img/webportfolio2.png";
@@ -41,6 +41,29 @@ const Experience = () => {
     threshold: 0.1,
     triggerOnce: true,
   });
+  const [relatedProjects, setRelatedProjects] = useState([]);
+
+  // Add touch event handlers for mobile
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    setTouchStart(touch.clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStart) return;
+    
+    const touch = e.touches[0];
+    const diff = touchStart - touch.clientX;
+    
+    if (Math.abs(diff) > 50) { // Minimum swipe distance
+      if (diff > 0) {
+        handleNextImage();
+      } else {
+        handlePrevImage();
+      }
+      setTouchStart(null);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -521,9 +544,9 @@ const Experience = () => {
     setCurrentImageIndex(0);
   };
 
-  const handleImageClick = (e) => {
+  const handleImageClick = (e, image) => {
     e.stopPropagation();
-    setSelectedImage(e.target.src);
+    setSelectedImage(image);
     setIsImageModalOpen(true);
   };
 
@@ -565,6 +588,19 @@ const Experience = () => {
     }
   };
 
+  useEffect(() => {
+    if (selectedProject) {
+      // Get projects from the same category
+      const currentCategoryProjects = getProjectsByCategory();
+      // Filter out the current project and get 3 random projects
+      const filteredProjects = currentCategoryProjects
+        .filter(project => project.title !== selectedProject.title)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+      setRelatedProjects(filteredProjects);
+    }
+  }, [selectedProject, activeCategory]);
+
   return (
     <section className="projects-section bg-white dark:bg-dark-100">
       <div className="projects-container">
@@ -588,50 +624,50 @@ const Experience = () => {
               onClick={() => setActiveCategory('mobile')}
               className={`category-tab ${activeCategory === 'mobile' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Smartphone className="w-5 h-5" />
-              Mobile Apps
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Mobile</span>
             </button>
             <button
               onClick={() => setActiveCategory('brand')}
               className={`category-tab ${activeCategory === 'brand' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Briefcase className="w-5 h-5" />
-              Brand Awareness
+              <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Brand</span>
             </button>
             <button
               onClick={() => setActiveCategory('book')}
               className={`category-tab ${activeCategory === 'book' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Book className="w-5 h-5" />
-              Book Designs
+              <Book className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Books</span>
             </button>
             <button
               onClick={() => setActiveCategory('ads')}
               className={`category-tab ${activeCategory === 'ads' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Palette className="w-5 h-5" />
-              Poster Ads
+              <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Ads</span>
             </button>
             <button
               onClick={() => setActiveCategory('newspaper')}
               className={`category-tab ${activeCategory === 'newspaper' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Newspaper className="w-5 h-5" />
-              Newspaper
+              <Newspaper className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">News</span>
             </button>
             <button
               onClick={() => setActiveCategory('web')}
               className={`category-tab ${activeCategory === 'web' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Code className="w-5 h-5" />
-              Web Portfolio
+              <Code className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Web</span>
             </button>
             <button
               onClick={() => setActiveCategory('shoes')}
               className={`category-tab ${activeCategory === 'shoes' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
             >
-              <Footprints className="w-5 h-5" />
-              Shoe Designs
+              <Footprints className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Shoes</span>
             </button>
           </motion.div>
 
@@ -640,9 +676,10 @@ const Experience = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="project-card bg-white dark:bg-dark-200"
+                className="project-card"
+                onClick={() => handleProjectClick(project)}
               >
-                <div className="project-image" onClick={handleImageClick}>
+                <div className="project-image" onClick={(e) => handleImageClick(e, project.mainImage)}>
                   <img src={project.mainImage} alt={project.title} />
                 </div>
                 <div className="project-content">
@@ -668,16 +705,16 @@ const Experience = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="project-modal bg-black/50"
+            className="project-modal"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="project-modal-content bg-white dark:bg-dark-200"
+              className="project-modal-content"
             >
               <button
-                className="project-modal-close text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                className="project-modal-close"
                 onClick={() => setSelectedProject(null)}
               >
                 <X className="w-6 h-6" />
@@ -688,43 +725,58 @@ const Experience = () => {
                   src={selectedProject.images[currentImageIndex]}
                   alt={selectedProject.title}
                   className="max-h-[80vh] w-auto object-contain"
+                  onClick={(e) => handleImageClick(e, selectedProject.images[currentImageIndex])}
                 />
                 {selectedProject.images.length > 1 && (
                   <>
+                    <div className="carousel-instructions">
+                      <ChevronLeft className="w-4 h-4" />
+                      <span>Swipe or use arrows to navigate</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </div>
                     <button
-                      className="project-modal-nav prev text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
+                      className="project-modal-nav prev"
                       onClick={handlePrevImage}
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
-                      className="project-modal-nav next text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
+                      className="project-modal-nav next"
                       onClick={handleNextImage}
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
+                    <div className="carousel-dots">
+                      {selectedProject.images.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+                          onClick={() => setCurrentImageIndex(index)}
+                        />
+                      ))}
+                    </div>
                   </>
                 )}
               </div>
 
-              <div className="project-modal-info p-6">
-                <h3 className="project-modal-title text-2xl font-bold mb-4 text-gray-900 dark:text-white">{selectedProject.title}</h3>
-                <p className="project-modal-description text-lg mb-6 text-gray-600 dark:text-gray-300">
+              <div className="project-modal-info">
+                <h3 className="project-modal-title">{selectedProject.title}</h3>
+                <p className="project-modal-description">
                   {selectedProject.description}
                 </p>
-                <div className="project-modal-tech flex flex-wrap gap-2 mb-6">
+                <div className="project-modal-tech">
                   {selectedProject.tech.map((tech, idx) => (
-                    <span key={idx} className="tech-tag px-3 py-1 rounded-full bg-gray-100 dark:bg-dark-300 text-gray-700 dark:text-gray-300">
+                    <span key={idx} className="tech-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="project-modal-features mb-6">
-                  <h4 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Key Features:</h4>
-                  <ul className="space-y-3">
+                <div className="project-modal-features">
+                  <h4>Key Features:</h4>
+                  <ul>
                     {selectedProject.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                        <Star className="w-5 h-5 text-primary-500 flex-shrink-0" />
+                      <li key={idx}>
+                        <Star className="w-5 h-5 text-primary-500" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -732,6 +784,63 @@ const Experience = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* Related Projects Section */}
+            {relatedProjects.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 50 }}
+                className="related-projects"
+              >
+                <div className="related-projects-header">
+                  <h3>More Projects Like This</h3>
+                  <p>Swipe to explore more projects</p>
+                </div>
+                <div className="related-projects-carousel">
+                  <div className="related-projects-track">
+                    {relatedProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        className="related-project-card"
+                        onClick={() => handleProjectClick(project)}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="related-project-image">
+                          <img src={project.mainImage} alt={project.title} />
+                        </div>
+                        <div className="related-project-content">
+                          <h4>{project.title}</h4>
+                          <p>{project.description}</p>
+                          <div className="related-project-tech">
+                            {project.tech.slice(0, 2).map((tech, idx) => (
+                              <span key={idx} className="tech-tag">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <div className="related-projects-nav">
+                    <button className="nav-prev" onClick={() => {
+                      const track = document.querySelector('.related-projects-track');
+                      track.scrollBy({ left: -300, behavior: 'smooth' });
+                    }}>
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button className="nav-next" onClick={() => {
+                      const track = document.querySelector('.related-projects-track');
+                      track.scrollBy({ left: 300, behavior: 'smooth' });
+                    }}>
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

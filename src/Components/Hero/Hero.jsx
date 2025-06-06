@@ -11,11 +11,21 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -34,13 +44,14 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -52,7 +63,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155]">
+    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155]">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent animate-pulse" />
@@ -62,11 +73,11 @@ const Hero = () => {
 
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Canvas>
+        <Canvas dpr={[1, 2]} performance={{ min: 0.5 }}>
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[-2, 5, 2]} intensity={1} />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+          <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
           <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
             <Sphere args={[1, 100, 200]} scale={2.5}>
               <MeshDistortMaterial
@@ -89,34 +100,35 @@ const Hero = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         style={{ y }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20"
+        className="relative z-10 w-full max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20"
       >
-        <div className="text-center">
+        <div className="flex flex-col items-center justify-center w-full">
           <motion.div
             variants={itemVariants}
-            className="inline-block mb-4 sm:mb-6"
+            className="inline-block mb-3 sm:mb-6"
           >
-            <span className="text-xs sm:text-sm font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white shadow-lg hover:bg-white/20 transition-all duration-300">
+            <span className="text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white shadow-lg hover:bg-white/20 transition-all duration-300">
               Welcome to my portfolio
             </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-8 tracking-tight text-center"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 animate-gradient">
               Hi, I'm Ralph
             </span>
             <br />
-            <span className="text-white">
-              Creative Technologist & Digital Artist
+            <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-wide">
+              Creative Technologist
+              <span className="block mt-1 text-blue-400/90">Digital Artist</span>
             </span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 sm:mb-14 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-10 md:mb-14 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] mx-auto leading-relaxed text-center"
           >
             I create beautiful and functional web applications with modern technologies.
             Let's build something amazing together.
@@ -124,56 +136,56 @@ const Hero = () => {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-14 sm:mb-20"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-16 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]"
           >
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full sm:w-auto group relative inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-gradient-to-r from-blue-500 to-blue-600 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-white/20 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-blue-600"></span>
-              <span className="relative flex items-center gap-2">
+              <span className="relative flex items-center gap-2 text-sm sm:text-base">
                 Get in Touch
-                <Mail className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </a>
             <button
               onClick={() => navigate('/experience')}
-              className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
+              className="w-full sm:w-auto group relative inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
             >
               <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-white/10 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
               <span className="absolute inset-0 w-full h-full bg-white/5 border-2 border-white/20 group-hover:bg-white/10"></span>
-              <span className="relative flex items-center gap-2">
+              <span className="relative flex items-center gap-2 text-sm sm:text-base">
                 View Projects
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-6 sm:gap-8 flex-wrap"
+            className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]"
           >
             {[
               { icon: Github, href: "https://github.com/JigglyPuffZy", label: "GitHub" },
               { icon: Facebook, href: "https://facebook.com/JigglypuffZy", label: "Facebook" },
               { icon: Instagram, href: "https://www.instagram.com/jigglypufzzz", label: "Instagram" },
               { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: FileText, href: "/Resume New.pdf", label: "Resume" },
+              { icon: FileText, href: "/resume.pdf", label: "Resume" },
             ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="group relative p-2.5 sm:p-3 md:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 aria-label={social.label}
               >
-                <social.icon className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
+                <social.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover:text-blue-400 transition-colors" />
               </motion.a>
             ))}
           </motion.div>
@@ -185,9 +197,9 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full p-1 backdrop-blur-sm bg-white/5">
+        <div className="w-4 h-6 sm:w-5 sm:h-8 md:w-6 md:h-10 border-2 border-white/20 rounded-full p-1 backdrop-blur-sm bg-white/5">
           <motion.div
             animate={{
               y: [0, 12, 0],
@@ -197,7 +209,7 @@ const Hero = () => {
               repeat: Infinity,
               repeatType: "loop",
             }}
-            className="w-2 h-2 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"
+            className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"
           />
         </div>
       </motion.div>

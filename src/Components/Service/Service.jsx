@@ -134,7 +134,7 @@ const Service = () => {
 
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -144,31 +144,31 @@ const Service = () => {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="relative group"
+              className="relative group w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl"
                    style={{ backgroundImage: `linear-gradient(to right, ${service.gradient})` }} />
-              <div className="relative bg-white dark:bg-dark-200 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${service.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="relative bg-white dark:bg-dark-200 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full">
+                <div className={`inline-flex p-2 sm:p-3 rounded-xl bg-gradient-to-r ${service.gradient} mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <div className="text-white">
                     {service.icon}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {service.features.map((feature, idx) => (
                     <motion.li 
                       key={idx} 
-                      className="flex items-center text-gray-600 dark:text-gray-300"
+                      className="flex items-center text-sm sm:text-base text-gray-600 dark:text-gray-300"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ArrowRight className={`w-4 h-4 mr-3 text-${service.gradient.split('-')[1]}-500`} />
+                      <ArrowRight className={`w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3 text-${service.gradient.split('-')[1]}-500`} />
                       {feature}
                     </motion.li>
                   ))}
