@@ -31,8 +31,15 @@ const Navbar = () => {
     }
   }, [isDark]);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const navItems = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/', onClick: scrollToTop },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/service' },
     { name: 'Experience', path: '/experience' },
@@ -48,7 +55,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" onClick={scrollToTop}>
             <span className="text-2xl font-bold gradient-text">Portfolio</span>
           </Link>
 
@@ -59,6 +66,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className="nav-link"
+                onClick={item.onClick}
               >
                 {item.name}
               </Link>
@@ -101,7 +109,10 @@ const Navbar = () => {
               key={item.name}
               to={item.path}
               className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-dark-200 transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                if (item.onClick) item.onClick();
+              }}
             >
               {item.name}
             </Link>

@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./Experience.css";
 import WebPortfolio1 from "../../assets/img/webportfolio1.png";
 import WebPortfolio2 from "../../assets/img/webportfolio2.png";
+import WebPortfolio3 from "../../assets/img/webportfolio3.png";
+import WebPortfolio4 from "../../assets/img/webportfolio4.png";
+import WebPortfolio5 from "../../assets/img/webportfolio5.png";
 import Ads1 from "../../assets/img/Ads Poster 1.jpg";
 import Ads2 from "../../assets/img/Ads Poster 2.jpg";
 import BookCover1 from "../../assets/img/BookCover1.jpg";
@@ -17,6 +20,7 @@ import Newspaper2 from "../../assets/img/NewsPaper2.jpg";
 import Newspaper3 from "../../assets/img/NewsPaper3.jpg";
 import Newspaper4 from "../../assets/img/NewsPaper4.jpg";
 import Newspaper5 from "../../assets/img/NewsPaper5.jpg";
+import Newspaper6 from "../../assets/img/NewsPaper6.jpg";
 import Marians from "../../assets/img/Marian's.png";
 import QuizWhirl from "../../assets/img/QuizWHirl.png";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -261,7 +265,7 @@ const Experience = () => {
 
   const newspaperProjects = [
     {
-      title: 'Newspaper Design 1',
+      title: 'I was Reincarnated as the 7th Prince',
       description: 'Professional newspaper layouts and designs for various publications.',
       mainImage: Newspaper1,
       images: [Newspaper1],
@@ -277,7 +281,7 @@ const Experience = () => {
       live: '#'
     },
     {
-      title: 'Newspaper Design 2',
+      title: 'About Me Newspaper',
       description: 'Professional newspaper layouts and designs for various publications.',
       mainImage: Newspaper2,
       images: [Newspaper2],
@@ -293,7 +297,7 @@ const Experience = () => {
       live: '#'
     },
     {
-      title: 'Newspaper Design 3',
+      title: 'Newspaper About Upgrading the Business',
       description: 'Professional newspaper layouts and designs for various publications.',
       mainImage: Newspaper3,
       images: [Newspaper3],
@@ -309,7 +313,7 @@ const Experience = () => {
       live: '#'
     },
     {
-      title: 'Newspaper Design 4',
+      title: 'Oggy And The Cockroaches',
       description: 'Professional newspaper layouts and designs for various publications.',
       mainImage: Newspaper4,
       images: [Newspaper4],
@@ -325,10 +329,26 @@ const Experience = () => {
       live: '#'
     },
     {
-      title: 'Newspaper Design 5',
+      title: 'Santo Tomas Newspaper',
       description: 'Professional newspaper layouts and designs for various publications.',
       mainImage: Newspaper5,
       images: [Newspaper5],
+      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
+      features: [
+        'Clean and readable layouts',
+        'Hierarchical information design',
+        'Print optimization',
+        'Editorial consistency',
+        'Space management'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Solo Leveling',
+      description: 'Professional newspaper layouts and designs for various publications.',
+      mainImage: Newspaper6,
+      images: [Newspaper6],
       tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
       features: [
         'Clean and readable layouts',
@@ -344,7 +364,7 @@ const Experience = () => {
 
   const webProjects = [
     {
-      title: 'Web Portfolio 1',
+      title: 'We Comply ',
       description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
       mainImage: WebPortfolio1,
       images: [WebPortfolio1],
@@ -360,10 +380,58 @@ const Experience = () => {
       live: '#'
     },
     {
-      title: 'Web Portfolio 2',
+      title: 'Personal Portfolio',
       description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
       mainImage: WebPortfolio2,
       images: [WebPortfolio2],
+      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+      features: [
+        'Responsive layout',
+        'Modern design elements',
+        'Smooth animations',
+        'Performance optimization',
+        'Cross-browser compatibility'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'TriReg',
+      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
+      mainImage: WebPortfolio3,
+      images: [WebPortfolio3],
+      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+      features: [
+        'Responsive layout',
+        'Modern design elements',
+        'Smooth animations',
+        'Performance optimization',
+        'Cross-browser compatibility'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Vtrack',
+      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
+      mainImage: WebPortfolio4,
+      images: [WebPortfolio4],
+      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+      features: [
+        'Responsive layout',
+        'Modern design elements',
+        'Smooth animations',
+        'Performance optimization',
+        'Cross-browser compatibility'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Personal Portfolio 2',
+      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
+      mainImage: WebPortfolio5,
+      images: [WebPortfolio5],
       tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
       features: [
         'Responsive layout',
@@ -507,16 +575,6 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="project-links">
-                    <a
-                      href={project.live}
-                      className="project-link primary bg-primary-500 text-white hover:bg-primary-600"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                      Live Demo
-                    </a>
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -591,17 +649,6 @@ const Experience = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="project-modal-links">
-                  <a
-                    href={selectedProject.live}
-                    className="project-link primary inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    Live Demo
-                  </a>
                 </div>
               </div>
             </motion.div>
