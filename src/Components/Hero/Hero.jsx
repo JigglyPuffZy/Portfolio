@@ -12,6 +12,7 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [resumeAvailable, setResumeAvailable] = useState(false);
 
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -39,6 +40,19 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Check if resume is available
+  useEffect(() => {
+    fetch('/resume.pdf')
+      .then(response => {
+        if (response.ok) {
+          setResumeAvailable(true);
+        }
+      })
+      .catch(() => {
+        setResumeAvailable(false);
+      });
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -60,6 +74,13 @@ const Hero = () => {
         ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
+  };
+
+  const handleResumeClick = (e) => {
+    if (!resumeAvailable) {
+      e.preventDefault();
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com', '_blank');
+    }
   };
 
   return (
@@ -173,7 +194,12 @@ const Hero = () => {
               { icon: Facebook, href: "https://facebook.com/JigglypuffZy", label: "Facebook" },
               { icon: Instagram, href: "https://www.instagram.com/jigglypufzzz", label: "Instagram" },
               { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: FileText, href: "/resume.pdf", label: "Resume" },
+              { 
+                icon: FileText, 
+                href: resumeAvailable ? "/resume.pdf" : "#", 
+                label: resumeAvailable ? "Resume" : "Request Resume",
+                onClick: handleResumeClick
+              },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -184,6 +210,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group relative p-2.5 sm:p-3 md:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 aria-label={social.label}
+                onClick={social.onClick}
               >
                 <social.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover:text-blue-400 transition-colors" />
               </motion.a>
