@@ -42,7 +42,7 @@ const Hero = () => {
 
   // Check if resume is available
   useEffect(() => {
-    fetch('/resume.pdf')
+    fetch('/Resume New.pdf')
       .then(response => {
         if (response.ok) {
           setResumeAvailable(true);
@@ -183,6 +183,19 @@ const Hero = () => {
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
+            <a
+              href="/Resume New.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto group relative inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-white/10 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+              <span className="absolute inset-0 w-full h-full bg-white/5 border-2 border-white/20 group-hover:bg-white/10"></span>
+              <span className="relative flex items-center gap-2 text-sm sm:text-base">
+                My Resume
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
           </motion.div>
 
           <motion.div
@@ -194,12 +207,6 @@ const Hero = () => {
               { icon: Facebook, href: "https://facebook.com/JigglypuffZy", label: "Facebook" },
               { icon: Instagram, href: "https://www.instagram.com/jigglypufzzz", label: "Instagram" },
               { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { 
-                icon: FileText, 
-                href: resumeAvailable ? "/resume.pdf" : "#", 
-                label: resumeAvailable ? "Resume" : "Request Resume",
-                onClick: handleResumeClick
-              },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -210,7 +217,6 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group relative p-2.5 sm:p-3 md:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 aria-label={social.label}
-                onClick={social.onClick}
               >
                 <social.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover:text-blue-400 transition-colors" />
               </motion.a>
