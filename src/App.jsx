@@ -6,9 +6,17 @@ import About from './Components/About/About';
 import Service from './Components/Service/Service';
 import Experience from './Components/Experience/Experience';
 
+// Add future flags configuration
+const router = {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true
+  }
+};
+
 const App = () => {
   return (
-    <Router>
+    <Router future={router.future}>
       <div className="min-h-screen bg-white dark:bg-dark-100 text-gray-900 dark:text-gray-100">
         <Navbar />
         <AnimatePresence mode="wait">

@@ -104,11 +104,11 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="min-h-screen py-12 md:py-20 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-dark-200 dark:via-dark-300 dark:to-dark-400 relative overflow-hidden">
+    <section id="about" className="min-h-screen py-4 md:py-20 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-dark-200 dark:via-dark-300 dark:to-dark-400 relative overflow-hidden">
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-72 md:w-96 h-72 md:h-96 bg-primary-500/5 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-48 md:w-96 h-48 md:h-96 bg-primary-500/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
@@ -120,7 +120,7 @@ const About = () => {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-72 md:w-96 h-72 md:h-96 bg-secondary-500/5 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-48 md:w-96 h-48 md:h-96 bg-secondary-500/5 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [90, 0, 90],
@@ -138,19 +138,19 @@ const About = () => {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10"
       >
         {/* Enhanced Hero Section */}
-        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-12 md:mb-32">
+        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-4 md:mb-32">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex justify-center mb-6 md:mb-12"
+            className="flex justify-center mb-4 md:mb-12"
           >
             <div className="relative">
               <motion.div 
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden mx-auto shadow-2xl"
+                className="w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden mx-auto shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -161,7 +161,7 @@ const About = () => {
                 />
               </motion.div>
               <motion.div
-                className="absolute -inset-2 sm:-inset-4 rounded-full border-4 border-primary-500/20"
+                className="absolute -inset-1 sm:-inset-4 rounded-full border-4 border-primary-500/20"
                 animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 360],
@@ -173,7 +173,7 @@ const About = () => {
                 }}
               />
               <motion.div
-                className="absolute -inset-4 sm:-inset-8 rounded-full border-4 border-secondary-500/20"
+                className="absolute -inset-2 sm:-inset-8 rounded-full border-4 border-secondary-500/20"
                 animate={{
                   scale: [1.2, 1, 1.2],
                   rotate: [360, 0, 360],
@@ -188,7 +188,7 @@ const About = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -208,41 +208,41 @@ const About = () => {
           </motion.h2>
           
           <motion.div 
-            className="w-full max-w-3xl mx-auto px-4 sm:px-6"
+            className="w-full max-w-3xl mx-auto px-2 sm:px-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative p-6 sm:p-8 rounded-lg bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300">
+              <div className="relative p-4 sm:p-8 rounded-lg bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300">
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-                  Hi, I'm <span className="font-bold text-primary-500">Ralph Matthew Delarosa Punzalan</span>, a BSIT student passionate about bringing digital ideas to life. 
+                  Hi, I&apos;m <span className="font-bold text-primary-500">Ralph Matthew Delarosa Punzalan</span>, a BSIT student passionate about bringing digital ideas to life. 
                   I love working on projects that combine React.js development, UI/UX design, graphic design, and video editing. 
-                  Whether it's building a smooth, responsive mobile app or designing eye-catching visuals, I always aim to create 
+                  Whether it&apos;s building a smooth, responsive mobile app or designing eye-catching visuals, I always aim to create 
                   experiences that are both functional and visually appealing.
                 </p>
-                <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-4">
                   <motion.div 
-                    className="flex items-center gap-2 bg-primary-500/10 px-4 py-2 rounded-full"
+                    className="flex items-center gap-2 bg-primary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="text-primary-500">💻</span>
-                    <span className="text-sm font-medium">React Developer</span>
+                    <span className="text-xs sm:text-sm font-medium">React Developer</span>
                   </motion.div>
                   <motion.div 
-                    className="flex items-center gap-2 bg-secondary-500/10 px-4 py-2 rounded-full"
+                    className="flex items-center gap-2 bg-secondary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="text-secondary-500">🎨</span>
-                    <span className="text-sm font-medium">UI/UX Designer</span>
+                    <span className="text-xs sm:text-sm font-medium">UI/UX Designer</span>
                   </motion.div>
                   <motion.div 
-                    className="flex items-center gap-2 bg-primary-500/10 px-4 py-2 rounded-full"
+                    className="flex items-center gap-2 bg-primary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="text-primary-500">🎬</span>
-                    <span className="text-sm font-medium">Video Editor</span>
+                    <span className="text-xs sm:text-sm font-medium">Video Editor</span>
                   </motion.div>
                 </div>
               </div>
@@ -253,7 +253,7 @@ const About = () => {
         {/* Enhanced Expertise Section */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-12 md:mb-32 px-4 sm:px-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 md:gap-10 mb-8 md:mb-32 px-2 sm:px-6"
         >
           {expertise.map((skill, index) => (
             <motion.div
@@ -425,7 +425,7 @@ const About = () => {
         </motion.div>
 
         {/* Enhanced Experience Section */}
-        <motion.div variants={itemVariants} className="mb-12 md:mb-32 px-4 sm:px-6">
+        <motion.div variants={itemVariants} className="mb-8 md:mb-32 px-2 sm:px-6">
           <motion.h3 
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
             initial={{ opacity: 0, y: 20 }}
@@ -544,7 +544,7 @@ const About = () => {
         </motion.div>
 
         {/* Enhanced Education Section */}
-        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-32 px-4 sm:px-6">
+        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-32 px-2 sm:px-6">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500">Education & Certificates</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
@@ -624,7 +624,7 @@ const About = () => {
         </motion.div>
 
         {/* Enhanced Research Presentation Section */}
-        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-32 px-4 sm:px-6">
+        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-32 px-2 sm:px-6">
           <motion.h3 
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
             initial={{ opacity: 0, y: 20 }}
@@ -677,7 +677,7 @@ const About = () => {
             </motion.div>
 
             {/* Enhanced Image Gallery */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
               {[
                 { 
                   src: boracay1, 
@@ -722,10 +722,10 @@ const About = () => {
                   <motion.img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-[300px] sm:h-[400px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-[250px] sm:h-[400px] object-cover transform group-hover:scale-110 transition-transform duration-700"
                     whileHover={{ scale: 1.05 }}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl">{image.icon}</span>
                       <h4 className="text-xl font-bold text-white">{image.title}</h4>
@@ -780,7 +780,7 @@ const About = () => {
 
             {/* Enhanced Key Achievements Section */}
             <motion.div 
-              className="mt-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden"
+              className="mt-8 sm:mt-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-4 sm:p-8 md:p-12 text-white relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
@@ -788,7 +788,7 @@ const About = () => {
               <div className="absolute inset-0 bg-white/10 animate-pulse" />
               <div className="relative z-10">
                 <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center">Key Achievements</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {[
                     {
                       icon: "🎯",

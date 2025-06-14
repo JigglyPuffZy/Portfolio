@@ -27,9 +27,14 @@ import Shoes1 from "../../assets/img/Shoes1.png";
 import Shoes2 from "../../assets/img/Shoes2.png";
 import Shoes3 from "../../assets/img/Shoes3.png";
 import Shoes4 from "../../assets/img/shoes4.png";
+import CAR1 from "../../assets/img/Car1.png";
+import CAR2 from "../../assets/img/Car2.png";
+import CAR3 from "../../assets/img/Car3.png";
+import CAR4 from "../../assets/img/Car4.png";
+import CAR5 from "../../assets/img/Car5.png";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints } from 'lucide-react';
+import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints, Car } from 'lucide-react';
 
 const Experience = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -538,6 +543,88 @@ const Experience = () => {
       live: '#'
     }
   ];
+  const CarProjects = [
+    {
+      title: '911 Carrera',
+      description: 'Porsche 911 Carrera is a sports car known for its blend of performance, luxury, and a distinctive design.',
+      mainImage: CAR1,
+      images: [CAR1],
+      tech: ['Marketing', 'Social Media', 'Design'],
+      features: [
+        '3.0L twin-turbocharged flat-6 engine',
+        'Rear-wheel drive',
+        '8-speed Porsche Doppelkupplung (PDK) transmission',
+        'Premium interior finishes',
+        'Advanced driver assistance systems'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: '911 Targa 4 GTS',
+      description: 'The Porsche 911 Targa 4 GTS combines the iconic Targa design with enhanced performance and luxury features.',
+      mainImage: CAR2,
+      images: [CAR2],
+      tech: ['Marketing', 'Social Media', 'Design'],
+      features: [
+        '3.0L twin-turbocharged flat-6 engine',
+        'All-wheel drive system',
+        'Unique Targa roof design',
+        'Sport-tuned suspension',
+        'GTS-specific styling elements'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: '911 Turbo',
+      description: 'The Porsche 911 Turbo represents the pinnacle of performance, combining raw power with everyday usability.',
+      mainImage: CAR3,
+      images: [CAR3],
+      tech: ['Marketing', 'Social Media', 'Design'],
+      features: [
+        '3.8L twin-turbocharged flat-6 engine',
+        'All-wheel drive system',
+        'Active aerodynamics',
+        'Porsche Ceramic Composite Brakes',
+        'Adaptive aerodynamics'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Ford Mustang Shelby',
+      description: 'The Ford Mustang Shelby is a high-performance variant of the iconic Mustang, featuring enhanced power and handling.',
+      mainImage: CAR4,
+      images: [CAR4],
+      tech: ['Marketing', 'Social Media', 'Design'],
+      features: [
+        'Supercharged V8 engine',
+        'Track-focused suspension',
+        'Aggressive aerodynamics',
+        'Shelby-specific styling',
+        'High-performance braking system'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: '911 GT3 RS',
+      description: 'The Porsche 911 GT3 RS is a track-focused supercar that brings race car technology to the road.',
+      mainImage: CAR5,
+      images: [CAR5],
+      tech: ['Marketing', 'Social Media', 'Design'],
+      features: [
+        '4.0L naturally aspirated flat-6 engine',
+        'Rear-wheel drive',
+        'Advanced aerodynamics package',
+        'Lightweight construction',
+        'Track-focused suspension setup'
+      ],
+      github: '#',
+      live: '#'
+    }
+  ];
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -583,6 +670,8 @@ const Experience = () => {
         return webProjects;
       case 'shoes':
         return shoesProjects;
+      case 'car':
+        return CarProjects;
       default:
         return mobileProjects;
     }
@@ -668,6 +757,13 @@ const Experience = () => {
             >
               <Footprints className="w-4 h-4 sm:w-5 sm:h-5" />
               <span className="ml-1">Shoes</span>
+            </button>
+            <button
+              onClick={() => setActiveCategory('car')}
+              className={`category-tab ${activeCategory === 'car' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
+            >
+              <Car className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="ml-1">Cars</span>
             </button>
           </motion.div>
 
@@ -853,6 +949,19 @@ const Experience = () => {
             exit={{ opacity: 0 }}
             className="modal active"
             onClick={handleCloseImageModal}
+            style={{ 
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 9999,
+              padding: '20px'
+            }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -860,14 +969,52 @@ const Experience = () => {
               exit={{ scale: 0.9, opacity: 0 }}
               className="modal-content"
               onClick={(e) => e.stopPropagation()}
+              style={{ 
+                position: 'relative',
+                width: 'auto',
+                height: 'auto',
+                maxWidth: '95vw',
+                maxHeight: '95vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: 'auto'
+              }}
             >
               <button
                 className="close"
                 onClick={handleCloseImageModal}
+                style={{ 
+                  position: 'fixed',
+                  top: '20px',
+                  right: '20px',
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  border: 'none',
+                  color: 'white',
+                  cursor: 'pointer',
+                  zIndex: 10000,
+                  padding: '8px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px'
+                }}
               >
                 <X className="w-6 h-6" />
               </button>
-              <img src={selectedImage} alt="Full size" />
+              <img 
+                src={selectedImage} 
+                alt="Full size" 
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '95vh',
+                  objectFit: 'contain',
+                  display: 'block',
+                  borderRadius: '4px'
+                }}
+              />
             </motion.div>
           </motion.div>
         )}
