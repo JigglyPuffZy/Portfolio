@@ -1344,7 +1344,7 @@
 
 /* Projects Section Styles */
 .projects-section {
-  padding: 1rem;
+  padding: 5rem 1rem 1rem 1rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -1971,5 +1971,11 @@
   .carousel-instructions svg {
     width: 1rem;
     height: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding-top: 4rem;
   }
 }
