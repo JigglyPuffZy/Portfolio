@@ -165,11 +165,11 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto group relative inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-white/10 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-              <span className="absolute inset-0 w-full h-full bg-white/5 border-2 border-white/20 group-hover:bg-white/10"></span>
+              <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-gradient-to-r from-blue-500 to-blue-600 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-white/20 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-blue-600"></span>
               <span className="relative flex items-center gap-2 text-sm sm:text-base">
-                Request Resume
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                Connect with Me
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </a>
             <button
@@ -184,13 +184,13 @@ const Hero = () => {
               </span>
             </button>
             <a
-              href="/Resume New.pdf"
+              href="/Resume-New.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto group relative inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 font-bold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-white/10 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-              <span className="absolute inset-0 w-full h-full bg-white/5 border-2 border-white/20 group-hover:bg-white/10"></span>
+              <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-gradient-to-r from-blue-500 to-blue-600 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-700 border-2 border-white/20 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-blue-600"></span>
               <span className="relative flex items-center gap-2 text-sm sm:text-base">
                 My Resume
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
