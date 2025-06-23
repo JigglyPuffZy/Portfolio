@@ -216,7 +216,7 @@ const AboutHero = () => (
       <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-blue-100 mb-3 tracking-tight leading-tight drop-shadow-lg">Ralph Matthew Delarosa Punzalan</h1>
       <div className="inline-flex items-center gap-2 mb-4 px-6 py-2 bg-blue-50 dark:bg-blue-900 rounded-full border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-200 font-semibold text-lg shadow">
         <Sparkles className="w-6 h-6 text-blue-500 dark:text-blue-300" />
-        Full-Stack Developer & Digital Creator
+        Front-End Developer & Digital Creator
       </div>
       <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-5">
         I am an IT graduate from USL Tuguegarao, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
