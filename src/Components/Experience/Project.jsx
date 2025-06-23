@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Experience.css";
+import "./Project.css";
 import WebPortfolio1 from "../../assets/img/webportfolio1.png";
 import WebPortfolio2 from "../../assets/img/webportfolio2.png";
 import WebPortfolio3 from "../../assets/img/webportfolio3.png";
@@ -36,7 +36,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints, Car } from 'lucide-react';
 
-const Experience = () => {
+const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('mobile');
@@ -691,8 +691,11 @@ const Experience = () => {
   }, [selectedProject, activeCategory]);
 
   return (
-    <section className="projects-section bg-white dark:bg-dark-100">
-      <div className="projects-container">
+    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+      
+      <div className="projects-container relative z-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -1023,4 +1026,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Projects;

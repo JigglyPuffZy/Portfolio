@@ -1,800 +1,522 @@
 import './About.css';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import heroImage from '../../assets/img/Hero Image.jpg';
 import boracay1 from '../../assets/img/boracay1.jpg';
 import boracay2 from '../../assets/img/boracay2.jpg';
 import boracay3 from '../../assets/img/boracay3.jpg';
 import boracay4 from '../../assets/img/boracay4.jpg';
-import heroImage from '../../assets/img/Hero Image.jpg';
 import { useState } from 'react';
+import { Sparkles, User, Award, BookOpen, Briefcase, Code, Palette, ExternalLink, Star, Calendar } from 'lucide-react';
 
+// --- Static Data ---
+const expertise = [
+  {
+    title: 'Front-End Development',
+    description: 'React.js, React Native, Vite, Expo Router',
+    icon: <Code className="w-7 h-7" />, gradient: 'from-blue-500 to-blue-700',
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'Responsive interface design for mobile/web',
+    icon: <Palette className="w-7 h-7" />, gradient: 'from-purple-500 to-purple-700',
+  },
+  {
+    title: 'Graphic Design',
+    description: 'Adobe Photoshop, Canva',
+    icon: <BookOpen className="w-7 h-7" />, gradient: 'from-pink-500 to-pink-700',
+  },
+  {
+    title: 'Video Editing',
+    description: 'DaVinci Resolve, Adobe Premiere Pro',
+    icon: <Briefcase className="w-7 h-7" />, gradient: 'from-yellow-500 to-yellow-700',
+  },
+  {
+    title: 'Digital Marketing',
+    description: 'Posters, content creation, brand campaigns',
+    icon: <Award className="w-7 h-7" />, gradient: 'from-green-500 to-green-700',
+  },
+  {
+    title: 'Technical Support',
+    description: 'Hardware troubleshooting, system servicing',
+    icon: <User className="w-7 h-7" />, gradient: 'from-gray-500 to-gray-700',
+  },
+];
+
+const experience = [
+  {
+    period: 'Nov 2023–Jan 2024',
+    company: 'Labor-Linkz (Freelance)',
+    role: 'Front-End Developer',
+    description: `Built the front end of Labor-Linkz, a job-matching app for blue-collar workers, using React Native.\nCreated user interfaces for admin, client, and worker roles with features like login, search, notifications, rating, and activity tracking.\nAdmins can manage users, verify accounts, and handle reports and feedback.\nFocused on simple, responsive design to make job searching easier and mobile-friendly.`,
+    highlights: ['Labor-Linkz', 'Job Matching', 'Activity Tracking'],
+    type: 'Freelance',
+    duration: '3 months'
+  },
+  {
+    period: 'Jan–Feb 2024',
+    company: 'Graphic Design (Freelance)',
+    role: 'Graphic Designer',
+    description: `Completed projects including logos and posters. Designed creative digital displays for online advertising for local businesses.`,
+    highlights: ['Logos', 'Posters', 'Digital Campaigns'],
+    type: 'Freelance',
+    duration: '2 months'
+  },
+  {
+    period: 'Mar–Jun 2024',
+    company: 'Together WeComply (Freelance)',
+    role: 'Front-End Developer',
+    description: 'Created Together WeComply, a school event tracker with QR check-ins, auto-sanctioning, and a clean UI for students and admins.',
+    highlights: ['Together WeComply', 'QR Check-ins', 'Auto-sanctioning'],
+    type: 'Freelance',
+    duration: '4 months'
+  },
+  {
+    period: 'Aug 2024 - Oct 2024',
+    company: 'Quiz Whirl App (Freelance)',
+    role: 'Front-End Developer',
+    description: 'Built the front end of an interactive quiz app with multiple question types and score tracking. Designed a responsive and engaging UI using React Native, ensuring good performance across various mobile devices.',
+    highlights: ['Quiz App', 'React Native', 'Responsive UI'],
+    type: 'Freelance',
+    duration: '3 months'
+  },
+  {
+    period: 'Aug–Oct 2024',
+    company: 'E-commerce App (Freelance)',
+    role: 'React JS Developer (Part-Time)',
+    description: 'Worked on a freelance project featuring a mobile e-commerce app with product listings and GCash/COD payment options.',
+    highlights: ['E-commerce App', 'Product Listings', 'GCash/COD Payments'],
+    type: 'Freelance',
+    duration: '3 months'
+  },
+  {
+    period: 'Jun–Aug 2024',
+    company: 'LGU Sto. Tomas (Government)',
+    role: 'Employee (GIP)',
+    description: 'Designed banners, posters, and a book cover for local government use. Managed official emails, posted updates, and provided computer troubleshooting and maintenance support.',
+    highlights: ['Banners', 'Posters', 'IT Support'],
+    type: 'Government',
+    duration: '3 months'
+  },
+  {
+    period: 'Aug–Nov 2024',
+    company: 'DILG (Government)',
+    role: 'Secretary / Digital Media Assistant',
+    description: 'Assisted with official documentation and designed visual materials for SK programs and barangay events. Created posters and content for local campaigns and announcements.',
+    highlights: ['Documentation', 'Visual Materials', 'Community Campaigns'],
+    type: 'Government',
+    duration: '4 months'
+  },
+  {
+    period: 'Nov 2024–Apr 2025',
+    company: 'Caribbean LED Solutions (Corporate)',
+    role: 'Digital Marketing Assistant (Remote)',
+    description: 'Designed promotional materials, edited videos for training and product showcases, and contributed to audience engagement through digital campaigns.',
+    highlights: ['Promotional Materials', 'Video Editing', 'Digital Campaigns'],
+    type: 'Corporate',
+    duration: '6 months'
+  },
+  {
+    period: 'May–June 2025',
+    company: 'VTrack (Freelance)',
+    role: 'Front-End Developer',
+    description: 'Developed VTrack, a violator tracking system for PNP and LGU Cabagan using React + Vite, with SMS notifications, citation tracking, and automated fine computation.',
+    highlights: ['VTrack System', 'React + Vite', 'SMS Notifications'],
+    type: 'Freelance',
+    duration: '2 months'
+  },
+  {
+    period: 'Apr–Jun 2025',
+    company: 'TriReg Web (Freelance)',
+    role: 'Front-End Developer',
+    description: 'Built TriReg Web, a tricycle permit system using React + Vite with QR generation, receipt verification, and dashboard visualizations.',
+    highlights: ['TriReg Web', 'QR Generation', 'Dashboard Visualizations'],
+    type: 'Freelance',
+    duration: '3 months'
+  },
+];
+
+const education = [
+  {
+    icon: <BookOpen className="w-7 h-7 text-blue-700 dark:text-blue-300" />,
+    school: 'University of Saint Louis Tuguegarao',
+    degree: 'Bachelor of Science in Information Technology',
+    years: '2020–2024',
+  },
+  {
+    icon: <Award className="w-7 h-7 text-blue-700 dark:text-blue-300" />,
+    school: 'Sto. Tomas National High School',
+    degree: 'Humanities and Social Sciences',
+    years: '2014–2020',
+  },
+];
+
+const certificates = [
+  {
+    icon: <User className="w-7 h-7 text-green-700 dark:text-green-300" />, border: 'border-green-100 dark:border-green-700', title: 'NC II – Computer System Servicing', subtitle: '', year: '2023'
+  },
+  {
+    icon: <Award className="w-7 h-7 text-yellow-700 dark:text-yellow-300" />, border: 'border-yellow-100 dark:border-yellow-700', title: 'Certificate of Appreciation – PSITE', subtitle: '4th ICITE', year: '2023'
+  },
+  {
+    icon: <Star className="w-7 h-7 text-purple-700 dark:text-purple-300" />, border: 'border-purple-100 dark:border-purple-700', title: 'Gawad San Luis Awardee', subtitle: 'Innovation, Creativity & Agility', year: '2024'
+  }
+];
+
+const galleryImages = [
+  { src: boracay1, title: 'Research Presentation', featured: true },
+  { src: boracay2, title: 'Conference Venue' },
+  { src: boracay3, title: 'Professional Networking' },
+  { src: boracay4, title: 'Academic Achievement' },
+];
+
+// --- Components ---
+// --- Subcomponents ---
+const SectionCard = ({ children, className = '', delay = 0 }) => (
+  <motion.div
+    className={`bg-white/90 dark:bg-slate-900/90 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300 p-10 mb-12 border border-blue-100 dark:border-blue-900/40 backdrop-blur-lg ${className}`}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, delay, ease: 'easeOut' }}
+  >
+    {children}
+  </motion.div>
+);
+
+const AnimatedBackground = () => (
+  <div className="absolute inset-0 pointer-events-none z-0">
+    {/* Top Left Blur */}
+    <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-200 dark:bg-blue-900 rounded-full filter blur-3xl opacity-40 animate-pulse-slow" />
+    {/* Bottom Right Blur */}
+    <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-300 dark:bg-blue-800 rounded-full filter blur-3xl opacity-30 animate-pulse-slower" />
+    {/* SVG Wave */}
+    <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] h-32 opacity-10" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#3B82F6" fillOpacity="0.3" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" />
+    </svg>
+  </div>
+);
+
+const AboutHero = () => (
+  <SectionCard className="flex flex-col md:flex-row items-center gap-12 mb-14 relative z-10" delay={0.1}>
+    <motion.div
+      className="flex-shrink-0 w-44 h-44 md:w-64 md:h-64 rounded-3xl overflow-hidden shadow-2xl bg-blue-100 dark:bg-blue-950 flex items-center justify-center border-4 border-blue-200 dark:border-blue-800"
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
+    >
+      <img
+        src={heroImage}
+        alt="Portrait of Ralph Matthew Delarosa Punzalan"
+        className="w-full h-full object-cover object-top rounded-2xl"
+        loading="lazy"
+      />
+    </motion.div>
+    <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-blue-100 mb-3 tracking-tight leading-tight drop-shadow-lg">Ralph Matthew Delarosa Punzalan</h1>
+      <div className="inline-flex items-center gap-2 mb-4 px-6 py-2 bg-blue-50 dark:bg-blue-900 rounded-full border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-200 font-semibold text-lg shadow">
+        <Sparkles className="w-6 h-6 text-blue-500 dark:text-blue-300" />
+        Full-Stack Developer & Digital Creator
+      </div>
+      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-5">
+        I am an IT graduate from USL Tuguegarao, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
+      </p>
+      <a
+        href="/public/Resume%20New%20Part%202.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download Ralph's Resume PDF"
+        className="inline-block px-8 py-2 rounded-full bg-blue-600 text-white font-bold shadow-lg hover:bg-blue-700 transition-transform duration-200 border-2 border-blue-400 mt-2 focus:outline-none focus:ring-4 focus:ring-blue-300 text-base"
+      >
+        Download Resume
+      </a>
+    </div>
+  </SectionCard>
+);
+
+const QuickStats = () => (
+  <SectionCard className="flex flex-wrap gap-8 justify-center items-center mb-10 py-8 bg-gradient-to-r from-blue-50 via-white to-blue-100 dark:from-blue-950 dark:via-slate-900 dark:to-blue-950" delay={0.15}>
+    <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center transition-transform">
+      <Sparkles className="w-8 h-8 text-blue-500 mb-2" />
+      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">3+ Years</span>
+      <span className="text-sm text-gray-500 dark:text-gray-400">Experience</span>
+    </motion.div>
+    <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center transition-transform">
+      <Star className="w-8 h-8 text-blue-500 mb-2" />
+      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">20+ Projects</span>
+      <span className="text-sm text-gray-500 dark:text-gray-400">Completed</span>
+    </motion.div>
+    <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center transition-transform">
+      <Award className="w-8 h-8 text-blue-500 mb-2" />
+      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">6 Skills</span>
+      <span className="text-sm text-gray-500 dark:text-gray-400">Core Expertise</span>
+    </motion.div>
+  </SectionCard>
+);
+
+const ExpertiseCards = () => (
+  <SectionCard delay={0.2}>
+    <h2 className="text-3xl font-extrabold mb-8 text-blue-900 dark:text-blue-100 text-center tracking-tight">Expertise</h2>
+    <div className="flex justify-center mb-8">
+      <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 dark:from-blue-900 dark:via-blue-700 dark:to-blue-900 opacity-60" />
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      {expertise.map((item, idx) => (
+        <motion.div
+          key={idx}
+          className="relative flex flex-col items-center justify-between bg-white/70 dark:bg-slate-900/70 rounded-2xl p-10 shadow-xl border border-blue-100 dark:border-blue-900/40 hover:shadow-2xl transition-shadow duration-300 group overflow-hidden backdrop-blur-lg"
+          whileHover={{ scale: 1.06 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 * idx, ease: 'easeOut' }}
+          style={{ boxShadow: '0 4px 32px 0 rgba(30,64,175,0.08), 0 1.5px 6px 0 rgba(30,64,175,0.04) inset' }}
+        >
+          {/* Glassy overlay and border glow */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+            boxShadow: '0 0 0 4px rgba(59,130,246,0.07)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)'
+          }} />
+          {/* Subtle grayscale dot pattern */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none select-none bg-[radial-gradient(circle,theme(colors.gray.300)_1px,transparent_1px)] dark:bg-[radial-gradient(circle,theme(colors.slate.700)_1px,transparent_1px)] bg-[size:20px_20px] rounded-2xl" />
+          <motion.div
+            className="mb-5 bg-white/80 dark:bg-slate-800/80 rounded-full p-6 shadow-2xl border border-blue-100 dark:border-blue-900 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 z-10"
+            whileHover={{ rotate: -8, scale: 1.13 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+          >
+            {item.icon}
+          </motion.div>
+          <h3 className="text-xl font-extrabold text-blue-900 dark:text-blue-100 mb-2 tracking-wide z-10 text-center leading-tight">{item.title}</h3>
+          <div className="w-10 h-0.5 bg-blue-100 dark:bg-blue-900 rounded-full mb-3 opacity-60 z-10" />
+          <p className="text-base text-gray-600 dark:text-gray-300 text-center opacity-90 z-10 font-medium tracking-wide leading-relaxed">{item.description}</p>
+        </motion.div>
+      ))}
+    </div>
+  </SectionCard>
+);
+
+const EducationCertificates = () => (
+  <SectionCard className="flex flex-col md:flex-row gap-10" delay={0.25}>
+    <div className="flex-1">
+      <h3 className="flex items-center gap-2 mb-5 text-xl font-bold text-blue-700 dark:text-blue-300">
+        <BookOpen className="w-6 h-6" /> Education
+      </h3>
+      <div className="flex flex-col gap-5">
+        {education.map((edu, idx) => (
+          <motion.div
+            key={idx}
+            className="flex items-center gap-4 bg-blue-50/80 dark:bg-blue-950/80 rounded-xl shadow p-4 border-l-4 border-blue-200 dark:border-blue-700 hover:shadow-lg transition-shadow"
+            whileHover={{ scale: 1.03 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 * idx, ease: 'easeOut' }}
+          >
+            <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900/30 rounded-full p-3">
+              {edu.icon}
+            </div>
+            <div>
+              <div className="text-base font-bold text-blue-800 dark:text-blue-200">{edu.school}</div>
+              <div className="text-xs text-gray-700 dark:text-gray-300">{edu.degree}</div>
+              <div className="text-xs text-blue-500 dark:text-blue-400 font-semibold mt-1">{edu.years}</div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+    <div className="flex-1">
+      <h3 className="flex items-center gap-2 mb-5 text-xl font-bold text-blue-700 dark:text-blue-300">
+        <Award className="w-6 h-6" /> Certificates
+      </h3>
+      <div className="flex flex-col gap-5">
+        {certificates.map((cert, idx) => (
+          <motion.div
+            key={idx}
+            className={`relative bg-blue-50/80 dark:bg-blue-950/80 rounded-xl shadow border ${cert.border} flex flex-col items-center text-center px-3 pt-8 pb-4 min-h-[100px] hover:shadow-lg transition-shadow`}
+            tabIndex={0}
+            aria-label={cert.title}
+            whileHover={{ scale: 1.04 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 * idx, ease: 'easeOut' }}
+          >
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-900 rounded-full p-3 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center">
+              {cert.icon}
+            </div>
+            <div className="text-xs font-bold text-blue-900 dark:text-blue-100 mb-1 mt-2 flex items-center gap-1">
+              {cert.title}
+              {idx === 2 && (
+                <span className="ml-1 px-2 py-0.5 bg-yellow-400 text-white text-[10px] font-bold rounded-full shadow">Top</span>
+              )}
+            </div>
+            {cert.subtitle && <div className="text-xs text-gray-700 dark:text-gray-300 mb-1">{cert.subtitle}</div>}
+            <div className="text-xs text-blue-500 dark:text-blue-400 font-semibold mt-1">{cert.year}</div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </SectionCard>
+);
+
+const PersonalGallery = ({ onImageClick }) => (
+  <SectionCard className="max-w-2xl mx-auto flex flex-col items-center" delay={0.3}>
+    <h2 className="text-3xl font-extrabold mb-3 text-blue-900 dark:text-blue-100 tracking-tight">Personal Gallery</h2>
+    <div className="mb-6 w-full bg-blue-50/80 dark:bg-blue-950/80 rounded-xl p-5 flex items-start gap-4 shadow-inner">
+      <Star className="w-8 h-8 text-blue-500 dark:text-blue-300 mt-1" />
+      <div>
+        <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">Boracay Research Presentation</h3>
+        <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed">
+          Presenting our groundbreaking study to a diverse audience of professionals and researchers in the beautiful setting of Boracay was a milestone in my academic journey. The experience not only honed my public speaking and research skills but also allowed me to connect with fellow researchers and professionals, making it a truly memorable event.
+        </p>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-5 w-full">
+      {galleryImages.map((image, idx) => (
+        <motion.button
+          key={idx}
+          className="relative group rounded-2xl overflow-hidden shadow border-2 border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-950 hover:scale-105 transition-transform"
+          onClick={() => onImageClick(image.src)}
+          aria-label={`View ${image.title}`}
+          whileHover={{ scale: 1.07 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 * idx, ease: 'easeOut' }}
+        >
+          <img
+            src={image.src}
+            alt={image.title}
+            className="w-full h-40 object-cover transition-all duration-700 group-hover:scale-110 rounded-xl"
+            loading="lazy"
+          />
+          {image.featured && (
+            <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">Featured</span>
+          )}
+          <div className="absolute bottom-2 left-2 px-2 py-1 bg-blue-600/80 rounded text-white text-xs font-semibold opacity-90">
+            {image.title}
+          </div>
+        </motion.button>
+      ))}
+    </div>
+    <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mt-5">
+      <ExternalLink className="w-5 h-5" />
+      <span className="text-base font-medium">Click any image to view larger</span>
+    </div>
+  </SectionCard>
+);
+
+const ExperienceTimeline = () => (
+  <SectionCard delay={0.35}>
+    <h2 className="text-3xl font-extrabold mb-3 text-blue-900 dark:text-blue-100 text-center tracking-tight">Work Experience</h2>
+    <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-base leading-relaxed text-center mb-8">
+      My professional journey showcasing diverse roles and continuous growth in the digital landscape.
+    </p>
+    <div className="flex flex-col gap-8">
+      {experience.map((exp, index) => (
+        <motion.div
+          key={index}
+          className="relative bg-blue-50/80 dark:bg-blue-950/80 p-7 rounded-2xl shadow border border-blue-100 dark:border-blue-800 hover:shadow-xl transition-shadow"
+          whileHover={{ scale: 1.03 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.07 * index, ease: 'easeOut' }}
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+            <div className="flex items-center gap-2 mb-2 sm:mb-0">
+              <Calendar className="w-5 h-5 text-blue-400" />
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{exp.period}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                exp.type === 'Freelance' ? 'bg-blue-200 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' :
+                exp.type === 'Government' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
+                'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
+              }`}>
+                {exp.type}
+              </span>
+              <span className="text-xs text-blue-400 dark:text-blue-300">{exp.duration}</span>
+            </div>
+          </div>
+          <div className="mb-1">
+            <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100 mb-1">{exp.company}</h3>
+            <h4 className="text-base font-semibold text-blue-600 dark:text-blue-400">{exp.role}</h4>
+          </div>
+          <p className="text-blue-900 dark:text-blue-200 leading-relaxed text-sm mb-3">{exp.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {exp.highlights.map((highlight, idx) => (
+              <span key={idx} className="px-3 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs font-medium rounded-full">
+                {highlight}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </SectionCard>
+);
+
+// --- Main About Component ---
 const About = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
+  const [ref] = useInView({ threshold: 0.1, triggerOnce: true });
 
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const expertise = [
-    {
-      title: 'React JS & React Native Development',
-      description: 'Built mobile applications using React Native and Expo Router. Integrated features like product listings, payment options (COD, GCash), and responsive navigation.',
-    },
-    {
-      title: 'UI/UX Design',
-      description: 'Designed clean, functional, and visually appealing interfaces for both mobile and web platforms. Focused on enhancing usability and maintaining consistent layouts.',
-    },
-    {
-      title: 'Graphic Design',
-      description: 'Created logos, posters, banners, digital ads, and publication layouts. Proficient in using Adobe Photoshop and Canva for graphic design projects.',
-    },
-    {
-      title: 'Video Editing',
-      description: 'Edited professional-grade videos for social media, presentations, and promotional use. Skilled in DaVinci Resolve and Adobe Premiere Pro.',
-    },
-    {
-      title: 'Technical Support',
-      description: 'Provided support for computer hardware and basic system maintenance. Holder of Computer System Servicing NC II Certification.',
-    },
-  ];
-
-  const experience = [
-    {
-      period: 'Nov 2023 - Apr 2024',
-      company: 'Caribbean LED Solutions',
-      role: 'Digital Marketing Assistant (Work from Home)',
-      description: 'Assisted the digital marketing team by creating visual content for brand awareness campaigns. Designed and edited promotional posters aligned with the company\'s branding and marketing goals. Produced montage-style videos showcasing the business, highlighting products and company achievements. Edited simple, educational video content for internal training and online courses. Contributed to increasing audience engagement through compelling visuals and informative content.',
-    },
-    {
-      period: 'Aug 2023 - Oct 2023',
-      company: 'Freelance',
-      role: 'React JS Developer (Part Time)',
-      description: 'Developed the front end of a mobile e-commerce app using React Native and Expo Router, featuring product listings, shopping cart, payment options (COD, GCash), and order tracking with a focus on a smooth, user-friendly experience. Built the front end of an interactive quiz app (Quiz Whirl App) with multiple question types and score tracking. Designed a responsive and engaging UI using React Native, ensuring good performance across various mobile devices. Developed a mobile platform connecting blue-collar workers with local job opportunities, enhancing employment accessibility and supporting local economies.',
-    },
-    {
-      period: 'Aug 2023 - Nov 2023',
-      company: 'DILG',
-      role: 'Secretary / Digital Media Assistant',
-      description: 'Served as secretary, assisting with documentation, organizing official papers, and managing records. Designed and edited posters and digital materials for barangay captains and Sangguniang Kabataan (SK) programs. Helped in preparing visual content for community announcements, campaigns, and public service events. Contributed to promoting local initiatives through clear and visually engaging materials.',
-    },
-    {
-      period: 'Jun 2023 - Aug 2023',
-      company: 'LGU Sto-Tomas',
-      role: 'Employee (GIP)',
-      description: 'Edited banners for the Local Government Unit (LGU) and designed a book cover. Edited publication materials and newspapers.',
-    },
-    {
-      period: 'Jan 2023 - Feb 2023',
-      company: 'Freelance (Upwork)',
-      role: 'Graphic Designer (Part Time)',
-      description: 'Completed projects including logos and posters. Designed creative digital displays for online advertising for local businesses.',
-    },
-  ];
-
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedImage(null);
-  };
+  const handleImageClick = (image) => setSelectedImage(image);
+  const handleCloseModal = () => setSelectedImage(null);
 
   return (
-    <section id="about" className="min-h-screen w-full py-8 sm:py-12 md:py-20 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-dark-200 dark:via-dark-300 dark:to-dark-400 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <motion.div
-          className="absolute -top-20 -right-20 sm:-top-40 sm:-right-40 w-24 sm:w-32 md:w-96 h-24 sm:h-32 md:h-96 bg-primary-500/5 rounded-full blur-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: 1,
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-24 sm:w-32 md:w-96 h-24 sm:h-32 md:h-96 bg-secondary-500/5 rounded-full blur-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: 1,
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+    <motion.section
+      id="about"
+      className="min-h-screen w-full py-12 sm:py-16 md:py-24 bg-blue-50 dark:bg-slate-900 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
+      <AnimatedBackground />
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10">
+        <AboutHero />
+        <QuickStats />
+        <ExpertiseCards />
+        <EducationCertificates />
+        <PersonalGallery onImageClick={handleImageClick} />
+        <ExperienceTimeline />
       </div>
-
-      <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="visible"
-        animate={inView ? "visible" : "visible"}
-        className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-10"
-      >
-        {/* Hero Section */}
-        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-6 sm:mb-8 md:mb-32">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center mb-4 sm:mb-6 md:mb-12"
-          >
-            <div className="relative">
-              <motion.div 
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden mx-auto shadow-2xl"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <img 
-                  src={heroImage} 
-                  alt="Ralph Matthew Delarosa Punzalan" 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              <motion.div
-                className="absolute -inset-1 sm:-inset-4 rounded-full border-4 border-primary-500/20"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-              <motion.div
-                className="absolute -inset-2 sm:-inset-8 rounded-full border-4 border-secondary-500/20"
-                animate={{
-                  scale: [1.2, 1, 1.2],
-                  rotate: [360, 0, 360],
-                }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-            </div>
-          </motion.div>
-          
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            About <motion.span 
-              className="text-primary-500 inline-block"
-              animate={{ 
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >Me</motion.span>
-          </motion.h2>
-          
-          <motion.div 
-            className="w-full max-w-3xl mx-auto px-2 sm:px-4 md:px-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative p-3 sm:p-4 md:p-8 rounded-lg bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300">
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-                  Hi, I&apos;m <span className="font-bold text-primary-500">Ralph Matthew Delarosa Punzalan</span>, a BSIT student passionate about bringing digital ideas to life. 
-                  I love working on projects that combine React.js development, UI/UX design, graphic design, and video editing. 
-                  Whether it&apos;s building a smooth, responsive mobile app or designing eye-catching visuals, I always aim to create 
-                  experiences that are both functional and visually appealing.
-                </p>
-                <div className="mt-3 sm:mt-4 md:mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-                  <motion.div 
-                    className="flex items-center gap-1 sm:gap-2 bg-primary-500/10 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-primary-500">💻</span>
-                    <span className="text-xs sm:text-sm md:text-base font-medium">React Developer</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center gap-1 sm:gap-2 bg-secondary-500/10 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-secondary-500">🎨</span>
-                    <span className="text-xs sm:text-sm md:text-base font-medium">UI/UX Designer</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center gap-1 sm:gap-2 bg-primary-500/10 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-primary-500">🎬</span>
-                    <span className="text-xs sm:text-sm md:text-base font-medium">Video Editor</span>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Expertise Section */}
+      {/* Image Modal */}
+      {selectedImage && (
         <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 md:mb-32 px-2 sm:px-4 md:px-6"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 backdrop-blur-xl"
+          onClick={handleCloseModal}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
-          {expertise.map((skill, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative flex flex-col h-full"
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-gradient-x" />
-              <div className="relative p-4 sm:p-6 rounded-2xl bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300 flex-1">
-                <div className="relative z-10">
-                  <motion.div 
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mb-4"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    {index === 0 && <span className="text-xl sm:text-2xl">💻</span>}
-                    {index === 1 && <span className="text-xl sm:text-2xl">🎨</span>}
-                    {index === 2 && <span className="text-xl sm:text-2xl">🎨</span>}
-                    {index === 3 && <span className="text-xl sm:text-2xl">🎬</span>}
-                    {index === 4 && <span className="text-xl sm:text-2xl">🔧</span>}
-                  </motion.div>
-                  
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-primary-500 transition-colors duration-300">
-                    {skill.title}
-                  </h3>
-                  
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {skill.description}
-                  </p>
-                  
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {index === 0 && (
-                      <>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          React Native
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Expo
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-green-500/10 text-green-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Mobile Apps
-                        </motion.span>
-                      </>
-                    )}
-                    {index === 1 && (
-                      <>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-pink-500/10 text-pink-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          UI Design
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-orange-500/10 text-orange-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          UX Research
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-yellow-500/10 text-yellow-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Responsive
-                        </motion.span>
-                      </>
-                    )}
-                    {index === 2 && (
-                      <>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-red-500/10 text-red-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Photoshop
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-indigo-500/10 text-indigo-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Canva
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-teal-500/10 text-teal-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Branding
-                        </motion.span>
-                      </>
-                    )}
-                    {index === 3 && (
-                      <>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          DaVinci
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Premiere Pro
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-green-500/10 text-green-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Motion
-                        </motion.span>
-                      </>
-                    )}
-                    {index === 4 && (
-                      <>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-pink-500/10 text-pink-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Hardware
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-orange-500/10 text-orange-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          Maintenance
-                        </motion.span>
-                        <motion.span 
-                          className="px-3 py-1 rounded-full text-sm bg-yellow-500/10 text-yellow-500"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          NC II
-                        </motion.span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Experience Section */}
-        <motion.div variants={itemVariants} className="mb-8 md:mb-32 px-4 sm:px-6">
-          <motion.h3 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <motion.div
+            className="relative max-w-4xl max-h-full bg-white/10 dark:bg-slate-900/30 rounded-3xl shadow-2xl p-4 flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.95, opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            Professional Journey
-          </motion.h3>
-          
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-500 to-secondary-500 hidden md:block" />
-            
-            <div className="space-y-8 md:space-y-16">
-              {experience.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-center gap-4 md:gap-8 ${
-                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
-                >
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-500 border-4 border-white dark:border-dark-100 shadow-lg hidden md:block" />
-                  
-                  <motion.div
-                    className="w-full md:w-1/2"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="group relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-                      <div className="relative p-4 sm:p-6 rounded-2xl bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300">
-                        <div className="relative z-10">
-                          <motion.span 
-                            className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary-500/10 text-primary-500 mb-3"
-                            whileHover={{ scale: 1.1 }}
-                          >
-                            {exp.period}
-                          </motion.span>
-                          
-                          <h4 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary-500 transition-colors duration-300">
-                            {exp.role}
-                          </h4>
-                          
-                          <h5 className="text-base sm:text-lg font-medium text-primary-500 mb-3">
-                            {exp.company}
-                          </h5>
-                          
-                          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                            {exp.description}
-                          </p>
-                          
-                          <div className="mt-4 flex flex-wrap gap-2">
-                            {exp.role.toLowerCase().includes('developer') && (
-                              <>
-                                <span className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-500">React</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-purple-500/10 text-purple-500">JavaScript</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-green-500/10 text-green-500">UI/UX</span>
-                              </>
-                            )}
-                            {exp.role.toLowerCase().includes('design') && (
-                              <>
-                                <span className="px-3 py-1 rounded-full text-sm bg-pink-500/10 text-pink-500">DaVinci Resolve</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-orange-500/10 text-orange-500">Video Editing</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-yellow-500/10 text-yellow-500">Motion Graphics</span>
-                              </>
-                            )}
-                            {exp.role.toLowerCase().includes('marketing') && (
-                              <>
-                                <span className="px-3 py-1 rounded-full text-sm bg-red-500/10 text-red-500">Social Media</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-indigo-500/10 text-indigo-500">Content Creation</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-teal-500/10 text-teal-500">Digital Marketing</span>
-                              </>
-                            )}
-                            {exp.company === 'LGU Sto-Tomas' && (
-                              <>
-                                <span className="px-3 py-1 rounded-full text-sm bg-pink-500/10 text-pink-500">Photoshop</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-orange-500/10 text-orange-500">Canva</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-yellow-500/10 text-yellow-500">Graphic Design</span>
-                              </>
-                            )}
-                            {exp.company === 'DILG' && (
-                              <>
-                                <span className="px-3 py-1 rounded-full text-sm bg-pink-500/10 text-pink-500">Photoshop</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-orange-500/10 text-orange-500">Canva</span>
-                                <span className="px-3 py-1 rounded-full text-sm bg-yellow-500/10 text-yellow-500">Digital Media</span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+            <img
+              src={selectedImage}
+              alt="Gallery"
+              className="max-w-full max-h-[70vh] object-contain rounded-2xl shadow-xl border-4 border-blue-200 dark:border-blue-800"
+              loading="lazy"
+            />
+            <button
+              onClick={handleCloseModal}
+              className="absolute -top-5 -right-5 w-12 h-12 bg-blue-600/80 hover:bg-blue-700/90 text-white rounded-full flex items-center justify-center text-3xl shadow-lg border-2 border-white dark:border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              aria-label="Close image modal"
+            >
+              ×
+            </button>
+          </motion.div>
         </motion.div>
-
-        {/* Education Section */}
-        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-32 px-4 sm:px-6">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500">Education & Certificates</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="group relative flex flex-col"
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300 flex-1">
-                <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500">Education</h4>
-                <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8">
-                  {[
-                    {
-                      school: "UNIVERSITY OF SAINT LOUIS TUGUEGARAO",
-                      degree: "Bachelor of Science in Information Technology",
-                      year: "2020-2024"
-                    },
-                    {
-                      school: "STO TOMAS NATIONAL HIGH SCHOOL",
-                      degree: "Humanities and Social Sciences",
-                      year: "2014-2020"
-                    }
-                  ].map((edu, index) => (
-                    <motion.div 
-                      key={index}
-                      className="transform group-hover:translate-x-2 transition-transform duration-300"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <h5 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-primary-500">{edu.school}</h5>
-                      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300">{edu.degree}</p>
-                      <p className="text-xs sm:text-sm text-gray-500">{edu.year}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="group relative flex flex-col"
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white dark:bg-dark-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-dark-300 flex-1">
-                <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500">Certificates</h4>
-                <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8">
-                  {[
-                    {
-                      title: "Computer System Servicing NC II",
-                      issuer: "Technical Education and Skills Development Authority (TESDA)",
-                      year: "2023"
-                    },
-                    {
-                      title: "Certificate of Appreciation",
-                      issuer: "PSITE (4th ICITE 2023)",
-                      year: ""
-                    },
-                    {
-                      title: "Gawad San Luis",
-                      issuer: "Excellence in Innovation, Creativity, and Agility",
-                      year: "2024"
-                    }
-                  ].map((cert, index) => (
-                    <motion.div 
-                      key={index}
-                      className="transform group-hover:translate-x-2 transition-transform duration-300"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <h5 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-primary-500">{cert.title}</h5>
-                      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300">{cert.issuer}</p>
-                      {cert.year && <p className="text-xs sm:text-sm text-gray-500">{cert.year}</p>}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Research Presentation Section */}
-        <motion.div variants={itemVariants} className="text-center mb-8 md:mb-32 px-4 sm:px-6">
-          <motion.h3 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-primary-500"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Research Presentation
-          </motion.h3>
-          
-          <div className="max-w-6xl mx-auto">
-            {/* Description Card */}
-            <motion.div 
-              className="bg-white dark:bg-dark-100 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl mb-8 sm:mb-12 transform hover:scale-[1.02] transition-all duration-300 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-secondary-500/5 animate-gradient-x" />
-              <div className="relative z-10">
-                <h4 className="text-xl sm:text-2xl font-bold mb-4 text-primary-500">Research Excellence in Boracay</h4>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                  I had the incredible opportunity to present our research in Boracay, where we showcased our study to a
-                  diverse audience of professionals and fellow researchers. The experience allowed me to refine my public
-                  speaking skills, gain valuable feedback, and connect with experts in our field.
-                </p>
-                <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
-                  <motion.div 
-                    className="flex items-center gap-2 bg-primary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-primary-500">🎯</span>
-                    <span className="text-sm font-medium">Expert Feedback</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center gap-2 bg-secondary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-secondary-500">🤝</span>
-                    <span className="text-sm font-medium">Networking</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center gap-2 bg-primary-500/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="text-primary-500">🏆</span>
-                    <span className="text-sm font-medium">Recognition</span>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Image Gallery */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {[
-                { 
-                  src: boracay1, 
-                  alt: "Presenting research in Boracay", 
-                  title: "Research Presentation", 
-                  description: "Showcasing our innovative findings to industry experts",
-                  icon: "🎤"
-                },
-                { 
-                  src: boracay2, 
-                  alt: "Research team in Boracay", 
-                  title: "Team Collaboration", 
-                  description: "Working together with our dedicated research team",
-                  icon: "👥"
-                },
-                { 
-                  src: boracay3, 
-                  alt: "Panel discussion in Boracay", 
-                  title: "Panel Discussion", 
-                  description: "Engaging in meaningful discussions with panel members",
-                  icon: "💡"
-                },
-                { 
-                  src: boracay4, 
-                  alt: "Award ceremony in Boracay", 
-                  title: "Recognition", 
-                  description: "Celebrating our achievements and contributions",
-                  icon: "🏆"
-                }
-              ].map((image, index) => (
-                <motion.div
-                  key={index}
-                  className="group relative overflow-hidden rounded-2xl cursor-pointer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
-                  onClick={() => handleImageClick(image)}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-                  />
-                  <motion.img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover transform group-hover:scale-110 transition-transform duration-700"
-                    whileHover={{ scale: 1.05 }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
-                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                      <span className="text-xl sm:text-2xl">{image.icon}</span>
-                      <h4 className="text-lg sm:text-xl font-bold text-white">{image.title}</h4>
-                    </div>
-                    <p className="text-sm sm:text-base text-gray-200">{image.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Image Modal */}
-            {selectedImage && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
-                onClick={handleCloseModal}
-              >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  className="relative w-full max-w-4xl"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="relative rounded-2xl overflow-hidden">
-                    <img
-                      src={selectedImage.src}
-                      alt={selectedImage.alt}
-                      className="w-full h-auto rounded-2xl shadow-2xl"
-                    />
-                    <button
-                      onClick={handleCloseModal}
-                      className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors backdrop-blur-sm"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 sm:p-6">
-                      <div className="flex items-center gap-2 sm:gap-3 mb-2">
-                        <span className="text-2xl sm:text-3xl">{selectedImage.icon}</span>
-                        <h4 className="text-xl sm:text-2xl font-bold text-white">{selectedImage.title}</h4>
-                      </div>
-                      <p className="text-sm sm:text-base md:text-lg text-gray-200">{selectedImage.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            )}
-
-            {/* Key Achievements Section */}
-            <motion.div 
-              className="mt-8 sm:mt-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <div className="absolute inset-0 bg-white/10 animate-pulse" />
-              <div className="relative z-10">
-                <h4 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center">Key Achievements</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                  {[
-                    {
-                      icon: "🎯",
-                      title: "Expert Feedback",
-                      description: "Received valuable insights from industry professionals",
-                      color: "from-blue-500/20 to-blue-600/20"
-                    },
-                    {
-                      icon: "🤝",
-                      title: "Networking",
-                      description: "Connected with leading researchers in the field",
-                      color: "from-purple-500/20 to-purple-600/20"
-                    },
-                    {
-                      icon: "🏆",
-                      title: "Recognition",
-                      description: "Acknowledged for innovative research approach",
-                      color: "from-green-500/20 to-green-600/20"
-                    }
-                  ].map((achievement, index) => (
-                    <motion.div
-                      key={index}
-                      className={`bg-gradient-to-br ${achievement.color} rounded-2xl p-4 sm:p-6 backdrop-blur-sm border border-white/10`}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-3xl sm:text-4xl mb-3 sm:mb-4 block">{achievement.icon}</span>
-                      <h5 className="text-lg sm:text-xl font-bold mb-2">{achievement.title}</h5>
-                      <p className="text-sm sm:text-base text-gray-100">{achievement.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </section>
+      )}
+    </motion.section>
   );
 };
 

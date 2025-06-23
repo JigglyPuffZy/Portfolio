@@ -4,7 +4,8 @@ import Hero from './Components/Hero/Hero';
 import Navbar from './Components/Navbar/Navbar';
 import About from './Components/About/About';
 import Service from './Components/Service/Service';
-import Experience from './Components/Experience/Experience';
+import Projects from './Components/Experience/Project';
+import WorkExperience from './Components/WorkExperience/WorkExperience';
 
 // Add future flags configuration
 const router = {
@@ -33,7 +34,7 @@ const App = () => {
                   <Hero />
                   <About />
                   <Service />
-                  <Experience />
+                  <Projects />
                 </motion.div>
               }
             />
@@ -72,7 +73,7 @@ const App = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Experience />
+                  <WorkExperience />
                 </motion.div>
               }
             />

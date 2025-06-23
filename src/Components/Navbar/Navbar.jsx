@@ -24,6 +24,7 @@ const Navbar = () => {
     if (location.pathname === '/') setActiveSection('home');
     else if (location.pathname === '/about') setActiveSection('about');
     else if (location.pathname === '/service') setActiveSection('services');
+    else if (location.pathname === '/experience') setActiveSection('work-experience');
   }, [location.pathname]);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const Navbar = () => {
     { name: 'Home', path: '/', onClick: scrollToTop, id: 'home' },
     { name: 'About', path: '/about', id: 'about' },
     { name: 'Services', path: '/service', id: 'services' },
+    { name: 'Work Experience', path: '/experience', id: 'work-experience' },
   ];
 
   return (
