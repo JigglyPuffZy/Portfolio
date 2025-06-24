@@ -222,7 +222,7 @@ const AboutHero = () => (
         I am an IT graduate from USL Tuguegarao, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
       </p>
       <a
-        href="/public/Resume%20New%20Part%202.pdf"
+        href="/Resume%20New%20Part%202.pdf"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Download Ralph's Resume PDF"
