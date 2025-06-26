@@ -33,6 +33,9 @@ const App = () => {
                 >
                   <Hero />
                   <About />
+                  <div>
+                    <WorkExperience />
+                  </div>
                   <Service />
                   <Projects />
                 </motion.div>

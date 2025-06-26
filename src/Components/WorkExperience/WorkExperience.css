@@ -92,4 +92,48 @@
     box-shadow: none !important;
     border: 1px solid #ccc !important;
   }
+}
+
+/* Glassmorphism effect for cards */
+.bg-white\/70, .dark .bg-gray-900\/70 {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(16px);
+}
+.dark .bg-gray-900\/70 {
+  background: rgba(17,24,39,0.7);
+}
+
+/* Glassmorphism for CTA */
+.bg-white\/80, .dark .bg-gray-900\/80 {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+}
+.dark .bg-gray-900\/80 {
+  background: rgba(17,24,39,0.8);
+}
+
+/* Timeline dot animation */
+.timeline-dot {
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+.timeline-dot.active {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.2);
+}
+
+/* Card hover effect */
+.group:hover .group-hover\:scale-\[1\.02\] {
+  transform: scale(1.02);
+}
+
+/* Custom shadow for cards */
+.shadow-3xl {
+  box-shadow: 0 10px 32px 0 rgba(99,102,241,0.15), 0 2px 4px 0 rgba(0,0,0,0.08);
+}
+
+/* Responsive timeline line */
+@media (max-width: 768px) {
+  .md\:block {
+    display: none !important;
+  }
 } 

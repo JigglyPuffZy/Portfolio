@@ -407,57 +407,6 @@ const PersonalGallery = ({ onImageClick }) => (
   </SectionCard>
 );
 
-const ExperienceTimeline = () => (
-  <SectionCard delay={0.35}>
-    <h2 className="text-3xl font-extrabold mb-3 text-blue-900 dark:text-blue-100 text-center tracking-tight">Work Experience</h2>
-    <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-base leading-relaxed text-center mb-8">
-      My professional journey showcasing diverse roles and continuous growth in the digital landscape.
-    </p>
-    <div className="flex flex-col gap-8">
-      {experience.map((exp, index) => (
-        <motion.div
-          key={index}
-          className="relative bg-blue-50/80 dark:bg-blue-950/80 p-7 rounded-2xl shadow border border-blue-100 dark:border-blue-800 hover:shadow-xl transition-shadow"
-          whileHover={{ scale: 1.03 }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.07 * index, ease: 'easeOut' }}
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <div className="flex items-center gap-2 mb-2 sm:mb-0">
-              <Calendar className="w-5 h-5 text-blue-400" />
-              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{exp.period}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                exp.type === 'Freelance' ? 'bg-blue-200 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' :
-                exp.type === 'Government' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
-                'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
-              }`}>
-                {exp.type}
-              </span>
-              <span className="text-xs text-blue-400 dark:text-blue-300">{exp.duration}</span>
-            </div>
-          </div>
-          <div className="mb-1">
-            <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100 mb-1">{exp.company}</h3>
-            <h4 className="text-base font-semibold text-blue-600 dark:text-blue-400">{exp.role}</h4>
-          </div>
-          <p className="text-blue-900 dark:text-blue-200 leading-relaxed text-sm mb-3">{exp.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {exp.highlights.map((highlight, idx) => (
-              <span key={idx} className="px-3 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs font-medium rounded-full">
-                {highlight}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </SectionCard>
-);
-
 // --- Main About Component ---
 const About = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -481,7 +430,6 @@ const About = () => {
         <ExpertiseCards />
         <EducationCertificates />
         <PersonalGallery onImageClick={handleImageClick} />
-        <ExperienceTimeline />
       </div>
       {/* Image Modal */}
       {selectedImage && (
