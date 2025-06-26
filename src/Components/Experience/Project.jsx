@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./Project.css";
 import WebPortfolio1 from "../../assets/img/webportfolio1.png";
 import WebPortfolio2 from "../../assets/img/webportfolio2.png";
@@ -10,6 +10,9 @@ import Ads2 from "../../assets/img/Ads Poster 2.jpg";
 import BookCover1 from "../../assets/img/BookCover1.jpg";
 import BookCover2 from "../../assets/img/BookCover2.jpg";
 import BookCover3 from "../../assets/img/BookCover3.jpg";
+import BookCover4 from "../../assets/img/BookCover4.png";
+import BookCover5 from "../../assets/img/BookCover5.png";
+import BookCover6 from "../../assets/img/BookCover6.png";
 import BrandAwareness1 from "../../assets/img/Brand Awareness 1.jpg";
 import BrandAwareness2 from "../../assets/img/Brand Awareness 2.jpg";
 import BrandAwareness3 from "../../assets/img/Brand Awareness 3.jpg";
@@ -32,21 +35,33 @@ import CAR2 from "../../assets/img/Car2.png";
 import CAR3 from "../../assets/img/Car3.png";
 import CAR4 from "../../assets/img/Car4.png";
 import CAR5 from "../../assets/img/Car5.png";
-import { motion, AnimatePresence } from 'framer-motion';
+import Nba1 from "../../assets/img/Nba1.png";
+import nba2 from "../../assets/img/nba2.png";
+import nba3 from "../../assets/img/nba3.png";
+import nba4 from "../../assets/img/nba4.png";
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints, Car } from 'lucide-react';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [activeCategory, setActiveCategory] = useState('mobile');
-  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [expandedImage, setExpandedImage] = useState({ src: null, alt: null });
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
-  const [relatedProjects, setRelatedProjects] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('frontend'); // 'frontend' or 'graphic'
+  // Add state to control visibility of each section
+  const [visibleSections, setVisibleSections] = useState({
+    book: true,
+    ad: true,
+    newspaper: true,
+    shoes: true,
+    car: true,
+    brand: true,
+    nba: true,
+  });
 
   // Add touch event handlers for mobile
   const handleTouchStart = (e) => {
@@ -211,7 +226,7 @@ const Projects = () => {
 
   const bookProjects = [
     {
-      title: 'Book Cover Design 1',
+      title: 'The Devil Behind the Mask',
       description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
       mainImage: BookCover1,
       images: [BookCover1],
@@ -227,7 +242,7 @@ const Projects = () => {
       live: '#'
     },
     {
-      title: 'Book Cover Design 2',
+      title: 'The Man Out of Time',
       description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
       mainImage: BookCover2,
       images: [BookCover2],
@@ -243,10 +258,58 @@ const Projects = () => {
       live: '#'
     },
     {
-      title: 'Book Cover Design 3',
+      title: 'Learn Graphic Design Easily',
       description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
       mainImage: BookCover3,
       images: [BookCover3],
+      tech: ['Design', 'Typography', 'Illustration', 'Print'],
+      features: [
+        'Genre-specific design approaches',
+        'Custom typography solutions',
+        'Digital and print-ready artwork',
+        'Market research integration',
+        'Client collaboration process'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'The Evil Forest',
+      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
+      mainImage: BookCover4,
+      images: [BookCover4],
+      tech: ['Design', 'Typography', 'Illustration', 'Print'],
+      features: [
+        'Genre-specific design approaches',
+        'Custom typography solutions',
+        'Digital and print-ready artwork',
+        'Market research integration',
+        'Client collaboration process'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'The Final Path',
+      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
+      mainImage: BookCover5,
+      images: [BookCover5],
+      tech: ['Design', 'Typography', 'Illustration', 'Print'],
+      features: [
+        'Genre-specific design approaches',
+        'Custom typography solutions',
+        'Digital and print-ready artwork',
+        'Market research integration',
+        'Client collaboration process'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'The Vanishing Mountain',
+      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
+      mainImage: BookCover6,
+      images: [BookCover6],
       tech: ['Design', 'Typography', 'Illustration', 'Print'],
       features: [
         'Genre-specific design approaches',
@@ -626,20 +689,94 @@ const Projects = () => {
     }
   ];
 
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-    setCurrentImageIndex(0);
+  const nbaProjects = [
+    {
+      title: 'NBA Poster 1',
+      description: 'NBA themed poster design showcasing dynamic composition and vibrant colors.',
+      mainImage: Nba1,
+      images: [Nba1],
+      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
+      features: [
+        'Dynamic composition',
+        'Vibrant color palette',
+        'Sports theme',
+        'High-resolution print',
+        'Fan engagement'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'NBA Poster 2',
+      description: 'NBA themed poster design with a focus on player action and energy.',
+      mainImage: nba2,
+      images: [nba2],
+      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
+      features: [
+        'Action-oriented design',
+        'Energetic layout',
+        'Player focus',
+        'Bold typography',
+        'Fan appeal'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'NBA Poster 3',
+      description: 'NBA themed poster design with creative use of space and team branding.',
+      mainImage: nba3,
+      images: [nba3],
+      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
+      features: [
+        'Creative use of space',
+        'Team branding',
+        'Modern aesthetics',
+        'High-impact visuals',
+        'Collectible design'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'NBA Poster 4',
+      description: 'NBA themed poster design with a unique artistic style and memorable imagery.',
+      mainImage: nba4,
+      images: [nba4],
+      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
+      features: [
+        'Unique artistic style',
+        'Memorable imagery',
+        'Basketball culture',
+        'Limited edition',
+        'Fan favorite'
+      ],
+      github: '#',
+      live: '#'
+    },
+  ];
+
+  // Group projects for the two sections
+  const frontEndProjects = [
+    ...mobileProjects,
+    ...webProjects
+  ];
+  const graphicDesignProjects = [
+    ...brandProjects,
+    ...bookProjects,
+    ...adProjects,
+    ...newspaperProjects,
+    ...shoesProjects,
+    ...CarProjects,
+    ...nbaProjects
+  ];
+
+  const handleExpandImage = (src, alt) => {
+    setExpandedImage({ src, alt });
   };
 
-  const handleImageClick = (e, image) => {
-    e.stopPropagation();
-    setSelectedImage(image);
-    setIsImageModalOpen(true);
-  };
-
-  const handleCloseImageModal = () => {
-    setIsImageModalOpen(false);
-    setSelectedImage(null);
+  const handleCollapseImage = () => {
+    setExpandedImage({ src: null, alt: null });
   };
 
   const handleNextImage = () => {
@@ -654,41 +791,19 @@ const Projects = () => {
     );
   };
 
-  const getProjectsByCategory = () => {
-    switch (activeCategory) {
-      case 'mobile':
-        return mobileProjects;
-      case 'brand':
-        return brandProjects;
-      case 'book':
-        return bookProjects;
-      case 'ads':
-        return adProjects;
-      case 'newspaper':
-        return newspaperProjects;
-      case 'web':
-        return webProjects;
-      case 'shoes':
-        return shoesProjects;
-      case 'car':
-        return CarProjects;
-      default:
-        return mobileProjects;
-    }
+  const handleCloseSection = (section) => {
+    setVisibleSections((prev) => ({ ...prev, [section]: false }));
   };
 
-  useEffect(() => {
-    if (selectedProject) {
-      // Get projects from the same category
-      const currentCategoryProjects = getProjectsByCategory();
-      // Filter out the current project and get 3 random projects
-      const filteredProjects = currentCategoryProjects
-        .filter(project => project.title !== selectedProject.title)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-      setRelatedProjects(filteredProjects);
-    }
-  }, [selectedProject, activeCategory]);
+  // Parallax/tilt effect for enlarged image
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+    setTilt({ x, y });
+  };
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 relative overflow-hidden">
@@ -701,6 +816,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
+          className="space-y-16"
         >
           <div className="projects-header">
             <motion.h2 variants={itemVariants} className="text-gray-900 dark:text-white">
@@ -711,210 +827,122 @@ const Projects = () => {
             </motion.p>
           </div>
 
-          <motion.div variants={itemVariants} className="category-tabs">
+          {/* Category Toggle Buttons */}
+          <div className="flex justify-center gap-6 my-12">
             <button
-              onClick={() => setActiveCategory('mobile')}
-              className={`category-tab ${activeCategory === 'mobile' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
+              className={`px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all duration-200 outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 border border-transparent ${selectedCategory === 'frontend' ? 'scale-105 bg-blue-600 text-white shadow-2xl' : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 hover:shadow-xl'}`}
+              onClick={() => setSelectedCategory('frontend')}
+              tabIndex={0}
+              aria-pressed={selectedCategory === 'frontend'}
             >
-              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Mobile</span>
+              Front-End Developer
             </button>
             <button
-              onClick={() => setActiveCategory('brand')}
-              className={`category-tab ${activeCategory === 'brand' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
+              className={`px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all duration-200 outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 border border-transparent ${selectedCategory === 'graphic' ? 'scale-105 bg-blue-600 text-white shadow-2xl' : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 hover:shadow-xl'}`}
+              onClick={() => setSelectedCategory('graphic')}
+              tabIndex={0}
+              aria-pressed={selectedCategory === 'graphic'}
             >
-              <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Brand</span>
+              Graphic Designer
             </button>
-            <button
-              onClick={() => setActiveCategory('book')}
-              className={`category-tab ${activeCategory === 'book' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Book className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Books</span>
-            </button>
-            <button
-              onClick={() => setActiveCategory('ads')}
-              className={`category-tab ${activeCategory === 'ads' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Ads</span>
-            </button>
-            <button
-              onClick={() => setActiveCategory('newspaper')}
-              className={`category-tab ${activeCategory === 'newspaper' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Newspaper className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">News</span>
-            </button>
-            <button
-              onClick={() => setActiveCategory('web')}
-              className={`category-tab ${activeCategory === 'web' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Code className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Web</span>
-            </button>
-            <button
-              onClick={() => setActiveCategory('shoes')}
-              className={`category-tab ${activeCategory === 'shoes' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Footprints className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Shoes</span>
-            </button>
-            <button
-              onClick={() => setActiveCategory('car')}
-              className={`category-tab ${activeCategory === 'car' ? 'active' : ''} text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400`}
-            >
-              <Car className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="ml-1">Cars</span>
-            </button>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="projects-grid">
-            {getProjectsByCategory().map((project, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="project-card"
-                onClick={() => handleProjectClick(project)}
-              >
-                <div className="project-image" onClick={(e) => handleImageClick(e, project.mainImage)}>
-                  <img src={project.mainImage} alt={project.title} />
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title text-gray-900 dark:text-white">{project.title}</h3>
-                  <p className="project-description text-gray-600 dark:text-gray-300">{project.description}</p>
-                  <div className="project-tech">
-                    {project.tech.map((tech, idx) => (
-                      <span key={idx} className="tech-tag bg-gray-100 dark:bg-dark-300 text-gray-700 dark:text-gray-300">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="project-modal"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="project-modal-content"
-            >
-              <button
-                className="project-modal-close"
-                onClick={() => setSelectedProject(null)}
-              >
-                <X className="w-6 h-6" />
-              </button>
-              
-              <div className="project-modal-image">
-                <img
-                  src={selectedProject.images[currentImageIndex]}
-                  alt={selectedProject.title}
-                  className="max-h-[80vh] w-auto object-contain"
-                  onClick={(e) => handleImageClick(e, selectedProject.images[currentImageIndex])}
-                />
-                {selectedProject.images.length > 1 && (
-                  <>
-                    <div className="carousel-instructions">
-                      <ChevronLeft className="w-4 h-4" />
-                      <span>Swipe or use arrows to navigate</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </div>
-                    <button
-                      className="project-modal-nav prev"
-                      onClick={handlePrevImage}
+          {/* Projects Section (grouped by type) */}
+          {selectedCategory === 'frontend' && (
+            <motion.div variants={itemVariants} className="projects-section">
+              <h3 className="section-title text-2xl font-extrabold mb-8 tracking-tight text-center">Front-End Developer</h3>
+              <div className="mb-12">
+                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Mobile Projects</h4>
+                <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {mobileProjects.map((project, index) => (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
                     >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                      className="project-modal-nav next"
-                      onClick={handleNextImage}
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                    <div className="carousel-dots">
-                      {selectedProject.images.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
-                          onClick={() => setCurrentImageIndex(index)}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <div className="project-modal-info">
-                <h3 className="project-modal-title">{selectedProject.title}</h3>
-                <p className="project-modal-description">
-                  {selectedProject.description}
-                </p>
-                <div className="project-modal-tech">
-                  {selectedProject.tech.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">
-                      {tech}
-                    </span>
+                      <div
+                        className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                        style={{ cursor: 'zoom-in' }}
+                        onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                      >
+                        <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                      </div>
+                      <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                        <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                        <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                        <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                          {project.tech.map((tech, idx) => (
+                            <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
-                <div className="project-modal-features">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    {selectedProject.features.map((feature, idx) => (
-                      <li key={idx}>
-                        <Star className="w-5 h-5 text-primary-500" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Web Projects</h4>
+                <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {webProjects.map((project, index) => (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                    >
+                      <div
+                        className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                        style={{ cursor: 'zoom-in' }}
+                        onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                      >
+                        <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                      </div>
+                      <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                        <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                        <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                        <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                          {project.tech.map((tech, idx) => (
+                            <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </motion.div>
+          )}
+          {selectedCategory === 'graphic' && (
+            <motion.div variants={itemVariants} className="projects-section">
+              <h3 className="section-title text-2xl font-extrabold mb-8 tracking-tight text-center">Graphic Designer</h3>
 
-            {/* Related Projects Section */}
-            {relatedProjects.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                className="related-projects"
-              >
-                <div className="related-projects-header">
-                  <h3>More Projects Like This</h3>
-                  <p>Swipe to explore more projects</p>
-                </div>
-                <div className="related-projects-carousel">
-                  <div className="related-projects-track">
-                    {relatedProjects.map((project, index) => (
+              {/* Book Cover Projects */}
+              {visibleSections.book && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Book Cover Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {bookProjects.map((project, index) => (
                       <motion.div
                         key={index}
-                        className="related-project-card"
-                        onClick={() => handleProjectClick(project)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
                       >
-                        <div className="related-project-image">
-                          <img src={project.mainImage} alt={project.title} />
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
                         </div>
-                        <div className="related-project-content">
-                          <h4>{project.title}</h4>
-                          <p>{project.description}</p>
-                          <div className="related-project-tech">
-                            {project.tech.slice(0, 2).map((tech, idx) => (
-                              <span key={idx} className="tech-tag">
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
                                 {tech}
                               </span>
                             ))}
@@ -923,102 +951,272 @@ const Projects = () => {
                       </motion.div>
                     ))}
                   </div>
-                  <div className="related-projects-nav">
-                    <button className="nav-prev" onClick={() => {
-                      const track = document.querySelector('.related-projects-track');
-                      track.scrollBy({ left: -300, behavior: 'smooth' });
-                    }}>
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button className="nav-next" onClick={() => {
-                      const track = document.querySelector('.related-projects-track');
-                      track.scrollBy({ left: 300, behavior: 'smooth' });
-                    }}>
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
+                </div>
+              )}
+
+              {/* Ad Projects */}
+              {visibleSections.ad && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Ad Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {adProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )}
+
+              {/* Newspaper Projects */}
+              {visibleSections.newspaper && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Newspaper Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {newspaperProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Shoe Design Projects */}
+              {visibleSections.shoes && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Shoe Design Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {shoesProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Car Design Projects */}
+              {visibleSections.car && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Car Design Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {CarProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* NBA Projects */}
+              {visibleSections.nba && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">NBA Poster Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {nbaProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Brand Awareness Projects (moved below) */}
+              {visibleSections.brand && (
+                <div className="mb-12">
+                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Brand Awareness Projects</h4>
+                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {brandProjects.map((project, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+                      >
+                        <div
+                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
+                          style={{ cursor: 'zoom-in' }}
+                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
+                        >
+                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        </div>
+                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
+                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
+                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
+                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
+                            {project.tech.map((tech, idx) => (
+                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          )}
+        </motion.div>
+      </div>
 
       <AnimatePresence>
-        {isImageModalOpen && selectedImage && (
+        {expandedImage.src && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="modal active"
-            onClick={handleCloseImageModal}
-            style={{ 
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(8px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ opacity: { duration: 0.25 }, backdropFilter: { duration: 0.4 } }}
+            style={{
               position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.9)',
+              inset: 0,
+              zIndex: 100,
+              background: 'rgba(0,0,0,0.7)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              zIndex: 9999,
-              padding: '20px'
+              padding: 0,
+              overflow: 'hidden',
             }}
+            onClick={handleCollapseImage}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="modal-content"
-              onClick={(e) => e.stopPropagation()}
-              style={{ 
-                position: 'relative',
-                width: 'auto',
-                height: 'auto',
-                maxWidth: '95vw',
-                maxHeight: '95vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: 'auto'
+            <motion.img
+              src={expandedImage.src}
+              alt={expandedImage.alt}
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                boxShadow: '0 12px 48px 0 rgba(0,0,0,0.45)',
+                border: '3px solid rgba(255,255,255,0.18)',
               }}
-            >
-              <button
-                className="close"
-                onClick={handleCloseImageModal}
-                style={{ 
-                  position: 'fixed',
-                  top: '20px',
-                  right: '20px',
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  border: 'none',
-                  color: 'white',
-                  cursor: 'pointer',
-                  zIndex: 10000,
-                  padding: '8px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px'
-                }}
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <img 
-                src={selectedImage} 
-                alt="Full size" 
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '95vh',
-                  objectFit: 'contain',
-                  display: 'block',
-                  borderRadius: '4px'
-                }}
-              />
-            </motion.div>
+              exit={{ scale: 0.7, opacity: 0, boxShadow: '0 0 0 0 rgba(0,0,0,0)', border: '3px solid rgba(255,255,255,0)' }}
+              transition={{ type: 'spring', stiffness: 220, damping: 22, opacity: { duration: 0.2 } }}
+              style={{
+                maxHeight: '90vh',
+                maxWidth: '90vw',
+                objectFit: 'contain',
+                cursor: 'zoom-out',
+                margin: 'auto',
+                display: 'block',
+                background: 'transparent',
+                borderRadius: '1.25rem',
+                boxShadow: '0 12px 48px 0 rgba(0,0,0,0.45)',
+                border: '3px solid rgba(255,255,255,0.18)',
+                transform: `rotateY(${tilt.x * 8}deg) rotateX(${-tilt.y * 8}deg)`
+              }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              onClick={e => { e.stopPropagation(); handleExpandImage(expandedImage.src, expandedImage.alt); }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

@@ -77,6 +77,19 @@ const App = () => {
                 </motion.div>
               }
             />
+            <Route
+              path="/projects"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Projects />
+                </motion.div>
+              }
+            />
           </Routes>
         </AnimatePresence>
       </div>
