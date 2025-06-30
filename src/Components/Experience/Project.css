@@ -390,7 +390,10 @@
   }
   
   .project-card {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 24px rgba(59,130,246,0.10);
+    border-radius: 1.25rem;
+    padding: 1rem 0.5rem 1.5rem 0.5rem;
   }
   
   .grid {
@@ -407,6 +410,34 @@
   
   .gallery-nav-button {
     padding: 0.5rem;
+  }
+
+  .project-content {
+    padding: 1.25rem 0.5rem 0.5rem 0.5rem;
+    gap: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .project-tech {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-tag {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.9rem;
   }
 }
 

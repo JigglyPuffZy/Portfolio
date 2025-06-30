@@ -6,6 +6,8 @@ import About from './Components/About/About';
 import Service from './Components/Service/Service';
 import Projects from './Components/Experience/Project';
 import WorkExperience from './Components/WorkExperience/WorkExperience';
+import DeveloperProjects from './Components/Experience/DeveloperProjects';
+import GraphicDesignerProjects from './Components/Experience/GraphicDesignerProjects';
 
 // Add future flags configuration
 const router = {
@@ -90,6 +92,32 @@ const App = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <Projects />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/projects/developer"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <DeveloperProjects />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/projects/graphic-designer"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <GraphicDesignerProjects />
                 </motion.div>
               }
             />
