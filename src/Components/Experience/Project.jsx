@@ -39,6 +39,7 @@ import Nba1 from "../../assets/img/Nba1.png";
 import nba2 from "../../assets/img/nba2.png";
 import nba3 from "../../assets/img/nba3.png";
 import nba4 from "../../assets/img/nba4.png";
+import LaborLinkz from "../../assets/img/LaborLinkz.png";
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints, Car } from 'lucide-react';
@@ -119,6 +120,22 @@ const Projects = () => {
         'Responsive design for all devices',
         'Offline functionality',
         'Real-time updates'
+      ],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'LaborLinkz',
+      description: 'Building Community Through Freelancing Platform',
+      mainImage: LaborLinkz,
+      images: [LaborLinkz],
+      tech: ['React Native', 'Freelancing Platform', 'Job Matching', 'Mobile Development'],
+      features: [
+        'Job matching for blue-collar workers',
+        'Admin, client, and worker roles',
+        'Login, search, notifications, rating, and activity tracking',
+        'User management and account verification',
+        'Simple, responsive, and mobile-friendly design'
       ],
       github: '#',
       live: '#'
@@ -865,7 +882,7 @@ const Projects = () => {
                         style={{ cursor: 'zoom-in' }}
                         onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                       >
-                        <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                       </div>
                       <div className="project-content p-7 flex-1 flex flex-col gap-2">
                         <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -896,7 +913,7 @@ const Projects = () => {
                         style={{ cursor: 'zoom-in' }}
                         onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                       >
-                        <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                        <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                       </div>
                       <div className="project-content p-7 flex-1 flex flex-col gap-2">
                         <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -935,7 +952,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -970,7 +987,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -1005,7 +1022,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -1040,7 +1057,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -1075,7 +1092,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -1110,7 +1127,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
@@ -1145,7 +1162,7 @@ const Projects = () => {
                           style={{ cursor: 'zoom-in' }}
                           onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
                         >
-                          <img src={project.mainImage} alt={project.title} className="object-contain w-full h-full" />
+                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
                         </div>
                         <div className="project-content p-7 flex-1 flex flex-col gap-2">
                           <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
