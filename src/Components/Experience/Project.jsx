@@ -35,7 +35,7 @@ import Shoes2 from "../../assets/img/Shoes2.png";
 import Shoes3 from "../../assets/img/Shoes3.png";
 import Shoes4 from "../../assets/img/shoes4.png";
 import TriregMobile from "../../assets/img/Trireg.png";
-import VtrackMobile from "../../assets/img/vtrack.png";
+import VtrackMobile from "../../assets/img/Vtrack.png";
 import ProAssisting from "../../assets/img/proassisting.png";
 import Brioray from "../../assets/img/brioray.png";
 
