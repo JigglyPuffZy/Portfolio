@@ -1,21 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Briefcase, Calendar, MapPin, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import './WorkExperience.css';
-import LaborLinkzImg from '../../assets/img/LaborLinkz.png';
-import WebPortfolio1Img from '../../assets/img/webportfolio1.png';
-import MariansImg from '../../assets/img/Marian\'s.png';
-import QuizWhirlImg from '../../assets/img/QuizWHirl.png';
-import WebPortfolio3Img from '../../assets/img/webportfolio3.png';
-import WebPortfolio4Img from '../../assets/img/webportfolio4.png';
-
-const WorkExperience = () => {
-  const [expandedJob, setExpandedJob] = useState(null);
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
 
   const workExperience = [
     {
@@ -24,7 +10,7 @@ const WorkExperience = () => {
       position: "Front-End Developer (React Native)",
       location: "Remote",
       duration: "Nov 2023 - Jan 2024",
-      description: "Built the front end of Labor-Linkz, a job-matching app for blue-collar workers. Developed role-based UIs for admin, client, and worker users. Integrated login, job search, notification, rating, and activity tracking features. Ensured a clean, responsive, and user-friendly mobile experience.",
+      description: "Built the front end of Labor-Linkz, a job-matching app for blue-collar workers. Developed role-based UIs for admin, client, and worker users. Integrated login, job search, notification, rating, and activity tracking features. Ensured a clean, responsive, and user-friendly mobile experience. I was also the UI/UX designer for this project, creating the design in Figma.",
       responsibilities: [
         "Developed role-based UIs for admin, client, and worker users",
         "Integrated login, job search, notification, rating, and activity tracking features",
@@ -37,7 +23,7 @@ const WorkExperience = () => {
         "Successfully delivered a complete job-matching platform",
         "Implemented role-based access control for different user types",
         "Created responsive and intuitive mobile interfaces"
-      ]
+    ],
     },
     {
       id: 2,
@@ -57,7 +43,7 @@ const WorkExperience = () => {
         "Completed multiple successful projects on Upwork",
         "Designed effective advertising materials for local businesses",
         "Maintained high client satisfaction ratings"
-      ]
+    ],
     },
     {
       id: 3,
@@ -78,15 +64,15 @@ const WorkExperience = () => {
         "Successfully implemented automated attendance tracking",
         "Created efficient event management system",
         "Delivered mobile-responsive solution for educational institutions"
-      ]
+    ],
     },
     {
       id: 4,
       company: "LGU Sto. Tomas",
-      position: "Employee (GIP)",
+      position: "Social Media Manager",
       location: "Sto. Tomas, Philippines",
       duration: "Jun 2024 - Aug 2024",
-      description: "Edited banners, posters, publication materials, and designed a book cover for the LGU. Posted daily announcements and updates both physically and online. Checked and managed emails for official communications. Provided basic computer troubleshooting and maintenance support.",
+      description: "Served as Social Media Manager for the LGU of Sto. Tomas from June to August 2024, overseeing content creation, daily publication of official announcements, visual material design including banners and a book cover, email communications, and basic IT support to ensure consistent and effective public engagement.",
       responsibilities: [
         "Edited banners, posters, and publication materials",
         "Designed book covers for official publications",
@@ -99,7 +85,7 @@ const WorkExperience = () => {
         "Created professional publication materials for government use",
         "Improved communication efficiency through digital platforms",
         "Provided essential IT support to government operations"
-      ]
+    ],
     },
     {
       id: 5,
@@ -117,7 +103,7 @@ const WorkExperience = () => {
       achievements: [
         "Successfully launched a mobile e-commerce application",
         "Implemented comprehensive payment systems including COD and GCash"
-      ]
+    ],
     },
     {
       id: 6,
@@ -136,15 +122,15 @@ const WorkExperience = () => {
       achievements: [
         "Created an engaging quiz platform with score tracking functionality",
         "Enhanced employment accessibility for blue-collar workers"
-      ]
+    ],
     },
     {
       id: 7,
       company: "DILG",
-      position: "Secretary / Digital Media Assistant",
+      position: "Secretary / Social Media Manager",
       location: "Philippines",
       duration: "Aug 2024 - Nov 2024",
-      description: "Served as secretary, assisting with documentation, organizing official papers, and managing records. Designed and edited posters and digital materials for barangay captains and Sangguniang Kabataan (SK) programs. Helped in preparing visual content for community announcements, campaigns, and public service events. Contributed to promoting local initiatives through clear and visually engaging materials.",
+      description: "Served as Secretary and Social Media Manager for DILG from August to November 2024, handling official documentation and records while also managing social media content, designing digital materials for barangay and SK programs, and promoting local initiatives through engaging public service announcements and visual campaigns.",
       responsibilities: [
         "Assisted with documentation and organized official papers",
         "Managed records and administrative tasks",
@@ -157,7 +143,7 @@ const WorkExperience = () => {
         "Improved documentation and record-keeping systems",
         "Created effective visual materials for government programs",
         "Enhanced community engagement through digital media"
-      ]
+    ],
     },
     {
       id: 8,
@@ -165,7 +151,7 @@ const WorkExperience = () => {
       position: "Digital Marketing Assistant (Work from Home)",
       location: "Remote",
       duration: "Nov 2024 - Apr 2025",
-      description: "Assisted the digital marketing team by creating visual content for brand awareness campaigns. Designed and edited promotional posters aligned with the company's branding and marketing goals. Produced montage-style videos showcasing the business, highlighting products and company achievements. Edited simple, educational video content for internal training and online courses. Contributed to increasing audience engagement through compelling visuals and informative content.",
+      description: "Assisted the digital marketing team by creating visual content for brand awareness campaigns. Designed and edited promotional posters aligned with the company's branding and marketing goals. Produced montage-style videos showcasing the business, highlighting products and company achievements. Edited simple, educational video content for internal training and online courses. Contributed to increasing audience engagement through compelling visuals and informative content. I was also the UI/UX designer for the company's digital platforms, creating the design in Figma.",
       responsibilities: [
         "Created visual content for brand awareness campaigns",
         "Designed and edited promotional posters aligned with company branding",
@@ -178,7 +164,7 @@ const WorkExperience = () => {
         "Increased brand visibility through effective visual campaigns",
         "Created engaging video content for training and marketing",
         "Improved audience engagement through compelling visual materials"
-      ]
+    ],
     },
     {
       id: 9,
@@ -186,7 +172,7 @@ const WorkExperience = () => {
       position: "Web Developer (React + Vite)",
       location: "Remote",
       duration: "Apr 2025 - Jun 2025",
-      description: "Developed the front end of TriReg Web, a tricycle permit registration system, using React with Vite. Designed responsive and modular UI components with role-based access for LGU staff and treasury personnel. Integrated features such as QR code generation, receipt verification, and SMS notifications. Implemented modules for automated ID/permit sticker generation and report printing. Built interactive data dashboards to track tricycle registrations per barangay. Ensured high performance, smooth API integration, and mobile-friendly design.",
+      description: "Developed the front end of TriReg Web, a tricycle permit registration system, using React with Vite. Designed responsive and modular UI components with role-based access for LGU staff and treasury personnel. Integrated features such as QR code generation, receipt verification, and SMS notifications. Implemented modules for automated ID/permit sticker generation and report printing. Built interactive data dashboards to track tricycle registrations per barangay. Ensured high performance, smooth API integration, and mobile-friendly design. I was also the UI/UX designer for this project, creating the design in Figma.",
       responsibilities: [
         "Designed responsive and modular UI components with role-based access",
         "Integrated QR code generation, receipt verification, and SMS notifications",
@@ -199,7 +185,7 @@ const WorkExperience = () => {
         "Successfully implemented comprehensive permit registration system",
         "Created efficient automated reporting and notification systems",
         "Built interactive dashboards for data visualization and tracking"
-      ]
+    ],
     },
     {
       id: 10,
@@ -207,7 +193,7 @@ const WorkExperience = () => {
       position: "Web Developer (React + Vite)",
       location: "Remote",
       duration: "May 2025 - Jun 2025",
-      description: "Developed the front end of VTrack, a violator tracking system for the PNP and LGU of Cabagan using React with Vite. Built secure, role-based interfaces with features like violation and payment tracking, citation management, and SMS/push notifications. Designed dashboards for visualizing violations and generating reports. Integrated automated fine computation based on municipal ordinances. Ensured fast performance, API integration, and mobile-friendly layout.",
+      description: "Developed the front end of VTrack, a violator tracking system for the PNP and LGU of Cabagan using React with Vite. Built secure, role-based interfaces with features like violation and payment tracking, citation management, and SMS/push notifications. Designed dashboards for visualizing violations and generating reports. Integrated automated fine computation based on municipal ordinances. Ensured fast performance, API integration, and mobile-friendly layout. I was also the UI/UX designer for this project, creating the design in Figma.",
       responsibilities: [
         "Built secure, role-based interfaces for law enforcement use",
         "Implemented violation and payment tracking systems",
@@ -220,1099 +206,166 @@ const WorkExperience = () => {
         "Created comprehensive law enforcement tracking system",
         "Implemented automated fine computation for efficiency",
         "Built secure interfaces for sensitive law enforcement data"
-      ]
-    }
+    ],
+  },
   ];
 
-  const toggleJob = (jobId) => {
-    setExpandedJob(expandedJob === jobId ? null : jobId);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+const WorkExperience = () => {
+  const [expanded, setExpanded] = useState(null);
 
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 overflow-hidden">
-      {/* Decorative SVG background */}
-      <svg className="absolute top-0 left-0 w-full h-96 opacity-30 pointer-events-none z-0" viewBox="0 0 1440 320"><path fill="#3b82f6" fillOpacity="0.13" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full mb-6 shadow-lg">
-            <Briefcase className="w-10 h-10 text-blue-600 dark:text-blue-400" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight drop-shadow-lg">
+    <section id="work-experience" className="py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 relative overflow-hidden">
+      {/* Headline & Intro */}
+      <div className="max-w-3xl mx-auto text-center mb-16">
+        <h1 className="text-5xl md:text-6xl font-black text-blue-600 dark:text-blue-500 mb-6 tracking-tight drop-shadow-xl leading-tight" style={{letterSpacing: '-0.03em'}}>
             Work Experience
           </h1>
-          <p className="text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            My professional journey in software development, showcasing growth, achievements, and contributions to various organizations.
+        <p className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 font-medium">
+          A journey through my professional milestones, reimagined as an interactive showcase.
           </p>
-        </motion.div>
-
-        {/* Experience Timeline */}
-        <div className="relative flex flex-col md:flex-row md:space-x-12">
-          {/* Timeline vertical line */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-1 bg-blue-400 rounded-full z-0" style={{ minHeight: '100%' }}></div>
+      </div>
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {workExperience.map((job) => (
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="space-y-12 w-full z-10"
+            key={job.id}
+            className={`relative rounded-3xl bg-white/80 dark:bg-gray-900/80 shadow-2xl border border-blue-100 dark:border-blue-800 transition-all duration-300 cursor-pointer group ${expanded === job.id ? 'ring-4 ring-blue-500 scale-105 z-20' : 'hover:scale-102'}`}
+            whileHover={{ scale: expanded === job.id ? 1.05 : 1.03 }}
+            onClick={() => setExpanded(expanded === job.id ? null : job.id)}
+            tabIndex={0}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            {workExperience.map((job, index) => {
-              if (job.id === 1) {
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={LaborLinkzImg} 
-                              alt="Labor-Linkz App" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">Labor-Linkz App</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
+            {/* Accent Bar */}
+            <div className="h-2 w-full rounded-t-3xl bg-blue-500 mb-5" />
+            {/* Card Content */}
+            <div className="p-7 flex flex-col">
+              <div className="mb-2">
+                <h3 className="text-xl font-extrabold text-gray-900 dark:text-white leading-tight mb-1">
+                              {job.position}
+                            </h3>
+                <p className="text-base font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                              {job.company}
+                            </p>
+                <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-1">
+                          <span>{job.duration}</span>
+                  <span>•</span>
+                          <span>{job.location}</span>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                );
-              } else if (job.id === 3) {
-                // Special layout for Web Portfolio (third job)
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={WebPortfolio1Img} 
-                              alt="We Comply" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">We Comply</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
+              <p className="text-base text-gray-800 dark:text-gray-200 mb-4 line-clamp-3">
+                        {job.description}
+                      </p>
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-1">Technologies:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {job.technologies.map((tech, i) => (
+                    <span key={i} className="px-3 py-0.5 bg-white/60 dark:bg-gray-800/60 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300 text-xs rounded-full shadow font-semibold tracking-wide">
+                              {tech}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                );
-              } else if (job.id === 5) {
-                // Special layout for Marian's E-commerce App (fifth job)
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={MariansImg} 
-                              alt="Marian's E-commerce App" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">Marian's E-commerce App</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
+              <div className="mt-auto flex justify-end">
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-1 px-4 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg transition-colors duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  onClick={e => { e.stopPropagation(); setExpanded(expanded === job.id ? null : job.id); }}
+                  aria-expanded={expanded === job.id}
+                >
+                  {expanded === job.id ? 'Hide Details' : 'View Details'}
+                  <ExternalLink className="w-4 h-4 ml-1" />
+                </motion.button>
+              </div>
+            </div>
+            {/* Expanded Details */}
+                      <AnimatePresence>
+              {expanded === job.id && (
+                          <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0 z-30 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-7 flex flex-col overflow-y-auto border-2 border-blue-200 dark:border-blue-800"
+                  style={{ maxHeight: '540px' }}
+                  onClick={e => e.stopPropagation()}
+                >
+                  <h3 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">
+                    {job.position}
+                  </h3>
+                  <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                    {job.company}
+                  </p>
+                  <div className="flex items-center gap-2 text-base text-gray-500 dark:text-gray-400 mb-2">
+                    <span>{job.duration}</span>
+                    <span>•</span>
+                    <span>{job.location}</span>
+                  </div>
+                  <p className="text-base text-gray-800 dark:text-gray-200 mb-4">
+                    {job.description}
+                  </p>
+                  <div className="mb-5">
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">Key Responsibilities:</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {job.responsibilities.map((resp, i) => (
+                        <li key={i} className="text-gray-800 dark:text-gray-200 text-base">{resp}</li>
+                                ))}
+                              </ul>
                             </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
+                  <div className="mb-5">
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">Key Achievements:</h4>
+                              <ul className="flex flex-wrap gap-2 mb-4">
+                      {job.achievements.map((ach, i) => (
+                        <li key={i} className="px-3 py-1 bg-green-100/70 dark:bg-green-900/50 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 text-xs rounded-full shadow font-semibold">{ach}</li>
+                                ))}
+                              </ul>
                             </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              } else if (job.id === 6) {
-                // Special layout for Quiz Whirl App (sixth job)
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={QuizWhirlImg} 
-                              alt="Quiz Whirl App" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">Quiz Whirl App</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              } else if (job.id === 9) {
-                // Special layout for TriReg Web (ninth job)
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={WebPortfolio3Img} 
-                              alt="TriReg Web" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">TriReg Web</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              } else if (job.id === 10) {
-                // Special layout for VTrack (tenth job)
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card with image and info side by side */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="flex flex-col md:flex-row items-center md:items-stretch">
-                        {/* Image on the left */}
-                        <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-4 md:p-8">
-                          <div className="relative w-full flex justify-center items-center">
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200/60 via-indigo-100/60 to-blue-400/30 dark:from-blue-900/40 dark:via-indigo-900/30 dark:to-blue-700/20 blur-sm z-0"></div>
-                            <img 
-                              src={WebPortfolio4Img} 
-                              alt="VTrack" 
-                              className="relative z-10 rounded-3xl shadow-2xl object-cover max-h-96 w-full md:w-auto border-4 border-blue-300 dark:border-blue-700 transition-transform duration-300 hover:scale-105 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.35)] hover:border-blue-500 hover:ring-4 hover:ring-blue-300/40 hover:-translate-y-2" 
-                            />
-                          </div>
-                          <span className="mt-4 text-lg font-semibold text-blue-700 dark:text-blue-300 bg-white/70 dark:bg-gray-900/70 px-4 py-1 rounded-full shadow-md backdrop-blur-md">VTrack</span>
-                        </div>
-                        {/* Info on the right */}
-                        <div className="md:w-1/2 w-full p-8">
-                          {/* Job Header */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-4">
-                              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                                <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                              </div>
-                              <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                  {job.position}
-                                </h3>
-                                <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                  {job.company}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => toggleJob(job.id)}
-                              className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                              aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                            >
-                              <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                {expandedJob === job.id ? (
-                                  <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                ) : (
-                                  <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                                )}
-                              </motion.span>
-                            </button>
-                          </div>
-                          {/* Job Details */}
-                          <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                            <div className="flex items-center space-x-2">
-                              <Calendar className="w-5 h-5 text-blue-500" />
-                              <span>{job.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="w-5 h-5 text-indigo-500" />
-                              <span>{job.location}</span>
-                            </div>
-                          </div>
-                          {/* Job Description */}
-                          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                            {job.description}
-                          </p>
-                          {/* Technologies */}
-                          <div className="mb-6">
-                            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                              Technologies Used:
-                            </h4>
-                            <div className="flex flex-wrap gap-3">
-                              {job.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {expandedJob === job.id && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                              >
-                                {/* Responsibilities */}
-                                <div className="mb-8">
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                    Key Responsibilities:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.responsibilities.map((responsibility, respIndex) => (
-                                      <li key={respIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {responsibility}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                {/* Achievements */}
-                                <div>
-                                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                    Key Achievements:
-                                  </h4>
-                                  <ul className="space-y-3">
-                                    {job.achievements.map((achievement, achIndex) => (
-                                      <li key={achIndex} className="flex items-start space-x-3">
-                                        <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                        <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                          {achievement}
-                                        </span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              } else {
-                // Default card for other jobs
-                return (
-                  <motion.div
-                    key={job.id}
-                    variants={itemVariants}
-                    className="relative flex md:items-center group"
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex flex-col items-center mr-8 z-10">
-                      <span className={`w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 bg-gradient-to-br from-blue-400 to-indigo-400 shadow-lg transition-transform duration-300 ${expandedJob === job.id ? 'scale-125' : ''}`}></span>
-                      {index < workExperience.length - 1 && (
-                        <div className="flex-1 w-1 bg-blue-400 dark:bg-blue-700"></div>
-                      )}
-                    </div>
-                    {/* Card */}
-                    <div className="relative flex-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 overflow-hidden group-hover:scale-[1.02]">
-                      <div className="p-8">
-                        {/* Job Header */}
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-900/60 rounded-full flex items-center justify-center shadow-md">
-                              <Briefcase className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-                            </div>
-                            <div>
-                              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                {job.position}
-                              </h3>
-                              <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">
-                                {job.company}
-                              </p>
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => toggleJob(job.id)}
-                            className="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            aria-label={expandedJob === job.id ? 'Collapse' : 'Expand'}
-                          >
-                            <motion.span animate={{ rotate: expandedJob === job.id ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                              {expandedJob === job.id ? (
-                                <ChevronUp className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                              ) : (
-                                <ChevronDown className="w-6 h-6 text-blue-600 dark:text-blue-300" />
-                              )}
-                            </motion.span>
-                          </button>
-                        </div>
-                        {/* Job Details */}
-                        <div className="flex flex-wrap items-center gap-6 mb-4 text-base text-gray-600 dark:text-gray-400">
-                          <div className="flex items-center space-x-2">
-                            <Calendar className="w-5 h-5 text-blue-500" />
-                            <span>{job.duration}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <MapPin className="w-5 h-5 text-indigo-500" />
-                            <span>{job.location}</span>
-                          </div>
-                        </div>
-                        {/* Job Description */}
-                        <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
-                          {job.description}
-                        </p>
-                        {/* Technologies */}
-                        <div className="mb-6">
-                          <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-                            Technologies Used:
-                          </h4>
-                          <div className="flex flex-wrap gap-3">
-                            {job.technologies.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-4 py-1 bg-gradient-to-r from-blue-400 to-indigo-400 text-white text-sm rounded-full shadow-md font-semibold"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        {/* Expanded Content */}
-                        <AnimatePresence>
-                          {expandedJob === job.id && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.4 }}
-                              className="border-t border-blue-200 dark:border-blue-700 pt-6 mt-6"
-                            >
-                              {/* Responsibilities */}
-                              <div className="mb-8">
-                                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                  <span className="inline-block w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center"><ChevronDown className="w-3 h-3 text-white" /></span>
-                                  Key Responsibilities:
-                                </h4>
-                                <ul className="space-y-3">
-                                  {job.responsibilities.map((responsibility, respIndex) => (
-                                    <li key={respIndex} className="flex items-start space-x-3">
-                                      <span className="w-3 h-3 mt-2 bg-blue-500 rounded-full flex-shrink-0"></span>
-                                      <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                        {responsibility}
-                                      </span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                              {/* Achievements */}
-                              <div>
-                                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                  <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"><ExternalLink className="w-3 h-3 text-white" /></span>
-                                  Key Achievements:
-                                </h4>
-                                <ul className="space-y-3">
-                                  {job.achievements.map((achievement, achIndex) => (
-                                    <li key={achIndex} className="flex items-start space-x-3">
-                                      <span className="w-3 h-3 mt-2 bg-green-500 rounded-full flex-shrink-0"></span>
-                                      <span className="text-gray-800 dark:text-gray-200 text-base flex-1">
-                                        {achievement}
-                                      </span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              }
-            })}
+                  <div className="flex justify-end">
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
+                      className="inline-flex items-center gap-1 px-4 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg transition-colors duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      onClick={() => setExpanded(null)}
+                    >
+                      Close
+                    </motion.button>
+                  </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
           </motion.div>
+        ))}
         </div>
-
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-20"
-        >
-          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border border-blue-200 dark:border-blue-700 mx-auto max-w-2xl">
-            <h3 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
+      <div className="text-center mt-20">
+          <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl p-12 shadow-2xl border border-blue-200 dark:border-blue-700 mx-auto max-w-2xl">
+            <h3 className="text-4xl font-black text-blue-600 dark:text-blue-500 mb-4 tracking-tight">
               Ready to Work Together?
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+            <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
               I'm always open to new opportunities and exciting projects. Let's discuss how I can contribute to your team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.06, background: 'linear-gradient(90deg,#2563eb,#7c3aed)' }}
+                whileTap={{ scale: 0.98 }}
                 href="/service"
-                className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg transition-colors duration-200 text-lg"
+                className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
                 View My Services
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.06, background: 'linear-gradient(90deg,#fff,#e0e7ff)' }}
+                whileTap={{ scale: 0.98 }}
                 href="mailto:contact@example.com"
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-blue-600 text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-bold rounded-lg transition-colors duration-200 text-lg"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-blue-600 text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-bold rounded-lg transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
                 Get In Touch
-              </a>
+              </motion.a>
             </div>
           </div>
-        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

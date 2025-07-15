@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,10 +12,12 @@
   
   body {
     @apply bg-white dark:bg-dark-100 text-gray-900 dark:text-gray-100;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 100%);
   }
 
   /* Improve touch targets on mobile */
@@ -68,4 +70,46 @@
       @apply rounded-lg;
     }
   }
+}
+
+/* Glowing microinteraction utility */
+.glow-blue {
+  box-shadow: 0 0 12px 2px rgba(96, 165, 250, 0.25), 0 0 0 2px #60a5fa33;
+  transition: box-shadow 0.3s;
+}
+
+.glow-blue:focus, .glow-blue:hover {
+  box-shadow: 0 0 24px 4px rgba(96, 165, 250, 0.35), 0 0 0 3px #60a5fa55;
+}
+
+/* Glassmorphic modal utility */
+.glass-modal {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(96,165,250,0.15), 0 1.5px 8px rgba(30,41,59,0.10);
+  border: 1.5px solid rgba(96,165,250,0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-modal {
+    background: rgba(30,41,59,0.85);
+    border: 1.5px solid rgba(96,165,250,0.25);
+    box-shadow: 0 8px 32px rgba(30,41,59,0.25), 0 1.5px 8px rgba(96,165,250,0.10);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

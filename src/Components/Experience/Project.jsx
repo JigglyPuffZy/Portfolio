@@ -1,18 +1,21 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import "./Project.css";
 import WebPortfolio1 from "../../assets/img/webportfolio1.png";
 import WebPortfolio2 from "../../assets/img/webportfolio2.png";
 import WebPortfolio3 from "../../assets/img/webportfolio3.png";
 import WebPortfolio4 from "../../assets/img/webportfolio4.png";
 import WebPortfolio5 from "../../assets/img/webportfolio5.png";
-import Ads1 from "../../assets/img/Ads Poster 1.jpg";
-import Ads2 from "../../assets/img/Ads Poster 2.jpg";
+import Marians from "../../assets/img/Marian's.png";
+import LaborLinkz from "../../assets/img/LaborLinkz.png";
+import QuizWhirl from "../../assets/img/QuizWHirl.png";
 import BookCover1 from "../../assets/img/BookCover1.jpg";
 import BookCover2 from "../../assets/img/BookCover2.jpg";
 import BookCover3 from "../../assets/img/BookCover3.jpg";
 import BookCover4 from "../../assets/img/BookCover4.png";
 import BookCover5 from "../../assets/img/BookCover5.png";
 import BookCover6 from "../../assets/img/BookCover6.png";
+import Ads1 from "../../assets/img/Ads Poster 1.jpg";
+import Ads2 from "../../assets/img/Ads Poster 2.jpg";
 import BrandAwareness1 from "../../assets/img/Brand Awareness 1.jpg";
 import BrandAwareness2 from "../../assets/img/Brand Awareness 2.jpg";
 import BrandAwareness3 from "../../assets/img/Brand Awareness 3.jpg";
@@ -24,1219 +27,563 @@ import Newspaper3 from "../../assets/img/NewsPaper3.jpg";
 import Newspaper4 from "../../assets/img/NewsPaper4.jpg";
 import Newspaper5 from "../../assets/img/NewsPaper5.jpg";
 import Newspaper6 from "../../assets/img/NewsPaper6.jpg";
-import Marians from "../../assets/img/Marian's.png";
-import QuizWhirl from "../../assets/img/QuizWHirl.png";
+import ImageModal from "../ImageModal.jsx";
+import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
+import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase } from 'react-icons/si';
 import Shoes1 from "../../assets/img/Shoes1.png";
 import Shoes2 from "../../assets/img/Shoes2.png";
 import Shoes3 from "../../assets/img/Shoes3.png";
 import Shoes4 from "../../assets/img/shoes4.png";
-import CAR1 from "../../assets/img/Car1.png";
-import CAR2 from "../../assets/img/Car2.png";
-import CAR3 from "../../assets/img/Car3.png";
-import CAR4 from "../../assets/img/Car4.png";
-import CAR5 from "../../assets/img/Car5.png";
-import Nba1 from "../../assets/img/Nba1.png";
-import nba2 from "../../assets/img/nba2.png";
-import nba3 from "../../assets/img/nba3.png";
-import nba4 from "../../assets/img/nba4.png";
-import LaborLinkz from "../../assets/img/LaborLinkz.png";
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Smartphone, Code, Star, Book, Palette, Briefcase, Newspaper, Footprints, Car } from 'lucide-react';
+import TriregMobile from "../../assets/img/Trireg.png";
+import VtrackMobile from "../../assets/img/vtrack.png";
+import ProAssisting from "../../assets/img/proassisting.png";
+import Brioray from "../../assets/img/brioray.png";
+
+const PROJECTS = [
+  // --- FRONT-END PROJECTS ---
+  {
+    image: WebPortfolio1,
+    title: "We Comply",
+    description: "A compliance management web app with a modern, responsive UI.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+  },
+  {
+    image: WebPortfolio2,
+    title: "Personal Portfolio",
+    description: "A personal website to showcase my creative work and experience.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+  },
+  {
+    image: WebPortfolio3,
+    title: "TriReg",
+    description: "A registration platform with a clean, user-friendly interface.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+  },
+  {
+    image: WebPortfolio4,
+    title: "Vtrack",
+    description: "A vehicle tracking dashboard with real-time updates.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+  },
+  {
+    image: WebPortfolio5,
+    title: "Personal Portfolio 2",
+    description: "A second iteration of my portfolio with enhanced features.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+  },
+  {
+    image: Marians,
+    title: "Marians Mobile App",
+    description: "A mobile app for Marians with seamless user experience.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Mobile",
+    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+  },
+  {
+    image: LaborLinkz,
+    title: "LaborLinkz",
+    description: "A freelancing platform for building community connections.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web & Mobile",
+    tech: ["React Native", "Freelancing Platform", "Job Matching", "Mobile Development"],
+  },
+  {
+    image: QuizWhirl,
+    title: "Quiz Whirl App",
+    description: "An interactive quiz app with multiple question types and score tracking.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Mobile",
+    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+  },
+  {
+    image: TriregMobile,
+    title: "TriReg Mobile App",
+    description: "A mobile registration platform with a clean, user-friendly interface and responsive design.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Mobile",
+    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+  },
+  {
+    image: VtrackMobile,
+    title: "Vtrack Mobile App",
+    description: "A mobile vehicle tracking dashboard with real-time updates and a seamless user experience.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Mobile",
+    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+  },
+  // --- GRAPHIC DESIGN PROJECTS ---
+  {
+    image: BookCover1,
+    title: "The Devil Behind the Mask",
+    description: "Book cover design for a mystery novel.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: BookCover2,
+    title: "The Man Out of Time",
+    description: "Book cover design for a science fiction story.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: BookCover3,
+    title: "Learn Graphic Design Easily",
+    description: "Educational book cover for design beginners.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: BookCover4,
+    title: "The Evil Forest",
+    description: "Book cover for a fantasy adventure.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: BookCover5,
+    title: "The Final Path",
+    description: "Book cover for a dramatic novel.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: BookCover6,
+    title: "The Vanishing Mountain",
+    description: "Book cover for a suspenseful story.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Book Cover",
+  },
+  {
+    image: Ads1,
+    title: "Poster Ads 1",
+    description: "Poster ad designed to capture attention.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Poster",
+  },
+  {
+    image: Ads2,
+    title: "Poster Ads 2",
+    description: "Poster ad for effective message delivery.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Poster",
+  },
+  {
+    image: BrandAwareness1,
+    title: "Brand Awareness Campaign 1",
+    description: "Branding campaign for innovative marketing.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Branding",
+  },
+  {
+    image: BrandAwareness2,
+    title: "Brand Awareness Campaign 2",
+    description: "Branding campaign for creative solutions.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Branding",
+  },
+  {
+    image: BrandAwareness3,
+    title: "Brand Awareness Campaign 3",
+    description: "Branding campaign for marketing strategies.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Branding",
+  },
+  {
+    image: BrandAwareness4,
+    title: "Brand Awareness Campaign 4",
+    description: "Branding campaign for design solutions.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Branding",
+  },
+  {
+    image: BrandAwareness5,
+    title: "Brand Awareness Campaign 5",
+    description: "Branding campaign for business growth.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Branding",
+  },
+  {
+    image: Newspaper1,
+    title: "I was Reincarnated as the 7th Prince",
+    description: "Newspaper layout for a fantasy series.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Newspaper2,
+    title: "About Me Newspaper",
+    description: "Personal newspaper-style layout.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Newspaper3,
+    title: "Newspaper About Upgrading the Business",
+    description: "Business upgrade newspaper layout.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Newspaper4,
+    title: "Oggy And The Cockroaches",
+    description: "Newspaper layout for a cartoon feature.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Newspaper5,
+    title: "Santo Tomas Newspaper",
+    description: "Local news layout for Santo Tomas.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Newspaper6,
+    title: "Solo Leveling",
+    description: "Newspaper layout for a popular series.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Newspaper",
+  },
+  {
+    image: Shoes1,
+    title: "Shoe Design 1",
+    description: "Custom shoe design with modern aesthetics.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Shoe Design",
+  },
+  {
+    image: Shoes2,
+    title: "Shoe Design 2",
+    description: "Creative sneaker concept for urban style.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Shoe Design",
+  },
+  {
+    image: Shoes3,
+    title: "Shoe Design 3",
+    description: "Sporty shoe design with bold colorways.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Shoe Design",
+  },
+  {
+    image: Shoes4,
+    title: "Shoe Design 4",
+    description: "Minimalist shoe design for everyday wear.",
+    tags: ["Graphic Design"],
+    category: "graphic",
+    categoryLabel: "Graphic Design",
+    type: "Shoe Design",
+  },
+  // Insert UI/UX Design projects for Vtrack, Trireg, and LaborLinkz
+  {
+    image: VtrackMobile,
+    title: "Vtrack UI/UX Design (Mobile)",
+    description: "UI/UX design for the Vtrack mobile app, created in Figma. Focused on seamless user experience and modern interface for mobile. [View on Figma](https://www.figma.com/design/BBSDb1xjDozdEwui2vIAeb/VTRACK-Mobile?node-id=0-1&p=f&t=JuBJWG9TxUcwUFMD-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/BBSDb1xjDozdEwui2vIAeb/VTRACK-Mobile?node-id=0-1&p=f&t=JuBJWG9TxUcwUFMD-0",
+  },
+  {
+    image: TriregMobile,
+    title: "TriReg UI/UX Design (Mobile)",
+    description: "UI/UX design for the TriReg mobile app, crafted in Figma. Emphasized clean layouts and intuitive flows for mobile users. [View on Figma](https://www.figma.com/design/mO2Y5WmASDZNNuvSbEYtqs/TRIREG-NEW-MOBILE-APP?node-id=360-7&t=9EbKOhq0bAGZVN7q-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/mO2Y5WmASDZNNuvSbEYtqs/TRIREG-NEW-MOBILE-APP?node-id=360-7&t=9EbKOhq0bAGZVN7q-0",
+  },
+  {
+    image: LaborLinkz,
+    title: "LaborLinkz UI/UX Design (Mobile)",
+    description: "UI/UX design for the LaborLinkz mobile app, designed in Figma. Prioritized accessibility and engaging user journeys for mobile. [View on Figma](https://www.figma.com/design/rlsh7gKzyxvC7Kw1xdloK2/Laborlinkz?t=JuBJWG9TxUcwUFMD-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/rlsh7gKzyxvC7Kw1xdloK2/Laborlinkz?t=JuBJWG9TxUcwUFMD-0",
+  },
+  {
+    image: WebPortfolio4,
+    title: "Vtrack UI/UX Design (Web)",
+    description: "UI/UX design for the Vtrack web app, created in Figma. Focused on seamless user experience and modern interface for web. [View on Figma](https://www.figma.com/design/dNLjZlmTlTWOGJd4wpdK8I/VTRACK-Web-Prototype?node-id=0-1&p=f&t=JuBJWG9TxUcwUFMD-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/dNLjZlmTlTWOGJd4wpdK8I/VTRACK-Web-Prototype?node-id=0-1&p=f&t=JuBJWG9TxUcwUFMD-0",
+  },
+  {
+    image: WebPortfolio3,
+    title: "TriReg UI/UX Design (Web)",
+    description: "UI/UX design for the TriReg web app, crafted in Figma. Emphasized clean layouts and intuitive flows for web users. [View on Figma](https://www.figma.com/design/tukviOiiuBGE4KOeuECMnI/TRIREG-NEW?t=9EbKOhq0bAGZVN7q-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/tukviOiiuBGE4KOeuECMnI/TRIREG-NEW?t=9EbKOhq0bAGZVN7q-0",
+  },
+  {
+    image: ProAssisting,
+    title: "Pro Assisting UI/UX Design (Web)",
+    description: "UI/UX design for the Pro Assisting web app, created in Figma. Focused on professional workflows and intuitive user experience for web. [View on Figma](https://www.figma.com/design/gSL72RPA5UYsFqi2iAAsHA/Pro-Assisting?t=9EbKOhq0bAGZVN7q-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/gSL72RPA5UYsFqi2iAAsHA/Pro-Assisting?t=9EbKOhq0bAGZVN7q-0",
+  },
+  {
+    image: Brioray,
+    title: "Brioray UI/UX Design (Web)",
+    description: "UI/UX design for the Brioray web app, created in Figma. Focused on modern aesthetics and user-friendly web experience. [View on Figma](https://www.figma.com/design/your-brioray-figma-link)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/your-brioray-figma-link",
+  },
+];
+
+const FILTERS = [
+  { key: "all", label: "All Projects" },
+  { key: "frontend", label: "Front-End" },
+  { key: "uiux", label: "UX/UI Design" },
+  { key: "graphic", label: "Graphic Design" },
+];
+
+const CATEGORY_COLORS = {
+  "Front-End": "text-blue-600 bg-blue-50",
+  "UX/UI Design": "text-pink-600 bg-pink-50",
+  "Graphic Design": "text-green-600 bg-green-50",
+};
+
+// Badge color maps
+// Remove PLATFORM_COLORS and TYPE_COLORS
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [expandedImage, setExpandedImage] = useState({ src: null, alt: null });
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-  const [selectedCategory, setSelectedCategory] = useState('frontend'); // 'frontend' or 'graphic'
-  // Add state to control visibility of each section
-  const [visibleSections, setVisibleSections] = useState({
-    book: true,
-    ad: true,
-    newspaper: true,
-    shoes: true,
-    car: true,
-    brand: true,
-    nba: true,
-  });
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [modalImage, setModalImage] = useState(null);
+  let filtered =
+    activeFilter === "all"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === activeFilter);
+  // If UX/UI Design is selected, show nothing (blank)
 
-  // Add touch event handlers for mobile
-  const handleTouchStart = (e) => {
-    const touch = e.touches[0];
-    setTouchStart(touch.clientX);
+  // Tech icon mapping
+  const techIcons = {
+    'React': <FaReact className="text-blue-400" title="React" />, 
+    'React Native': <FaMobileAlt className="text-blue-400" title="React Native" />,
+    'Mobile UI/UX': <FaPalette className="text-blue-300" title="Mobile UI/UX" />,
+    'Redux': <SiRedux className="text-purple-400" title="Redux" />,
+    'Performance Optimization': <FaRocket className="text-blue-300" title="Performance Optimization" />,
+    'Freelancing Platform': <FaUserFriends className="text-blue-300" title="Freelancing Platform" />,
+    'Job Matching': <FaUserFriends className="text-blue-300" title="Job Matching" />,
+    'Mobile Development': <FaMobileAlt className="text-blue-400" title="Mobile Development" />,
+    'Tailwind CSS': <SiTailwindcss className="text-cyan-400" title="Tailwind CSS" />,
+    'Modern UI/UX': <FaPalette className="text-blue-300" title="Modern UI/UX" />,
+    'Performance': <FaRocket className="text-blue-300" title="Performance" />,
+    'JavaScript': <SiJavascript className="text-yellow-400" title="JavaScript" />,
+    'Firebase': <SiFirebase className="text-orange-400" title="Firebase" />,
   };
-
-  const handleTouchMove = (e) => {
-    if (!touchStart) return;
-    
-    const touch = e.touches[0];
-    const diff = touchStart - touch.clientX;
-    
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
-      if (diff > 0) {
-        handleNextImage();
-      } else {
-        handlePrevImage();
-      }
-      setTouchStart(null);
-    }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const mobileProjects = [
-    {
-      title: 'Marians Mobile App',
-      description: 'Developed a mobile application for Marians, featuring a modern UI/UX design and seamless user experience.',
-      mainImage: Marians,
-      images: [Marians],
-      tech: ['React Native', 'Mobile UI/UX', 'State Management', 'Performance Optimization'],
-      features: [
-        'Modern and intuitive interface',
-        'Smooth animations and transitions',
-        'Responsive design for all devices',
-        'Offline functionality',
-        'Real-time updates'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'LaborLinkz',
-      description: 'Building Community Through Freelancing Platform',
-      mainImage: LaborLinkz,
-      images: [LaborLinkz],
-      tech: ['React Native', 'Freelancing Platform', 'Job Matching', 'Mobile Development'],
-      features: [
-        'Job matching for blue-collar workers',
-        'Admin, client, and worker roles',
-        'Login, search, notifications, rating, and activity tracking',
-        'User management and account verification',
-        'Simple, responsive, and mobile-friendly design'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Quiz Whirl App',
-      description: 'Built an interactive quiz app with multiple question types and score tracking. Designed a responsive and engaging UI using React Native.',
-      mainImage: QuizWhirl,
-      images: [QuizWhirl],
-      tech: ['React Native', 'Mobile UI/UX', 'State Management', 'Performance Optimization'],
-      features: [
-        'Multiple question types support',
-        'Real-time score tracking',
-        'Responsive design for all devices',
-        'Smooth animations and transitions',
-        'Offline functionality'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const brandProjects = [
-    {
-      title: 'Brand Awareness Campaign 1',
-      description: 'A comprehensive brand awareness campaign showcasing innovative marketing strategies and creative design solutions.',
-      mainImage: BrandAwareness1,
-      images: [BrandAwareness1],
-      tech: ['Marketing', 'Brand Strategy', 'Social Media', 'Design'],
-      features: [
-        'Strategic brand positioning',
-        'Social media campaign management',
-        'Content creation and curation',
-        'Analytics and performance tracking',
-        'Cross-platform integration'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Brand Awareness Campaign 2',
-      description: 'A comprehensive brand awareness campaign showcasing innovative marketing strategies and creative design solutions.',
-      mainImage: BrandAwareness2,
-      images: [BrandAwareness2],
-      tech: ['Marketing', 'Brand Strategy', 'Social Media', 'Design'],
-      features: [
-        'Strategic brand positioning',
-        'Social media campaign management',
-        'Content creation and curation',
-        'Analytics and performance tracking',
-        'Cross-platform integration'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Brand Awareness Campaign 3',
-      description: 'A comprehensive brand awareness campaign showcasing innovative marketing strategies and creative design solutions.',
-      mainImage: BrandAwareness3,
-      images: [BrandAwareness3],
-      tech: ['Marketing', 'Brand Strategy', 'Social Media', 'Design'],
-      features: [
-        'Strategic brand positioning',
-        'Social media campaign management',
-        'Content creation and curation',
-        'Analytics and performance tracking',
-        'Cross-platform integration'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Brand Awareness Campaign 4',
-      description: 'A comprehensive brand awareness campaign showcasing innovative marketing strategies and creative design solutions.',
-      mainImage: BrandAwareness4,
-      images: [BrandAwareness4],
-      tech: ['Marketing', 'Brand Strategy', 'Social Media', 'Design'],
-      features: [
-        'Strategic brand positioning',
-        'Social media campaign management',
-        'Content creation and curation',
-        'Analytics and performance tracking',
-        'Cross-platform integration'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Brand Awareness Campaign 5',
-      description: 'A comprehensive brand awareness campaign showcasing innovative marketing strategies and creative design solutions.',
-      mainImage: BrandAwareness5,
-      images: [BrandAwareness5],
-      tech: ['Marketing', 'Brand Strategy', 'Social Media', 'Design'],
-      features: [
-        'Strategic brand positioning',
-        'Social media campaign management',
-        'Content creation and curation',
-        'Analytics and performance tracking',
-        'Cross-platform integration'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const bookProjects = [
-    {
-      title: 'The Devil Behind the Mask',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover1,
-      images: [BookCover1],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'The Man Out of Time',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover2,
-      images: [BookCover2],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Learn Graphic Design Easily',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover3,
-      images: [BookCover3],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'The Evil Forest',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover4,
-      images: [BookCover4],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'The Final Path',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover5,
-      images: [BookCover5],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'The Vanishing Mountain',
-      description: 'A collection of book cover designs showcasing creative typography and visual storytelling for various genres.',
-      mainImage: BookCover6,
-      images: [BookCover6],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Genre-specific design approaches',
-        'Custom typography solutions',
-        'Digital and print-ready artwork',
-        'Market research integration',
-        'Client collaboration process'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const adProjects = [
-    {
-      title: 'Poster Ads 1',
-      description: 'Creative poster advertisements designed to capture attention and convey messages effectively.',
-      mainImage: Ads1,
-      images: [Ads1],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Eye-catching visuals',
-        'Clear message delivery',
-        'Strategic placement',
-        'Target audience focus',
-        'Brand consistency'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Poster Ads 2',
-      description: 'Creative poster advertisements designed to capture attention and convey messages effectively.',
-      mainImage: Ads2,
-      images: [Ads2],
-      tech: ['Design', 'Typography', 'Illustration', 'Print'],
-      features: [
-        'Eye-catching visuals',
-        'Clear message delivery',
-        'Strategic placement',
-        'Target audience focus',
-        'Brand consistency'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const newspaperProjects = [
-    {
-      title: 'I was Reincarnated as the 7th Prince',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper1,
-      images: [Newspaper1],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'About Me Newspaper',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper2,
-      images: [Newspaper2],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Newspaper About Upgrading the Business',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper3,
-      images: [Newspaper3],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Oggy And The Cockroaches',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper4,
-      images: [Newspaper4],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Santo Tomas Newspaper',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper5,
-      images: [Newspaper5],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Solo Leveling',
-      description: 'Professional newspaper layouts and designs for various publications.',
-      mainImage: Newspaper6,
-      images: [Newspaper6],
-      tech: ['Layout Design', 'Typography', 'Print', 'Editorial Design'],
-      features: [
-        'Clean and readable layouts',
-        'Hierarchical information design',
-        'Print optimization',
-        'Editorial consistency',
-        'Space management'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const webProjects = [
-    {
-      title: 'We Comply ',
-      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
-      mainImage: WebPortfolio1,
-      images: [WebPortfolio1],
-      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
-      features: [
-        'Responsive layout',
-        'Modern design elements',
-        'Smooth animations',
-        'Performance optimization',
-        'Cross-browser compatibility'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Personal Portfolio',
-      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
-      mainImage: WebPortfolio2,
-      images: [WebPortfolio2],
-      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
-      features: [
-        'Responsive layout',
-        'Modern design elements',
-        'Smooth animations',
-        'Performance optimization',
-        'Cross-browser compatibility'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'TriReg',
-      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
-      mainImage: WebPortfolio3,
-      images: [WebPortfolio3],
-      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
-      features: [
-        'Responsive layout',
-        'Modern design elements',
-        'Smooth animations',
-        'Performance optimization',
-        'Cross-browser compatibility'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Vtrack',
-      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
-      mainImage: WebPortfolio4,
-      images: [WebPortfolio4],
-      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
-      features: [
-        'Responsive layout',
-        'Modern design elements',
-        'Smooth animations',
-        'Performance optimization',
-        'Cross-browser compatibility'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Personal Portfolio 2',
-      description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
-      mainImage: WebPortfolio5,
-      images: [WebPortfolio5],
-      tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
-      features: [
-        'Responsive layout',
-        'Modern design elements',
-        'Smooth animations',
-        'Performance optimization',
-        'Cross-browser compatibility'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const shoesProjects = [
-    {
-      title: 'Shoe Design 1',
-      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
-      mainImage: Shoes1,
-      images: [Shoes1],
-      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
-      features: [
-        'Modern design elements',
-        'Ergonomic considerations',
-        'Material selection',
-        'Color coordination',
-        'Brand alignment'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Shoe Design 2',
-      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
-      mainImage: Shoes2,
-      images: [Shoes2],
-      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
-      features: [
-        'Modern design elements',
-        'Ergonomic considerations',
-        'Material selection',
-        'Color coordination',
-        'Brand alignment'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Shoe Design 3',
-      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
-      mainImage: Shoes3,
-      images: [Shoes3],
-      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
-      features: [
-        'Modern design elements',
-        'Ergonomic considerations',
-        'Material selection',
-        'Color coordination',
-        'Brand alignment'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Shoe Design 4',
-      description: 'Creative shoe design showcasing modern aesthetics and innovative concepts.',
-      mainImage: Shoes4,
-      images: [Shoes4],
-      tech: ['Design', '3D Modeling', 'Color Theory', 'Material Design'],
-      features: [
-        'Modern design elements',
-        'Ergonomic considerations',
-        'Material selection',
-        'Color coordination',
-        'Brand alignment'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-  const CarProjects = [
-    {
-      title: '911 Carrera',
-      description: 'Porsche 911 Carrera is a sports car known for its blend of performance, luxury, and a distinctive design.',
-      mainImage: CAR1,
-      images: [CAR1],
-      tech: ['Marketing', 'Social Media', 'Design'],
-      features: [
-        '3.0L twin-turbocharged flat-6 engine',
-        'Rear-wheel drive',
-        '8-speed Porsche Doppelkupplung (PDK) transmission',
-        'Premium interior finishes',
-        'Advanced driver assistance systems'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: '911 Targa 4 GTS',
-      description: 'The Porsche 911 Targa 4 GTS combines the iconic Targa design with enhanced performance and luxury features.',
-      mainImage: CAR2,
-      images: [CAR2],
-      tech: ['Marketing', 'Social Media', 'Design'],
-      features: [
-        '3.0L twin-turbocharged flat-6 engine',
-        'All-wheel drive system',
-        'Unique Targa roof design',
-        'Sport-tuned suspension',
-        'GTS-specific styling elements'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: '911 Turbo',
-      description: 'The Porsche 911 Turbo represents the pinnacle of performance, combining raw power with everyday usability.',
-      mainImage: CAR3,
-      images: [CAR3],
-      tech: ['Marketing', 'Social Media', 'Design'],
-      features: [
-        '3.8L twin-turbocharged flat-6 engine',
-        'All-wheel drive system',
-        'Active aerodynamics',
-        'Porsche Ceramic Composite Brakes',
-        'Adaptive aerodynamics'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'Ford Mustang Shelby',
-      description: 'The Ford Mustang Shelby is a high-performance variant of the iconic Mustang, featuring enhanced power and handling.',
-      mainImage: CAR4,
-      images: [CAR4],
-      tech: ['Marketing', 'Social Media', 'Design'],
-      features: [
-        'Supercharged V8 engine',
-        'Track-focused suspension',
-        'Aggressive aerodynamics',
-        'Shelby-specific styling',
-        'High-performance braking system'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: '911 GT3 RS',
-      description: 'The Porsche 911 GT3 RS is a track-focused supercar that brings race car technology to the road.',
-      mainImage: CAR5,
-      images: [CAR5],
-      tech: ['Marketing', 'Social Media', 'Design'],
-      features: [
-        '4.0L naturally aspirated flat-6 engine',
-        'Rear-wheel drive',
-        'Advanced aerodynamics package',
-        'Lightweight construction',
-        'Track-focused suspension setup'
-      ],
-      github: '#',
-      live: '#'
-    }
-  ];
-
-  const nbaProjects = [
-    {
-      title: 'NBA Poster 1',
-      description: 'NBA themed poster design showcasing dynamic composition and vibrant colors.',
-      mainImage: Nba1,
-      images: [Nba1],
-      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
-      features: [
-        'Dynamic composition',
-        'Vibrant color palette',
-        'Sports theme',
-        'High-resolution print',
-        'Fan engagement'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'NBA Poster 2',
-      description: 'NBA themed poster design with a focus on player action and energy.',
-      mainImage: nba2,
-      images: [nba2],
-      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
-      features: [
-        'Action-oriented design',
-        'Energetic layout',
-        'Player focus',
-        'Bold typography',
-        'Fan appeal'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'NBA Poster 3',
-      description: 'NBA themed poster design with creative use of space and team branding.',
-      mainImage: nba3,
-      images: [nba3],
-      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
-      features: [
-        'Creative use of space',
-        'Team branding',
-        'Modern aesthetics',
-        'High-impact visuals',
-        'Collectible design'
-      ],
-      github: '#',
-      live: '#'
-    },
-    {
-      title: 'NBA Poster 4',
-      description: 'NBA themed poster design with a unique artistic style and memorable imagery.',
-      mainImage: nba4,
-      images: [nba4],
-      tech: ['Design', 'Sports', 'Poster', 'Illustration'],
-      features: [
-        'Unique artistic style',
-        'Memorable imagery',
-        'Basketball culture',
-        'Limited edition',
-        'Fan favorite'
-      ],
-      github: '#',
-      live: '#'
-    },
-  ];
-
-  // Group projects for the two sections
-  const frontEndProjects = [
-    ...mobileProjects,
-    ...webProjects
-  ];
-  const graphicDesignProjects = [
-    ...brandProjects,
-    ...bookProjects,
-    ...adProjects,
-    ...newspaperProjects,
-    ...shoesProjects,
-    ...CarProjects,
-    ...nbaProjects
-  ];
-
-  const handleExpandImage = (src, alt) => {
-    setExpandedImage({ src, alt });
-  };
-
-  const handleCollapseImage = () => {
-    setExpandedImage({ src: null, alt: null });
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === selectedProject.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? selectedProject.images.length - 1 : prev - 1
-    );
-  };
-
-  const handleCloseSection = (section) => {
-    setVisibleSections((prev) => ({ ...prev, [section]: false }));
-  };
-
-  // Parallax/tilt effect for enlarged image
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
-    setTilt({ x, y });
-  };
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
-      
-      <div className="projects-container relative z-10">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="space-y-16"
-        >
-          <div className="projects-header">
-            <motion.h2 variants={itemVariants} className="text-gray-900 dark:text-white">
-              My <span className="gradient-text">Projects</span>
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300">
-              Explore my creative journey through various projects and designs
-            </motion.p>
+    <section
+      className="min-h-screen py-24 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900"
+      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+    >
+      {/* Background decorative SVG dot pattern */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40 pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-full border border-blue-200/50 dark:border-blue-700/50 shadow-sm">
+            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Portfolio Showcase</span>
           </div>
-
-          {/* Category Toggle Buttons */}
-          <div className="flex justify-center gap-6 my-12">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 dark:from-white dark:via-blue-200 dark:to-blue-400 tracking-tight">My Projects</h1>
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+            Explore a curated selection of my most impactful work in front-end development and graphic design. Each project highlights my commitment to quality, creativity, and user experience.
+          </p>
+        </div>
+        {/* Filter Bar */}
+        <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          {FILTERS.map((f) => (
             <button
-              className={`px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all duration-200 outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 border border-transparent ${selectedCategory === 'frontend' ? 'scale-105 bg-blue-600 text-white shadow-2xl' : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 hover:shadow-xl'}`}
-              onClick={() => setSelectedCategory('frontend')}
+              key={f.key}
+              className={`px-6 py-2 rounded-full font-semibold text-base transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400 focus-visible:ring-offset-2 border border-transparent shadow-md backdrop-blur-md flex items-center gap-2 ${
+                activeFilter === f.key
+                  ? "bg-blue-600 text-white scale-105 shadow-2xl animate-pulse"
+                  : "bg-gray-100 text-gray-800 hover:bg-blue-50 hover:text-blue-700"
+              }`}
+              onClick={() => setActiveFilter(f.key)}
               tabIndex={0}
-              aria-pressed={selectedCategory === 'frontend'}
+              aria-pressed={activeFilter === f.key}
+              aria-label={`Show ${f.label}`}
             >
-              Front-End Developer
+              {/* Add icons for each filter */}
+              {f.key === 'all' && <FaReact className="text-blue-400" />}
+              {f.key === 'frontend' && <FaReact className="text-blue-400" />}
+              {f.key === 'uiux' && <FaPalette className="text-pink-400" />}
+              {f.key === 'graphic' && <FaPalette className="text-green-400" />}
+              {f.label}
             </button>
-            <button
-              className={`px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all duration-200 outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 border border-transparent ${selectedCategory === 'graphic' ? 'scale-105 bg-blue-600 text-white shadow-2xl' : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:scale-105 hover:shadow-xl'}`}
-              onClick={() => setSelectedCategory('graphic')}
+          ))}
+        </div>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filtered.length === 0 && activeFilter === "uiux" && (
+            <div className="col-span-3 text-center text-gray-400 text-lg py-24">No UX/UI Design projects yet. Upload coming soon.</div>
+          )}
+          {filtered.map((project, idx) => (
+            <div
+              key={idx}
+              className="relative group bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md rounded-3xl shadow-md hover:shadow-xl border border-gray-200 dark:border-neutral-700 flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] focus-within:ring-2 focus-within:ring-gray-400 outline-none cursor-pointer"
               tabIndex={0}
-              aria-pressed={selectedCategory === 'graphic'}
+              aria-label={`View details for ${project.title}`}
+              style={{ minHeight: "400px" }}
             >
-              Graphic Designer
-            </button>
-          </div>
-
-          {/* Projects Section (grouped by type) */}
-          {selectedCategory === 'frontend' && (
-            <motion.div variants={itemVariants} className="projects-section">
-              <h3 className="section-title text-2xl font-extrabold mb-8 tracking-tight text-center">Front-End Developer</h3>
-              <div className="mb-12">
-                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Mobile Projects</h4>
-                <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {mobileProjects.map((project, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
+              {/* Card gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-blue-900 dark:via-blue-950 dark:to-blue-900 opacity-0 group-hover:opacity-60 transition-all duration-500 rounded-3xl z-10 pointer-events-none" />
+              <div className="relative z-10 flex-1 flex flex-col">
+                <div className="relative aspect-video bg-gray-100 dark:bg-neutral-800 flex items-center justify-center overflow-hidden rounded-t-3xl cursor-zoom-in group/image"
+                  onClick={() => setModalImage(project.image)}
+                  title="Click to view full image"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-48 sm:h-56 rounded-2xl transition-transform duration-300 group-hover/image:scale-105 shadow group-hover/image:shadow-lg"
+                  />
+                  {/* Category Label at top left */}
+                  <span
+                    className="absolute top-4 left-4 px-4 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-100 text-gray-700 border border-gray-300"
+                  >
+                    {project.categoryLabel}
+                  </span>
+                  {/* Platform/Type Badge - neutral style, no color */}
+                  {project.platform && (
+                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-200 text-gray-700 border border-gray-300">
+                      {project.platform}
+                    </span>
+                  )}
+                  {project.type && (
+                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-200 text-gray-700 border border-gray-300">
+                      {project.type}
+                    </span>
+                  )}
+                </div>
+                <div className="flex-1 flex flex-col p-6 gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-base mb-2 line-clamp-3">{project.description.replace(/\[.*?\]\(.*?\)/g, '')}</p>
+                  {/* Figma Button */}
+                  {project.figma && (
+                    <a
+                      href={project.figma}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-400 to-yellow-400 text-white font-semibold shadow hover:from-pink-600 hover:to-yellow-500 transition-all duration-200 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+                      style={{ width: 'fit-content' }}
                     >
-                      <div
-                        className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                        style={{ cursor: 'zoom-in' }}
-                        onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                      >
-                        <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                      </div>
-                      <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                        <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                        <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                        <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                          {project.tech.map((tech, idx) => (
-                            <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                      View on Figma
+                    </a>
+                  )}
+                  {/* Tech badges for front-end projects */}
+                  {project.category === "frontend" && project.tech && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {project.tech.map((tech, i) => (
+                        <span key={i} className="flex items-center gap-1 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-gray-300 shadow-sm">
+                          {techIcons[tech] || null}
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
-              <div>
-                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Web Projects</h4>
-                <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {webProjects.map((project, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                    >
-                      <div
-                        className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                        style={{ cursor: 'zoom-in' }}
-                        onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                      >
-                        <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                      </div>
-                      <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                        <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                        <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                        <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                          {project.tech.map((tech, idx) => (
-                            <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
-          {selectedCategory === 'graphic' && (
-            <motion.div variants={itemVariants} className="projects-section">
-              <h3 className="section-title text-2xl font-extrabold mb-8 tracking-tight text-center">Graphic Designer</h3>
-
-              {/* Book Cover Projects */}
-              {visibleSections.book && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Book Cover Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {bookProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Ad Projects */}
-              {visibleSections.ad && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Ad Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {adProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Newspaper Projects */}
-              {visibleSections.newspaper && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Newspaper Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {newspaperProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Shoe Design Projects */}
-              {visibleSections.shoes && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Shoe Design Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {shoesProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Car Design Projects */}
-              {visibleSections.car && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Car Design Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {CarProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* NBA Projects */}
-              {visibleSections.nba && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">NBA Poster Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {nbaProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Brand Awareness Projects (moved below) */}
-              {visibleSections.brand && (
-                <div className="mb-12">
-                  <h4 className="text-xl font-bold mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">Brand Awareness Projects</h4>
-                  <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {brandProjects.map((project, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="project-card bg-white dark:bg-slate-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer flex flex-col overflow-hidden border border-gray-100 dark:border-gray-700 focus-within:ring-4 focus-within:ring-blue-400 focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-slate-900 group scale-100 hover:scale-[1.035] focus:scale-[1.035] will-change-transform animate-fadeInUp"
-                      >
-                        <div
-                          className="project-image aspect-video bg-gray-100 dark:bg-gray-900 flex items-center justify-center overflow-hidden group rounded-t-3xl transition-transform duration-300 group-hover:scale-105 group-focus:scale-105 will-change-transform"
-                          style={{ cursor: 'zoom-in' }}
-                          onClick={e => { e.stopPropagation(); handleExpandImage(project.mainImage, project.title); }}
-                        >
-                          <img src={project.mainImage} alt={project.title} className="object-cover w-full h-56 sm:h-64 rounded-2xl" />
-                        </div>
-                        <div className="project-content p-7 flex-1 flex flex-col gap-2">
-                          <h3 className="project-title text-2xl font-black mb-1 text-gray-900 dark:text-white tracking-tight leading-tight">{project.title}</h3>
-                          <p className="project-description text-gray-600 dark:text-gray-300 mb-2 flex-1 text-lg leading-relaxed tracking-wide">{project.description}</p>
-                          <div className="project-tech flex flex-wrap gap-2 mt-auto">
-                            {project.tech.map((tech, idx) => (
-                              <span key={idx} className="tech-tag bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-4 py-1 rounded-full text-sm font-semibold shadow-sm tracking-wide">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          )}
-        </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <AnimatePresence>
-        {expandedImage.src && (
-          <motion.div
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(8px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            transition={{ opacity: { duration: 0.25 }, backdropFilter: { duration: 0.4 } }}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              zIndex: 100,
-              background: 'rgba(0,0,0,0.7)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-              overflow: 'hidden',
-            }}
-            onClick={handleCollapseImage}
-          >
-            <motion.img
-              src={expandedImage.src}
-              alt={expandedImage.alt}
-              initial={{ scale: 0.7, opacity: 0 }}
-              animate={{
-                scale: 1,
-                opacity: 1,
-                boxShadow: '0 12px 48px 0 rgba(0,0,0,0.45)',
-                border: '3px solid rgba(255,255,255,0.18)',
-              }}
-              exit={{ scale: 0.7, opacity: 0, boxShadow: '0 0 0 0 rgba(0,0,0,0)', border: '3px solid rgba(255,255,255,0)' }}
-              transition={{ type: 'spring', stiffness: 220, damping: 22, opacity: { duration: 0.2 } }}
-              style={{
-                maxHeight: '90vh',
-                maxWidth: '90vw',
-                objectFit: 'contain',
-                cursor: 'zoom-out',
-                margin: 'auto',
-                display: 'block',
-                background: 'transparent',
-                borderRadius: '1.25rem',
-                boxShadow: '0 12px 48px 0 rgba(0,0,0,0.45)',
-                border: '3px solid rgba(255,255,255,0.18)',
-                transform: `rotateY(${tilt.x * 8}deg) rotateX(${-tilt.y * 8}deg)`
-              }}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              onClick={e => { e.stopPropagation(); handleExpandImage(expandedImage.src, expandedImage.alt); }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Image Modal */}
+      <ImageModal image={modalImage} onClose={() => setModalImage(null)} />
     </section>
   );
 };
