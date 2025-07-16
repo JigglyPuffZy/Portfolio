@@ -413,12 +413,12 @@ const PROJECTS = [
   {
     image: Brioray,
     title: "Brioray UI/UX Design (Web)",
-    description: "UI/UX design for the Brioray web app, created in Figma. Focused on modern aesthetics and user-friendly web experience. [View on Figma](https://www.figma.com/design/your-brioray-figma-link)",
+    description: "UI/UX design for the Brioray web app, created in Figma. Focused on modern aesthetics and user-friendly web experience. [View on Figma](https://www.figma.com/design/XVSqvw546Y7wON3PymZokB/Brioray?node-id=0-1&p=f&t=k9X840YzjxDVaPFx-0)",
     tags: ["UI/UX Design"],
     category: "uiux",
     categoryLabel: "UX/UI Design",
     type: "Web UI/UX",
-    figma: "https://www.figma.com/design/your-brioray-figma-link",
+    figma: "https://www.figma.com/design/XVSqvw546Y7wON3PymZokB/Brioray?node-id=0-1&p=f&t=k9X840YzjxDVaPFx-0",
   },
 ];
 

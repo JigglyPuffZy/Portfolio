@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaReact, FaJs, FaNodeJs, FaPython, FaFigma, FaGitAlt, FaPhotoVideo, FaCode } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiPostman } from 'react-icons/si';
+import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaPhotoVideo, FaCode } from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
 
@@ -13,7 +13,6 @@ const techStacks = [
   { name: 'Node.js', icon: <FaNodeJs color="#3C873A" size={38} /> },
   { name: 'Express', icon: <SiExpress color="#000000" size={38} /> },
   { name: 'MongoDB', icon: <SiMongodb color="#47A248" size={38} /> },
-  { name: 'Python', icon: <FaPython color="#3776AB" size={38} /> },
   { name: 'Figma', icon: <FaFigma color="#A259FF" size={38} /> },
   { name: 'Canva', icon: <SiCanva color="#00C4CC" size={38} /> },
   { name: 'Photoshop', icon: <SiAdobephotoshop color="#31A8FF" size={38} /> },
@@ -25,7 +24,6 @@ const tools = [
   { name: 'Git', icon: <FaGitAlt color="#F05032" size={38} /> },
   { name: 'VS Code', icon: <FaCode color="#007ACC" size={38} /> },
   { name: 'GitHub', icon: <SiGithub color="#181717" size={38} /> },
-  { name: 'Postman', icon: <SiPostman color="#FF6C37" size={38} /> },
   { name: 'Vite', icon: <SiVite color="#646CFF" size={38} /> },
 ];
 
