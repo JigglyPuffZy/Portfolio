@@ -38,6 +38,11 @@ import TriregMobile from "../../assets/img/Trireg.png";
 import VtrackMobile from "../../assets/img/Vtrack.png";
 import ProAssisting from "../../assets/img/proassisting.png";
 import Brioray from "../../assets/img/brioray.png";
+import Car1 from "../../assets/img/Car1.png";
+import Car2 from "../../assets/img/Car2.png";
+import Car3 from "../../assets/img/Car3.png";
+import Car4 from "../../assets/img/Car4.png";
+import Car5 from "../../assets/img/Car5.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
@@ -350,7 +355,7 @@ const PROJECTS = [
     type: "Shoe Design",
   },
   {
-    image: require("../../assets/img/Car1.png"),
+    image: Car1,
     title: "911 Carrera",
     description: "Photo manipulation and graphic edit of a Porsche 911 Carrera.",
     tags: ["Graphic Design"],
@@ -359,7 +364,7 @@ const PROJECTS = [
     type: "Car Edit",
   },
   {
-    image: require("../../assets/img/Car2.png"),
+    image: Car2,
     title: "911 Targa 4 GTS",
     description: "Creative car edit for the Porsche 911 Targa 4 GTS.",
     tags: ["Graphic Design"],
@@ -368,7 +373,7 @@ const PROJECTS = [
     type: "Car Edit",
   },
   {
-    image: require("../../assets/img/Car3.png"),
+    image: Car3,
     title: "911 Turbo",
     description: "Stylized graphic design of a Porsche 911 Turbo.",
     tags: ["Graphic Design"],
@@ -377,7 +382,7 @@ const PROJECTS = [
     type: "Car Edit",
   },
   {
-    image: require("../../assets/img/Car4.png"),
+    image: Car4,
     title: "Ford Mustang Shelby",
     description: "Photo manipulation and creative edit of a Ford Mustang Shelby.",
     tags: ["Graphic Design"],
@@ -386,7 +391,7 @@ const PROJECTS = [
     type: "Car Edit",
   },
   {
-    image: require("../../assets/img/Car5.png"),
+    image: Car5,
     title: "911 GT3 RS",
     description: "Graphic design and color grading for a Porsche 911 GT3 RS.",
     tags: ["Graphic Design"],
