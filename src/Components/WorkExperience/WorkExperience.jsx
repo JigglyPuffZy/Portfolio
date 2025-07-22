@@ -243,7 +243,7 @@ const WorkExperience = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 40 }}
                   transition={{ duration: 0.4 }}
-                  className="absolute inset-0 z-30 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-7 flex flex-col overflow-y-auto border-2 border-blue-200 dark:border-blue-800"
+                  className="absolute inset-0 z-30 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-7 flex flex-col overflow-y-auto border-2 border-blue-200 dark:border-blue-800 custom-scrollbar"
                   style={{ maxHeight: '540px' }}
                   onClick={e => e.stopPropagation()}
                 >
@@ -266,17 +266,9 @@ const WorkExperience = () => {
                     <ul className="list-disc pl-5 space-y-2">
                       {job.responsibilities.map((resp, i) => (
                         <li key={i} className="text-gray-800 dark:text-gray-200 text-base">{resp}</li>
-                                ))}
-                              </ul>
-                            </div>
-                  <div className="mb-5">
-                    <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">Key Achievements:</h4>
-                              <ul className="flex flex-wrap gap-2 mb-4">
-                      {job.achievements.map((ach, i) => (
-                        <li key={i} className="px-3 py-1 bg-green-100/70 dark:bg-green-900/50 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 text-xs rounded-full shadow font-semibold">{ach}</li>
-                                ))}
-                              </ul>
-                            </div>
+                    ))}
+                    </ul>
+                  </div>
                   <div className="flex justify-end">
                     <motion.button
                       whileTap={{ scale: 0.97 }}
@@ -286,7 +278,7 @@ const WorkExperience = () => {
                       Close
                     </motion.button>
                   </div>
-                          </motion.div>
+                </motion.div>
                         )}
                       </AnimatePresence>
           </motion.div>
