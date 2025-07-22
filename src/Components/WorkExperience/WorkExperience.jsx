@@ -6,208 +6,164 @@ import './WorkExperience.css';
   const workExperience = [
     {
       id: 1,
-      company: "Freelance",
-      position: "Front-End Developer (React Native)",
+      company: "LaborLinkz",
+      position: "Front-End Developer & UI/UX Designer",
       location: "Remote",
       duration: "Nov 2023 - Jan 2024",
-      description: "Built the front end of Labor-Linkz, a job-matching app for blue-collar workers. Developed role-based UIs for admin, client, and worker users. Integrated login, job search, notification, rating, and activity tracking features. Ensured a clean, responsive, and user-friendly mobile experience. I was also the UI/UX designer for this project, creating the design in Figma.",
+      description: "Built a job-matching app for blue-collar workers. Created the UI in Figma and developed responsive, role-based interfaces for admin, client, and worker users.",
       responsibilities: [
-        "Developed role-based UIs for admin, client, and worker users",
-        "Integrated login, job search, notification, rating, and activity tracking features",
-        "Ensured a clean, responsive, and user-friendly mobile experience",
-        "Built comprehensive job matching system",
-        "Implemented mobile optimization strategies"
+        "Designed UI/UX in Figma for web and mobile",
+        "Developed responsive UIs for admin, client, and worker roles",
+        "Integrated login, job search, notification, rating, and activity tracking",
+        "Ensured accessibility and user-friendly design"
       ],
-      technologies: ["React Native", "JavaScript", "Mobile Development", "UI/UX Design"],
-      achievements: [
-        "Successfully delivered a complete job-matching platform",
-        "Implemented role-based access control for different user types",
-        "Created responsive and intuitive mobile interfaces"
-    ],
+      technologies: ["React Native", "Figma", "UI/UX Design", "Mobile/Web Development"],
+      achievements: [],
     },
     {
       id: 2,
-      company: "Freelance",
-      position: "Graphic Designer (Part Time at Upwork)",
+      company: "Upwork Projects",
+      position: "Graphic Designer",
       location: "Remote",
-      duration: "Jan 2024 - Feb 2024",
-      description: "Completed projects including logos and posters. Designed creative digital displays for online advertising for local businesses.",
+      duration: "Jan 2024 – Feb 2024",
+      description: "Designed visual assets including logos, posters, and digital ads for local clients' online marketing campaigns.",
       responsibilities: [
-        "Created logos and poster designs for various clients",
-        "Designed creative digital displays for online advertising",
-        "Worked with local businesses to meet their branding needs",
-        "Delivered high-quality visual content on tight deadlines"
+        "Delivered brand-aligned logos and promotional posters",
+        "Created digital ad displays optimized for online platforms",
+        "Met tight deadlines with consistent visual quality"
       ],
       technologies: ["Adobe Creative Suite", "Logo Design", "Poster Creation", "Digital Advertising"],
-      achievements: [
-        "Completed multiple successful projects on Upwork",
-        "Designed effective advertising materials for local businesses",
-        "Maintained high client satisfaction ratings"
-    ],
+      achievements: [],
     },
     {
       id: 3,
-      company: "Freelance",
-      position: "Front-End Developer (React + Vite)",
+      company: "Together WeComply",
+      position: "Front-End Developer & UI/UX Designer",
       location: "Remote",
-      duration: "Mar 2024 - Jun 2024",
-      description: "Built the front end of Together WeComply, a system for automated school event attendance and sanctions. Designed a clean, responsive UI for students and admins. Added features like QR check-in, event logs, and auto-sanctioning. Focused on usability, performance, and mobile responsiveness.",
+      duration: "Mar 2024 – Jun 2024",
+      description: "Built a school attendance system with QR check-in and event logs. Designed the full UI in Figma and developed a clean, mobile-friendly experience.",
       responsibilities: [
-        "Designed a clean, responsive UI for students and admins",
-        "Implemented QR check-in system for event attendance",
-        "Developed event management and logging features",
-        "Created auto-sanctioning functionality",
-        "Ensured mobile responsiveness and optimal performance"
+        "Designed responsive UI for students and admins",
+        "Developed event check-in and logging features",
+        "Implemented front-end logic for sanction tracking",
+        "Focused on performance and usability"
       ],
-      technologies: ["React", "Vite", "QR Code System", "Event Management", "Auto-sanctioning"],
-      achievements: [
-        "Successfully implemented automated attendance tracking",
-        "Created efficient event management system",
-        "Delivered mobile-responsive solution for educational institutions"
-    ],
+      technologies: ["React", "Figma", "UI/UX Design", "QR Code System"],
+      achievements: [],
     },
     {
       id: 4,
-      company: "LGU Sto. Tomas",
-      position: "Social Media Manager",
-      location: "Sto. Tomas, Philippines",
-      duration: "Jun 2024 - Aug 2024",
-      description: "Served as Social Media Manager for the LGU of Sto. Tomas from June to August 2024, overseeing content creation, daily publication of official announcements, visual material design including banners and a book cover, email communications, and basic IT support to ensure consistent and effective public engagement.",
+      company: "Marian’s Pottery",
+      position: "Front-End Developer",
+      location: "Remote",
+      duration: "Aug 2024 – Oct 2024",
+      description: "Built a mobile shopping app using React Native and Expo Router, including payment flows, cart features, and order tracking.",
       responsibilities: [
-        "Edited banners, posters, and publication materials",
-        "Designed book covers for official publications",
-        "Posted daily announcements and updates physically and online",
-        "Managed official email communications",
-        "Provided basic computer troubleshooting and maintenance support"
+        "Developed shopping and checkout front-end",
+        "Integrated payment options (COD, GCash)",
+        "Optimized layout for cross-device usability"
       ],
-      technologies: ["Adobe Creative Suite", "Publication Design", "Communication Management", "IT Support"],
-      achievements: [
-        "Created professional publication materials for government use",
-        "Improved communication efficiency through digital platforms",
-        "Provided essential IT support to government operations"
-    ],
+      technologies: ["React Native", "Expo Router", "E-commerce"],
+      achievements: [],
     },
     {
       id: 5,
-      company: "Freelance",
-      position: "React JS Developer (Part Time)",
+      company: "Quiz Whirl App",
+      position: "Front-End Developer",
       location: "Remote",
-      duration: "Aug 2024 - Oct 2024",
-      description: "Developed the front end of a mobile e-commerce app using React Native and Expo Router, featuring product listings, shopping cart, payment options (COD, GCash), and order tracking with a focus on a smooth, user-friendly experience.",
+      duration: "Aug 2024 – Oct 2024",
+      description: "Developed an interactive mobile quiz app with multiple question types and responsive UI.",
       responsibilities: [
-        "Developed mobile e-commerce app with React Native and Expo Router",
-        "Implemented product listings, shopping cart, and payment systems",
-        "Ensured smooth, user-friendly mobile experiences across devices"
+        "Built front-end quiz flow with score tracking",
+        "Designed clean, mobile-friendly interfaces",
+        "Focused on responsiveness and smooth performance"
       ],
-      technologies: ["React Native", "Expo Router", "E-commerce Platform"],
-      achievements: [
-        "Successfully launched a mobile e-commerce application",
-        "Implemented comprehensive payment systems including COD and GCash"
-    ],
+      technologies: ["React Native", "Quiz Application", "Mobile Platform"],
+      achievements: [],
     },
     {
       id: 6,
-      company: "Freelance",
-      position: "React JS Developer (Part Time)",
-      location: "Remote",
-      duration: "Aug 2024 - Oct 2024",
-      description: "Quiz Whirl App: Built the front end of an interactive quiz app with multiple question types and score tracking. Designed a responsive and engaging UI using React Native, ensuring good performance across various mobile devices. Developed a mobile platform connecting blue-collar workers with local job opportunities, enhancing employment accessibility and supporting local economies.",
-      responsibilities: [
-        "Built the front end of an interactive quiz app with multiple question types and score tracking",
-        "Designed a responsive and engaging UI using React Native",
-        "Ensured good performance across various mobile devices",
-        "Developed a mobile platform connecting blue-collar workers with local job opportunities"
-      ],
-      technologies: ["React Native", "Quiz Application", "Mobile Platform"],
-      achievements: [
-        "Created an engaging quiz platform with score tracking functionality",
-        "Enhanced employment accessibility for blue-collar workers"
-    ],
-    },
-    {
-      id: 7,
       company: "DILG",
       position: "Secretary / Social Media Manager",
       location: "Philippines",
       duration: "Aug 2024 - Nov 2024",
-      description: "Served as Secretary and Social Media Manager for DILG from August to November 2024, handling official documentation and records while also managing social media content, designing digital materials for barangay and SK programs, and promoting local initiatives through engaging public service announcements and visual campaigns.",
+      description: "Supported both administrative and creative efforts for local government programs. Helped manage documentation while also contributing visual materials for SK and barangay campaigns.",
       responsibilities: [
-        "Assisted with documentation and organized official papers",
-        "Managed records and administrative tasks",
-        "Designed and edited posters and digital materials for government programs",
-        "Prepared visual content for community announcements and campaigns",
-        "Contributed to promoting local initiatives through engaging materials"
+        "Organized official documentation and managed records",
+        "Designed posters, digital content, and public announcements",
+        "Assisted in visual branding and storytelling for community initiatives"
       ],
       technologies: ["Documentation", "Digital Materials", "Community Outreach", "Administrative Support"],
-      achievements: [
-        "Improved documentation and record-keeping systems",
-        "Created effective visual materials for government programs",
-        "Enhanced community engagement through digital media"
-    ],
+      achievements: [],
+    },
+    {
+      id: 7,
+      company: "LGU Sto. Tomas",
+      position: "Social Media Manager / UI/UX Designer",
+      location: "Sto. Tomas, Philippines",
+      duration: "Jun 2024 - Aug 2024",
+      description: "Managed visual communications and UI designs for LGU Sto. Tomas. Led social media content, public-facing visuals, and contributed UI/UX support to internal systems.",
+      responsibilities: [
+        "Designed posters, banners, publication materials, and book covers",
+        "Posted daily announcements across physical and digital platforms",
+        "Contributed UI design improvements for internal digital tools",
+        "Managed email communications and basic IT support"
+      ],
+      technologies: ["Adobe Creative Suite", "UI/UX Design", "Publication Design", "IT Support"],
+      achievements: [],
     },
     {
       id: 8,
       company: "Caribbean LED Solutions",
-      position: "Digital Marketing Assistant (Work from Home)",
+      position: "Digital Marketing Assistant / UI/UX Designer",
       location: "Remote",
-      duration: "Nov 2024 - Apr 2025",
-      description: "Assisted the digital marketing team by creating visual content for brand awareness campaigns. Designed and edited promotional posters aligned with the company's branding and marketing goals. Produced montage-style videos showcasing the business, highlighting products and company achievements. Edited simple, educational video content for internal training and online courses. Contributed to increasing audience engagement through compelling visuals and informative content. I was also the UI/UX designer for the company's digital platforms, creating the design in Figma.",
+      duration: "Aug 2024 - Nov 2024",
+      description: "Created visual content, posters, and educational videos. Designed UIs in Figma for the company’s digital platforms, including the Brioray web interface used for internal branding and client communication.",
       responsibilities: [
         "Created visual content for brand awareness campaigns",
         "Designed and edited promotional posters aligned with company branding",
         "Produced montage-style videos showcasing business and products",
         "Edited educational video content for internal training",
+        "Designed the UI of Brioray using Figma",
         "Contributed to increasing audience engagement through compelling visuals"
       ],
-      technologies: ["Brand Awareness", "Video Production", "Content Creation", "Digital Marketing"],
-      achievements: [
-        "Increased brand visibility through effective visual campaigns",
-        "Created engaging video content for training and marketing",
-        "Improved audience engagement through compelling visual materials"
-    ],
+      technologies: ["Brand Awareness", "Video Production", "Content Creation", "UI/UX Design", "Figma"],
+      achievements: [],
     },
     {
       id: 9,
-      company: "Freelance",
-      position: "Web Developer (React + Vite)",
+      company: "TriReg Web & Mobile",
+      position: "Front-End Developer & UI/UX Designer",
       location: "Remote",
-      duration: "Apr 2025 - Jun 2025",
-      description: "Developed the front end of TriReg Web, a tricycle permit registration system, using React with Vite. Designed responsive and modular UI components with role-based access for LGU staff and treasury personnel. Integrated features such as QR code generation, receipt verification, and SMS notifications. Implemented modules for automated ID/permit sticker generation and report printing. Built interactive data dashboards to track tricycle registrations per barangay. Ensured high performance, smooth API integration, and mobile-friendly design. I was also the UI/UX designer for this project, creating the design in Figma.",
+      duration: "Aug 2024 - Nov 2024",
+      description: "Built a comprehensive tricycle permit registration platform for both web and mobile. Designed the UI in Figma and implemented the front-end using React + Vite, including dashboards, QR integration, and SMS-based notifications.",
       responsibilities: [
-        "Designed responsive and modular UI components with role-based access",
-        "Integrated QR code generation, receipt verification, and SMS notifications",
-        "Implemented automated ID/permit sticker generation and report printing",
-        "Built interactive data dashboards for tracking registrations",
-        "Ensured high performance, smooth API integration, and mobile-friendly design"
+        "Designed modular, role-based UI in Figma for web and mobile",
+        "Developed the front-end interface with React + Vite",
+        "Integrated QR code generation, receipt verification, and SMS workflows",
+        "Built dashboard views for tracking permits and registrations",
+        "Ensured high performance, accessibility, and responsive layout"
       ],
-      technologies: ["React", "Vite", "QR Code System", "Dashboard Analytics", "Automated Reports"],
-      achievements: [
-        "Successfully implemented comprehensive permit registration system",
-        "Created efficient automated reporting and notification systems",
-        "Built interactive dashboards for data visualization and tracking"
-    ],
+      technologies: ["React", "Vite", "Figma", "QR Code System", "Dashboard Analytics"],
+      achievements: [],
     },
     {
       id: 10,
-      company: "Freelance",
-      position: "Web Developer (React + Vite)",
+      company: "VTrack Web & Mobile",
+      position: "Front-End Developer & UI/UX Designer",
       location: "Remote",
-      duration: "May 2025 - Jun 2025",
-      description: "Developed the front end of VTrack, a violator tracking system for the PNP and LGU of Cabagan using React with Vite. Built secure, role-based interfaces with features like violation and payment tracking, citation management, and SMS/push notifications. Designed dashboards for visualizing violations and generating reports. Integrated automated fine computation based on municipal ordinances. Ensured fast performance, API integration, and mobile-friendly layout. I was also the UI/UX designer for this project, creating the design in Figma.",
+      duration: "Aug 2024 - Nov 2024",
+      description: "Designed and built the front-end for a violator tracking system used by LGUs and the PNP. Created dashboards and citation tools for both web and mobile using Figma, and implemented the UI in React + Vite.",
       responsibilities: [
-        "Built secure, role-based interfaces for law enforcement use",
-        "Implemented violation and payment tracking systems",
-        "Designed dashboards for visualizing violations and generating reports",
-        "Integrated automated fine computation based on municipal ordinances",
-        "Ensured fast performance, API integration, and mobile-friendly layout"
+        "Designed UI/UX in Figma for both mobile and web",
+        "Built role-based interfaces and citation tracking tools",
+        "Created dashboards for visualizing violations and fine reports",
+        "Integrated SMS alert interface (front-end only)",
+        "Ensured responsive, accessible performance across platforms"
       ],
-      technologies: ["React", "Vite", "Violation Tracking", "Payment System", "Automated Fines"],
-      achievements: [
-        "Created comprehensive law enforcement tracking system",
-        "Implemented automated fine computation for efficiency",
-        "Built secure interfaces for sensitive law enforcement data"
-    ],
-  },
+      technologies: ["React", "Vite", "Figma", "UI/UX Design", "Dashboard Analytics"],
+      achievements: [],
+    },
   ];
 
 const WorkExperience = () => {
@@ -349,7 +305,7 @@ const WorkExperience = () => {
               <motion.a
                 whileHover={{ scale: 1.06, background: 'linear-gradient(90deg,#2563eb,#7c3aed)' }}
                 whileTap={{ scale: 0.98 }}
-                href="/service"
+                href="/services"
                 className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg shadow-lg transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
                 View My Services
