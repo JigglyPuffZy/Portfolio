@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaPhotoVideo, FaCode } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub } from 'react-icons/si';
+import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
 
@@ -18,6 +18,8 @@ const techStacks = [
   { name: 'Photoshop', icon: <SiAdobephotoshop color="#31A8FF" size={38} /> },
   { name: 'DaVinci', icon: <SiDavinciresolve color="#FF9C00" size={38} /> },
   { name: 'CapCut', icon: <img src={CapcutLogo} alt="CapCut Logo" style={{ width: 38, height: 38, objectFit: 'contain' }} /> },
+  { name: 'WordPress', icon: <SiWordpress color="#21759B" size={38} /> },
+  { name: 'Webflow', icon: <SiWebflow color="#4353FF" size={38} /> },
 ];
 
 const tools = [

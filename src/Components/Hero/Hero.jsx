@@ -308,13 +308,14 @@ const Hero = () => {
             "Turning ideas into digital realities."
           </motion.p>
 
-          {/* Connect with Me Button */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7, type: 'spring' }}
-            className="flex justify-center mb-8 w-full"
+            className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-8 w-full"
           >
+            {/* Connect with Me Button */}
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"
               target="_blank"
@@ -324,6 +325,20 @@ const Hero = () => {
               <span className="relative flex items-center justify-center gap-2 w-full">
                 Connect with Me
                 <Mail className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
+
+            {/* My Resume Button */}
+            <a
+              href={resumeAvailable ? "/Resume New.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleResumeClick}
+              className="group relative inline-flex items-center justify-center px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-semibold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full sm:w-[200px] rounded-lg shadow bg-gradient-to-r from-green-500/80 to-green-700/80 hover:from-green-400 hover:to-green-600 hover:scale-105 hover:shadow-green-400/40 active:scale-95 border border-green-400/30 text-sm sm:text-base"
+            >
+              <span className="relative flex items-center justify-center gap-2 w-full">
+                My Resume
+                <FileText className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </a>
           </motion.div>
