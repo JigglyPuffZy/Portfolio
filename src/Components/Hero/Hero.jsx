@@ -44,7 +44,7 @@ const Hero = () => {
 
   // Check if resume is available
   useEffect(() => {
-    fetch('/Resume New.pdf')
+    fetch('/BEST.pdf')
       .then(response => {
         if (response.ok) {
           setResumeAvailable(true);
@@ -330,11 +330,11 @@ const Hero = () => {
 
             {/* My Resume Button */}
             <a
-              href={resumeAvailable ? "/Resume New.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
+              href={resumeAvailable ? "/BEST.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleResumeClick}
-              className="group relative inline-flex items-center justify-center px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-semibold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full sm:w-[200px] rounded-lg shadow bg-gradient-to-r from-green-500/80 to-green-700/80 hover:from-green-400 hover:to-green-600 hover:scale-105 hover:shadow-green-400/40 active:scale-95 border border-green-400/30 text-sm sm:text-base"
+              className="group relative inline-flex items-center justify-center px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-semibold text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full sm:w-[200px] rounded-lg shadow bg-gradient-to-r from-blue-500/80 to-blue-700/80 hover:from-blue-400 hover:to-blue-600 hover:scale-105 hover:shadow-blue-400/40 active:scale-95 border border-blue-400/30 text-sm sm:text-base"
             >
               <span className="relative flex items-center justify-center gap-2 w-full">
                 My Resume
