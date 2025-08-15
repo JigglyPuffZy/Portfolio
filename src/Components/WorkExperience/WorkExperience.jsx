@@ -164,6 +164,40 @@ import './WorkExperience.css';
       technologies: ["React", "Vite", "Figma", "UI/UX Design", "Dashboard Analytics"],
       achievements: [],
     },
+    {
+      id: 11,
+      company: "Lovato Electric",
+      position: "AI Chatbot Developer",
+      location: "Remote",
+      duration: "July 2025 - Aug 2025",
+      description: "Developed an AI-powered chatbot using Gemini technology to assist customers with product inquiries and support.",
+      responsibilities: [
+        "Designed and implemented chatbot conversation flows",
+        "Integrated Gemini API for natural language processing",
+        "Built RESTful APIs using Node.js and Express",
+        "Created responsive admin dashboard for chatbot management",
+        "Implemented analytics tracking for user interactions"
+      ],
+      technologies: ["Node.js", "Express", "Gemini API", "Chatbot Development", "RESTful APIs"],
+      achievements: [],
+    },
+    {
+      id: 12,
+      company: "Doctor Santi",
+      position: "AI Assistant Developer",
+      location: "Remote",
+      duration: "July 2025 - Aug 2025",
+      description: "Created a personal AI veterinarian assistant using ChatGPT 3.5 Turbo to provide pet health information and advice.",
+      responsibilities: [
+        "Developed AI assistant with medical knowledge base",
+        "Integrated ChatGPT 3.5 Turbo for natural conversations",
+        "Built RESTful APIs using Node.js and Express",
+        "Created user-friendly interface for pet owners",
+        "Implemented safety measures for medical disclaimer"
+      ],
+      technologies: ["Node.js", "Express", "ChatGPT API", "AI Assistant", "RESTful APIs"],
+      achievements: [],
+    },
   ];
 
 const WorkExperience = () => {

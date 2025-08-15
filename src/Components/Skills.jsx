@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaPhotoVideo, FaCode } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow } from 'react-icons/si';
+import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
 
 // Group skills into two sections: Tech Stacks and Tools
 const techStacks = [
   { name: 'React', icon: <FaReact color="#61DAFB" size={38} /> },
+  { name: 'Flutter', icon: <SiFlutter color="#02569B" size={38} /> },
   { name: 'JavaScript', icon: <FaJs color="#F7DF1E" size={38} /> },
   { name: 'Tailwind', icon: <SiTailwindcss color="#06B6D4" size={38} /> },
   { name: 'Framer Motion', icon: <SiFramer color="#E64AFF" size={38} /> },

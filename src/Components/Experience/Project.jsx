@@ -43,6 +43,7 @@ import Car2 from "../../assets/img/Car2.png";
 import Car3 from "../../assets/img/Car3.png";
 import Car4 from "../../assets/img/Car4.png";
 import Car5 from "../../assets/img/Car5.png";
+import DoctorSanti from "../../assets/img/doc santi.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
@@ -145,6 +146,16 @@ const PROJECTS = [
     categoryLabel: "Front-End",
     platform: "Mobile",
     tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+  },
+  {
+    image: DoctorSanti,
+    title: "Doctor Santi - AI Vet",
+    description: "Personal AI veterinarian assistant named Doctor Santi using ChatGPT 3.5 Turbo to provide pet health information and advice. Built with React Native for mobile devices. (July to Aug 2025)",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Mobile",
+    tech: ["React Native", "Mobile UI/UX", "AI Assistant", "ChatGPT API"],
   },
   // --- GRAPHIC DESIGN PROJECTS ---
   {

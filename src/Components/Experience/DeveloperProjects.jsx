@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaReact, FaMobileAlt, FaDatabase, FaPalette, FaRocket, FaUserFriends } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase } from 'react-icons/si';
+import { FaReact, FaMobileAlt, FaDatabase, FaPalette, FaRocket, FaUserFriends, FaNodeJs } from 'react-icons/fa';
+import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase, SiExpress, SiOpenai } from 'react-icons/si';
 import WebPortfolio1 from '../../assets/img/webportfolio1.png';
 import WebPortfolio2 from '../../assets/img/webportfolio2.png';
 import WebPortfolio3 from '../../assets/img/webportfolio3.png';
@@ -9,11 +9,13 @@ import WebPortfolio5 from '../../assets/img/webportfolio5.png';
 import Marians from '../../assets/img/Marian\'s.png';
 import LaborLinkz from '../../assets/img/LaborLinkz.png';
 import QuizWhirl from '../../assets/img/QuizWHirl.png';
+import LovatoElectric from '../../assets/img/lovato-electric.png';
+import DoctorSanti from '../../assets/img/doc santi.png';
 import ImageModal from '../ImageModal';
 
 // Icon mapping for tech stack
 const techIcons = {
-  'React': <FaReact className="text-blue-400" title="React" />, 
+  'React': <FaReact className="text-blue-400" title="React" />,
   'React Native': <FaMobileAlt className="text-blue-400" title="React Native" />,
   'Mobile UI/UX': <FaPalette className="text-blue-300" title="Mobile UI/UX" />,
   'State Management': <SiRedux className="text-purple-400" title="State Management" />,
@@ -24,6 +26,12 @@ const techIcons = {
   'Responsive Design': <SiTailwindcss className="text-cyan-400" title="Responsive Design" />,
   'Modern UI/UX': <FaPalette className="text-blue-300" title="Modern UI/UX" />,
   'Performance': <FaRocket className="text-blue-300" title="Performance" />,
+  'Node.js': <FaNodeJs className="text-green-500" title="Node.js" />,
+  'Express': <SiExpress className="text-gray-700" title="Express" />,
+  'Chatbot': <FaUserFriends className="text-blue-400" title="Chatbot" />,
+  'AI Assistant': <FaUserFriends className="text-blue-400" title="AI Assistant" />,
+  'Gemini API': <SiOpenai className="text-blue-500" title="Gemini API" />,
+  'ChatGPT API': <SiOpenai className="text-green-500" title="ChatGPT API" />,
 };
 
 const mobileProjects = [
@@ -44,6 +52,12 @@ const mobileProjects = [
     description: 'Built an interactive quiz app with multiple question types and score tracking. Designed a responsive and engaging UI using React Native.',
     mainImage: QuizWhirl,
     tech: ['React Native', 'Mobile UI/UX', 'State Management', 'Performance Optimization'],
+  },
+  {
+    title: 'Doctor Santi - AI Vet',
+    description: 'Personal AI veterinarian assistant named Doctor Santi using ChatGPT 3.5 Turbo to provide pet health information and advice. Built with React Native for mobile devices. (July to Aug 2025)',
+    mainImage: DoctorSanti,
+    tech: ['React Native', 'Mobile UI/UX', 'AI Assistant', 'ChatGPT API'],
   },
 ];
 
@@ -77,6 +91,12 @@ const webProjects = [
     description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
     mainImage: WebPortfolio5,
     tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+  },
+  {
+    title: 'Lovato Electric Chatbot',
+    description: 'AI-powered chatbot for Lovato Electric using Gemini technology to assist customers with product inquiries and support. Built with Node.js and Express. (July to Aug 2025)',
+    mainImage: LovatoElectric,
+    tech: ['Node.js', 'Express', 'Gemini API', 'Chatbot'],
   },
 ];
 
