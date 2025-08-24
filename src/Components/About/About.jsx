@@ -201,31 +201,29 @@ const AnimatedBackground = () => (
 const AboutIntro = () => (
   <SectionCard className="flex flex-col gap-8 items-center md:items-start text-center md:text-left mb-10" delay={0.05}>
     <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 dark:text-blue-100 mb-3 tracking-tight leading-tight drop-shadow-lg">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 dark:text-blue-100 mb-4 tracking-tight leading-tight drop-shadow-lg">
         About Me
       </h2>
-      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-5">
-        Hi, I’m <span className="font-bold text-blue-700 dark:text-blue-300">Ralph Matthew Delarosa Punzalan</span>, a Bachelor of Science in Information Technology graduate from the University of Saint Louis Tuguegarao. I’m passionate about turning digital ideas into reality—whether that’s through front-end development, UI/UX design, graphic design, or video editing.<br /><br />
-        My skill set covers a broad range: I build responsive web and mobile apps with React.js and React Native, design engaging user interfaces, create eye-catching graphics, and edit videos for digital campaigns. I love working on projects that blend creativity and technology, like developing mobile apps for job matching, designing posters for local businesses, or editing promotional videos for digital marketing.<br /><br />
-        My mission is simple: to create digital experiences that are not only beautiful and modern, but also intuitive and enjoyable for everyone who uses them.
+      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-6">
+        <span className="font-bold text-blue-700 dark:text-blue-300">Ralph Matthew Delarosa Punzalan</span> - BSIT graduate passionate about crafting digital experiences through code and design. I specialize in creating intuitive interfaces and functional applications using modern technologies.
       </p>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-blue-400 dark:border-blue-700 rounded-xl p-6 shadow flex flex-col gap-2">
-        <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">User-Centered</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">I always put the user first, designing interfaces and experiences that are easy to navigate and enjoyable to use.</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-blue-400 dark:border-blue-700 rounded-xl p-5 shadow flex flex-col gap-1">
+        <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">Developer</h3>
+        <p className="text-gray-700 dark:text-gray-300 text-base">Building responsive web & mobile apps with React, React Native, and modern JavaScript.</p>
       </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-purple-400 dark:border-purple-700 rounded-xl p-6 shadow flex flex-col gap-2">
-        <h3 className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">Creative Problem Solver</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">I enjoy tackling challenges with a creative mindset, finding smart solutions whether I’m coding a new feature or designing a visual asset.</p>
+      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-purple-400 dark:border-purple-700 rounded-xl p-5 shadow flex flex-col gap-1">
+        <h3 className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">Designer</h3>
+        <p className="text-gray-700 dark:text-gray-300 text-base">Creating intuitive UI/UX designs that enhance user experience and engagement.</p>
       </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-pink-400 dark:border-pink-700 rounded-xl p-6 shadow flex flex-col gap-2">
-        <h3 className="text-lg font-bold text-pink-700 dark:text-pink-300 mb-1">Detail-Oriented</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">From pixel-perfect layouts to clean, maintainable code, I pay close attention to the details that make a project stand out.</p>
+      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-pink-400 dark:border-pink-700 rounded-xl p-5 shadow flex flex-col gap-1">
+        <h3 className="text-lg font-bold text-pink-700 dark:text-pink-300 mb-1">Creative</h3>
+        <p className="text-gray-700 dark:text-gray-300 text-base">Bringing ideas to life through graphics, videos, and interactive content.</p>
       </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-green-400 dark:border-green-700 rounded-xl p-6 shadow flex flex-col gap-2">
-        <h3 className="text-lg font-bold text-green-700 dark:text-green-300 mb-1">Collaborative</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">I thrive in team settings, communicating clearly and working together to turn ideas into polished, successful projects.</p>
+      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-green-400 dark:border-green-700 rounded-xl p-5 shadow flex flex-col gap-1">
+        <h3 className="text-lg font-bold text-green-700 dark:text-green-300 mb-1">Problem Solver</h3>
+        <p className="text-gray-700 dark:text-gray-300 text-base">Finding efficient solutions to complex technical challenges.</p>
       </div>
     </div>
   </SectionCard>
@@ -272,7 +270,7 @@ const AboutHero = () => (
         I am an IT graduate from USL Tuguegarao, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
       </p>
       <motion.a
-        href="/BEST.pdf"
+        href="/Resume Best 2.pdf"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Download Ralph's Resume PDF"

@@ -133,35 +133,35 @@ import './WorkExperience.css';
     {
       id: 9,
       company: "TriReg Web & Mobile",
-      position: "Front-End Developer & UI/UX Designer",
+      position: "Flutter Developer & UI/UX Designer",
       location: "Remote",
       duration: "Aug 2024 - Nov 2024",
-      description: "Built a comprehensive tricycle permit registration platform for both web and mobile. Designed the UI in Figma and implemented the front-end using React + Vite, including dashboards, QR integration, and SMS-based notifications.",
+      description: "Built a comprehensive tricycle permit registration platform for both web and mobile using Flutter. Designed the UI in Figma and implemented cross-platform functionality including dashboards, QR integration, and SMS-based notifications.",
       responsibilities: [
-        "Designed modular, role-based UI in Figma for web and mobile",
-        "Developed the front-end interface with React + Vite",
+        "Designed modular, role-based UI in Figma for cross-platform deployment",
+        "Developed the application using Flutter for both web and mobile",
         "Integrated QR code generation, receipt verification, and SMS workflows",
-        "Built dashboard views for tracking permits and registrations",
-        "Ensured high performance, accessibility, and responsive layout"
+        "Built responsive dashboard views for tracking permits and registrations",
+        "Ensured high performance and accessibility across platforms"
       ],
-      technologies: ["React", "Vite", "Figma", "QR Code System", "Dashboard Analytics"],
+      technologies: ["Flutter", "Dart", "Figma", "QR Code System", "Cross-Platform Development"],
       achievements: [],
     },
     {
       id: 10,
       company: "VTrack Web & Mobile",
-      position: "Front-End Developer & UI/UX Designer",
+      position: "Flutter Developer & UI/UX Designer",
       location: "Remote",
       duration: "Aug 2024 - Nov 2024",
-      description: "Designed and built the front-end for a violator tracking system used by LGUs and the PNP. Created dashboards and citation tools for both web and mobile using Figma, and implemented the UI in React + Vite.",
+      description: "Developed a cross-platform violator tracking system used by LGUs and the PNP using Flutter. Created comprehensive dashboards and citation tools with a focus on performance and real-time data visualization.",
       responsibilities: [
-        "Designed UI/UX in Figma for both mobile and web",
-        "Built role-based interfaces and citation tracking tools",
-        "Created dashboards for visualizing violations and fine reports",
-        "Integrated SMS alert interface (front-end only)",
-        "Ensured responsive, accessible performance across platforms"
+        "Designed and implemented UI/UX in Figma for both mobile and web platforms",
+        "Built cross-platform interfaces with Flutter for efficient code sharing",
+        "Developed real-time dashboards for tracking violations and generating reports",
+        "Integrated with backend services for data synchronization",
+        "Optimized app performance for various device sizes and platforms"
       ],
-      technologies: ["React", "Vite", "Figma", "UI/UX Design", "Dashboard Analytics"],
+      technologies: ["Flutter", "Dart", "Figma", "Cross-Platform Development", "Real-time Data"],
       achievements: [],
     },
     {
@@ -208,7 +208,7 @@ const WorkExperience = () => {
       {/* Headline & Intro */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-black text-blue-600 dark:text-blue-500 mb-6 tracking-tight drop-shadow-xl leading-tight" style={{letterSpacing: '-0.03em'}}>
-            Work Experience
+            Experience
           </h1>
         <p className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 font-medium">
           A journey through my professional milestones, reimagined as an interactive showcase.

@@ -47,8 +47,10 @@ const Navbar = () => {
     { name: 'About', path: '/about', id: 'about' },
     { name: 'My Services', path: '/service', id: 'service' },
     { name: 'My Projects', path: '/projects', id: 'projects' },
-    { name: 'Work Experience', path: '/experience', id: 'work-experience' },
+    { name: 'Experience', path: '/experience', id: 'work-experience' },
   ];
+
+  // Removed contact and resume handlers as they're now in the Hero section
 
   return (
     <>
@@ -141,9 +143,10 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
+
             <motion.button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-sm"
+              className="ml-2 p-2 rounded-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-sm"
               aria-label="Toggle dark mode"
               whileHover={{ scale: 1.1, boxShadow: '0 0 0 4px rgba(96,165,250,0.10)' }}
               whileTap={{ scale: 0.95 }}
@@ -249,6 +252,7 @@ const Navbar = () => {
                     </Link>
                   </motion.div>
                 ))}
+
               </motion.div>
             </motion.div>
           )}

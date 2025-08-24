@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaMobileAlt, FaDatabase, FaPalette, FaRocket, FaUserFriends, FaNodeJs } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase, SiExpress, SiOpenai } from 'react-icons/si';
+import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase, SiExpress, SiOpenai, SiFlutter, SiDart } from 'react-icons/si';
 import WebPortfolio1 from '../../assets/img/webportfolio1.png';
 import WebPortfolio2 from '../../assets/img/webportfolio2.png';
 import WebPortfolio3 from '../../assets/img/webportfolio3.png';
@@ -32,32 +32,37 @@ const techIcons = {
   'AI Assistant': <FaUserFriends className="text-blue-400" title="AI Assistant" />,
   'Gemini API': <SiOpenai className="text-blue-500" title="Gemini API" />,
   'ChatGPT API': <SiOpenai className="text-green-500" title="ChatGPT API" />,
+  'Flutter': <SiFlutter className="text-blue-400" title="Flutter" />,
+  'Dart': <SiDart className="text-blue-500" title="Dart" />,
+  'Cross-Platform Development': <SiFlutter className="text-blue-400" title="Cross-Platform Development" />,
+  'QR Code System': <FaMobileAlt className="text-blue-400" title="QR Code System" />,
+  'Real-time Data': <FaRocket className="text-blue-300" title="Real-time Data" />,
 };
 
 const mobileProjects = [
   {
     title: 'Marians Mobile App',
-    description: 'Developed a mobile application for Marians, featuring a modern UI/UX design and seamless user experience.',
+    description: 'Developed a cross-platform mobile application for Marians using Flutter, featuring a modern UI/UX design and seamless user experience across devices.',
     mainImage: Marians,
-    tech: ['React Native', 'Mobile UI/UX', 'State Management', 'Performance Optimization'],
+    tech: ['Flutter', 'Dart', 'Mobile UI/UX', 'Cross-Platform Development'],
   },
   {
     title: 'LaborLinkz',
-    description: 'Building Community Through Freelancing Platform',
+    description: 'Cross-platform freelancing platform connecting blue-collar workers with employers, built with Flutter for seamless performance across devices.',
     mainImage: LaborLinkz,
-    tech: ['React Native', 'Freelancing Platform', 'Job Matching', 'Mobile Development'],
+    tech: ['Flutter', 'Dart', 'Freelancing Platform', 'Cross-Platform Development'],
   },
   {
     title: 'Quiz Whirl App',
-    description: 'Built an interactive quiz app with multiple question types and score tracking. Designed a responsive and engaging UI using React Native.',
+    description: 'Interactive quiz application with multiple question types and real-time score tracking. Built with Flutter for cross-platform compatibility and smooth animations.',
     mainImage: QuizWhirl,
-    tech: ['React Native', 'Mobile UI/UX', 'State Management', 'Performance Optimization'],
+    tech: ['Flutter', 'Dart', 'State Management', 'Cross-Platform'],
   },
   {
     title: 'Doctor Santi - AI Vet',
-    description: 'Personal AI veterinarian assistant named Doctor Santi using ChatGPT 3.5 Turbo to provide pet health information and advice. Built with React Native for mobile devices. (July to Aug 2025)',
+    description: 'AI-powered veterinarian assistant providing pet health information and advice using ChatGPT 3.5 Turbo. Built with Flutter for cross-platform deployment with native performance.',
     mainImage: DoctorSanti,
-    tech: ['React Native', 'Mobile UI/UX', 'AI Assistant', 'ChatGPT API'],
+    tech: ['Flutter', 'Dart', 'AI Assistant', 'ChatGPT API'],
   },
 ];
 
@@ -76,15 +81,15 @@ const webProjects = [
   },
   {
     title: 'TriReg',
-    description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
+    description: 'Comprehensive tricycle permit registration system with QR code integration and real-time tracking. Built with Flutter for both web and mobile platforms.',
     mainImage: WebPortfolio3,
-    tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+    tech: ['Flutter', 'Dart', 'QR Code System', 'Cross-Platform'],
   },
   {
     title: 'Vtrack',
-    description: 'Modern and responsive web portfolio showcasing creative work and professional experience.',
+    description: 'Cross-platform violator tracking system for LGUs and PNP with real-time data visualization. Built with Flutter for consistent performance across devices.',
     mainImage: WebPortfolio4,
-    tech: ['React', 'Responsive Design', 'Modern UI/UX', 'Performance'],
+    tech: ['Flutter', 'Dart', 'Real-time Data', 'Cross-Platform'],
   },
   {
     title: 'Personal Portfolio 2',
