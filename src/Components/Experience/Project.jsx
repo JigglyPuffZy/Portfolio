@@ -8,408 +8,116 @@ import WebPortfolio5 from "../../assets/img/webportfolio5.png";
 import Marians from "../../assets/img/Marian's.png";
 import LaborLinkz from "../../assets/img/LaborLinkz.png";
 import QuizWhirl from "../../assets/img/QuizWHirl.png";
-import BookCover1 from "../../assets/img/BookCover1.jpg";
-import BookCover2 from "../../assets/img/BookCover2.jpg";
-import BookCover3 from "../../assets/img/BookCover3.jpg";
-import BookCover4 from "../../assets/img/BookCover4.png";
-import BookCover5 from "../../assets/img/BookCover5.png";
-import BookCover6 from "../../assets/img/BookCover6.png";
-import Ads1 from "../../assets/img/Ads Poster 1.jpg";
-import Ads2 from "../../assets/img/Ads Poster 2.jpg";
-import BrandAwareness1 from "../../assets/img/Brand Awareness 1.jpg";
-import BrandAwareness2 from "../../assets/img/Brand Awareness 2.jpg";
-import BrandAwareness3 from "../../assets/img/Brand Awareness 3.jpg";
-import BrandAwareness4 from "../../assets/img/Brand awareness 4.jpg";
-import BrandAwareness5 from "../../assets/img/Brand Awareness 5.jpg";
-import Newspaper1 from "../../assets/img/NewsPaper1.jpg";
-import Newspaper2 from "../../assets/img/NewsPaper2.jpg";
-import Newspaper3 from "../../assets/img/NewsPaper3.jpg";
-import Newspaper4 from "../../assets/img/NewsPaper4.jpg";
-import Newspaper5 from "../../assets/img/NewsPaper5.jpg";
-import Newspaper6 from "../../assets/img/NewsPaper6.jpg";
+
 import ImageModal from "../ImageModal.jsx";
 import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase } from 'react-icons/si';
-import Shoes1 from "../../assets/img/Shoes1.png";
-import Shoes2 from "../../assets/img/Shoes2.png";
-import Shoes3 from "../../assets/img/Shoes3.png";
-import Shoes4 from "../../assets/img/shoes4.png";
+
 import TriregMobile from "../../assets/img/Trireg.png";
 import VtrackMobile from "../../assets/img/Vtrack.png";
 import ProAssisting from "../../assets/img/proassisting.png";
 import Brioray from "../../assets/img/brioray.png";
-import Car1 from "../../assets/img/Car1.png";
-import Car2 from "../../assets/img/Car2.png";
-import Car3 from "../../assets/img/Car3.png";
-import Car4 from "../../assets/img/Car4.png";
-import Car5 from "../../assets/img/Car5.png";
+import Plantpal from "../../assets/img/Plantpal.png";
+import Sas from "../../assets/img/Sas.png";
+import Planto from "../../assets/img/Planto.png";
+
 import DoctorSanti from "../../assets/img/doc santi.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
   {
     image: WebPortfolio1,
-    title: "We Comply",
-    description: "A compliance management web app with a modern, responsive UI.",
+    title: "Together WeComply",
+    description: "Developed a mobile-first school attendance system with QR scanning for fast event check-in and integrated sanction tracking features for administrators. (Mar 2024 – Jun 2024)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Web",
-    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+    tech: ["React", "Figma", "UI/UX Design", "QR Code System"],
   },
-  {
-    image: WebPortfolio2,
-    title: "Personal Portfolio",
-    description: "A personal website to showcase my creative work and experience.",
-    tags: ["Front-End"],
-    category: "frontend",
-    categoryLabel: "Front-End",
-    platform: "Web",
-    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
-  },
+
   {
     image: WebPortfolio3,
-    title: "TriReg",
-    description: "A registration platform with a clean, user-friendly interface.",
+    title: "TriReg Web & Mobile",
+    description: "Developed a tricycle permit registration platform using Flutter, featuring QR code generation, SMS notifications, and admin dashboards for tracking registrations. (May 2025 – Oct 2025)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Web",
-    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+    tech: ["Flutter", "Dart", "Figma", "QR Code System", "Cross-Platform Development"],
   },
   {
     image: WebPortfolio4,
-    title: "Vtrack",
-    description: "A vehicle tracking dashboard with real-time updates.",
+    title: "VTrack Web & Mobile",
+    description: "Developed a violator tracking system using Flutter, featuring role-based dashboards, citation tools, and SMS alerts for local government units. (May 2025 – Oct 2025)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Web",
-    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
+    tech: ["Flutter", "Dart", "Figma", "Cross-Platform Development", "Real-time Data"],
   },
-  {
-    image: WebPortfolio5,
-    title: "Personal Portfolio 2",
-    description: "A second iteration of my portfolio with enhanced features.",
-    tags: ["Front-End"],
-    category: "frontend",
-    categoryLabel: "Front-End",
-    platform: "Web",
-    tech: ["React", "Tailwind CSS", "Modern UI/UX", "Performance"],
-  },
+
   {
     image: Marians,
-    title: "Marians Mobile App",
-    description: "A mobile app for Marians with seamless user experience.",
+    title: "Marian's Pottery",
+    description: "Created a shopping app with COD and GCash payment options, optimizing the checkout experience for mobile users. (Aug 2024 – Oct 2024)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Mobile",
-    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+    tech: ["React Native", "Expo Router", "E-commerce"],
   },
   {
     image: LaborLinkz,
     title: "LaborLinkz",
-    description: "A freelancing platform for building community connections.",
+    description: "Built a job-matching app for blue-collar workers using React.js and Figma. Designed role-based dashboards to streamline the matching process for admins, clients, and workers. (Nov 2023 – Jan 2024)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Web & Mobile",
-    tech: ["React Native", "Freelancing Platform", "Job Matching", "Mobile Development"],
+    tech: ["React Native", "Figma", "UI/UX Design", "Mobile/Web Development"],
   },
   {
     image: QuizWhirl,
     title: "Quiz Whirl App",
-    description: "An interactive quiz app with multiple question types and score tracking.",
+    description: "Built an interactive quiz app with score tracking and a responsive interface for an engaging user experience. (Aug 2024 – Oct 2024)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Mobile",
-    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+    tech: ["React Native", "Quiz Application", "Mobile Platform"],
   },
   {
     image: TriregMobile,
     title: "TriReg Mobile App",
-    description: "A mobile registration platform with a clean, user-friendly interface and responsive design.",
+    description: "Developed a tricycle permit registration platform using Flutter, featuring QR code generation, SMS notifications, and admin dashboards for tracking registrations. (May 2025 – Oct 2025)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Mobile",
-    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+    tech: ["Flutter", "Dart", "Figma", "QR Code System", "Cross-Platform Development"],
   },
   {
     image: VtrackMobile,
-    title: "Vtrack Mobile App",
-    description: "A mobile vehicle tracking dashboard with real-time updates and a seamless user experience.",
+    title: "VTrack Mobile App",
+    description: "Developed a violator tracking system using Flutter, featuring role-based dashboards, citation tools, and SMS alerts for local government units. (May 2025 – Oct 2025)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Mobile",
-    tech: ["React Native", "Mobile UI/UX", "Redux", "Performance Optimization"],
+    tech: ["Flutter", "Dart", "Figma", "Cross-Platform Development", "Real-time Data"],
   },
   {
     image: DoctorSanti,
-    title: "Doctor Santi - AI Vet",
-    description: "Personal AI veterinarian assistant named Doctor Santi using ChatGPT 3.5 Turbo to provide pet health information and advice. Built with React Native for mobile devices. (July to Aug 2025)",
+    title: "Doctor Santi",
+    description: "Developed an AI-powered virtual veterinarian platform using React, TypeScript, Node.js, and OpenAI GPT-3.5 to provide instant pet care advice. (July 2025 – Present)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
     platform: "Mobile",
-    tech: ["React Native", "Mobile UI/UX", "AI Assistant", "ChatGPT API"],
+    tech: ["Node.js", "Express", "ChatGPT API", "AI Assistant", "RESTful APIs"],
   },
-  // --- GRAPHIC DESIGN PROJECTS ---
-  {
-    image: BookCover1,
-    title: "The Devil Behind the Mask",
-    description: "Book cover design for a mystery novel.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: BookCover2,
-    title: "The Man Out of Time",
-    description: "Book cover design for a science fiction story.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: BookCover3,
-    title: "Learn Graphic Design Easily",
-    description: "Educational book cover for design beginners.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: BookCover4,
-    title: "The Evil Forest",
-    description: "Book cover for a fantasy adventure.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: BookCover5,
-    title: "The Final Path",
-    description: "Book cover for a dramatic novel.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: BookCover6,
-    title: "The Vanishing Mountain",
-    description: "Book cover for a suspenseful story.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Book Cover",
-  },
-  {
-    image: Ads1,
-    title: "Poster Ads 1",
-    description: "Poster ad designed to capture attention.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Poster",
-  },
-  {
-    image: Ads2,
-    title: "Poster Ads 2",
-    description: "Poster ad for effective message delivery.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Poster",
-  },
-  {
-    image: BrandAwareness1,
-    title: "Brand Awareness Campaign 1",
-    description: "Branding campaign for innovative marketing.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Branding",
-  },
-  {
-    image: BrandAwareness2,
-    title: "Brand Awareness Campaign 2",
-    description: "Branding campaign for creative solutions.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Branding",
-  },
-  {
-    image: BrandAwareness3,
-    title: "Brand Awareness Campaign 3",
-    description: "Branding campaign for marketing strategies.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Branding",
-  },
-  {
-    image: BrandAwareness4,
-    title: "Brand Awareness Campaign 4",
-    description: "Branding campaign for design solutions.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Branding",
-  },
-  {
-    image: BrandAwareness5,
-    title: "Brand Awareness Campaign 5",
-    description: "Branding campaign for business growth.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Branding",
-  },
-  {
-    image: Newspaper1,
-    title: "I was Reincarnated as the 7th Prince",
-    description: "Newspaper layout for a fantasy series.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Newspaper2,
-    title: "About Me Newspaper",
-    description: "Personal newspaper-style layout.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Newspaper3,
-    title: "Newspaper About Upgrading the Business",
-    description: "Business upgrade newspaper layout.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Newspaper4,
-    title: "Oggy And The Cockroaches",
-    description: "Newspaper layout for a cartoon feature.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Newspaper5,
-    title: "Santo Tomas Newspaper",
-    description: "Local news layout for Santo Tomas.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Newspaper6,
-    title: "Solo Leveling",
-    description: "Newspaper layout for a popular series.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Newspaper",
-  },
-  {
-    image: Shoes1,
-    title: "Shoe Design 1",
-    description: "Custom shoe design with modern aesthetics.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Shoe Design",
-  },
-  {
-    image: Shoes2,
-    title: "Shoe Design 2",
-    description: "Creative sneaker concept for urban style.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Shoe Design",
-  },
-  {
-    image: Shoes3,
-    title: "Shoe Design 3",
-    description: "Sporty shoe design with bold colorways.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Shoe Design",
-  },
-  {
-    image: Shoes4,
-    title: "Shoe Design 4",
-    description: "Minimalist shoe design for everyday wear.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Shoe Design",
-  },
-  {
-    image: Car1,
-    title: "911 Carrera",
-    description: "Photo manipulation and graphic edit of a Porsche 911 Carrera.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Car Edit",
-  },
-  {
-    image: Car2,
-    title: "911 Targa 4 GTS",
-    description: "Creative car edit for the Porsche 911 Targa 4 GTS.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Car Edit",
-  },
-  {
-    image: Car3,
-    title: "911 Turbo",
-    description: "Stylized graphic design of a Porsche 911 Turbo.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Car Edit",
-  },
-  {
-    image: Car4,
-    title: "Ford Mustang Shelby",
-    description: "Photo manipulation and creative edit of a Ford Mustang Shelby.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Car Edit",
-  },
-  {
-    image: Car5,
-    title: "911 GT3 RS",
-    description: "Graphic design and color grading for a Porsche 911 GT3 RS.",
-    tags: ["Graphic Design"],
-    category: "graphic",
-    categoryLabel: "Graphic Design",
-    type: "Car Edit",
-  },
+
   // Insert UI/UX Design projects for Vtrack, Trireg, and LaborLinkz
   {
     image: VtrackMobile,
@@ -481,19 +189,47 @@ const PROJECTS = [
     type: "Web UI/UX",
     figma: "https://www.figma.com/design/XVSqvw546Y7wON3PymZokB/Brioray?node-id=0-1&p=f&t=k9X840YzjxDVaPFx-0",
   },
+  {
+    image: Plantpal,
+    title: "PlantPal UI/UX Design",
+    description: "The PlantPal app is a plant care and community app designed to help users track, monitor, and care for their plants in a simple and calming way. Created in Figma with focus on user-friendly plant management features. [View on Figma](https://www.figma.com/design/7A48SiV6ks8z2NKc1BOOMO/UI-UX-PROJECt?node-id=27-6&t=mFMb4oHeInEtkZdP-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/7A48SiV6ks8z2NKc1BOOMO/UI-UX-PROJECt?node-id=27-6&t=mFMb4oHeInEtkZdP-0",
+  },
+  {
+    image: Sas,
+    title: "Sourcing Analysis Simplified",
+    description: "Powerful toolkit for Amazon sellers to analyze products for profitability, eligibility, and sales potential. Created in Figma with focus on data visualization and user-friendly analytics interface. [View on Figma](https://www.figma.com/design/p3DY30bs9Nt9f1ZCMKK97q/Sourcing-Analysis-Simplified?node-id=0-1&p=f&t=bKcLMHFOUD0GSrRN-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/p3DY30bs9Nt9f1ZCMKK97q/Sourcing-Analysis-Simplified?node-id=0-1&p=f&t=bKcLMHFOUD0GSrRN-0",
+  },
+  {
+    image: Planto,
+    title: "Planto",
+    description: "It's an e-commerce system for plants — designed to help users discover, learn about, and purchase houseplants that make their homes or offices feel fresher, greener, and more relaxing. Created in Figma with focus on intuitive shopping experience and plant discovery features. [View on Figma](https://www.figma.com/design/FhdXWVWA6blrVGY4r6k4AC/Planto?node-id=0-1&p=f&t=ZXxaDVWDVcUh0o4A-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/FhdXWVWA6blrVGY4r6k4AC/Planto?node-id=0-1&p=f&t=ZXxaDVWDVcUh0o4A-0",
+  },
 ];
 
 const FILTERS = [
   { key: "all", label: "All Projects" },
   { key: "frontend", label: "Front-End" },
   { key: "uiux", label: "UX/UI Design" },
-  { key: "graphic", label: "Graphic Design" },
 ];
 
 const CATEGORY_COLORS = {
   "Front-End": "text-blue-600 bg-blue-50",
   "UX/UI Design": "text-pink-600 bg-pink-50",
-  "Graphic Design": "text-green-600 bg-green-50",
 };
 
 // Badge color maps
@@ -562,7 +298,6 @@ const Projects = () => {
               {f.key === 'all' && <FaReact className="text-blue-400" />}
               {f.key === 'frontend' && <FaReact className="text-blue-400" />}
               {f.key === 'uiux' && <FaPalette className="text-pink-400" />}
-              {f.key === 'graphic' && <FaPalette className="text-green-400" />}
               {f.label}
             </button>
           ))}

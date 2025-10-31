@@ -7,6 +7,7 @@ import boracay2 from '../../assets/img/boracay2.jpg';
 import boracay3 from '../../assets/img/boracay3.jpg';
 import boracay4 from '../../assets/img/boracay4.jpg';
 import { useState } from 'react';
+import React from 'react';
 import { Sparkles, User, Award, BookOpen, Briefcase, Code, Palette, ExternalLink, Star, Calendar } from 'lucide-react';
 
 // --- Static Data ---
@@ -14,34 +15,191 @@ const expertise = [
   {
     title: 'Front-End Development',
     description: 'React.js, React Native, Vite, Expo Router',
-    icon: <Code className="w-7 h-7" />, gradient: 'from-blue-500 to-blue-700',
+    icon: <Code className="w-7 h-7" />, 
+    gradient: 'from-blue-500 to-blue-700',
+    skills: ['React.js', 'React Native', 'JavaScript', 'TypeScript', 'Vite'],
+    level: 95
   },
   {
     title: 'UI/UX Design',
     description: 'Responsive interface design for mobile/web',
-    icon: <Palette className="w-7 h-7" />, gradient: 'from-purple-500 to-purple-700',
+    icon: <Palette className="w-7 h-7" />, 
+    gradient: 'from-blue-400 to-blue-600',
+    skills: ['Figma', 'Adobe XD', 'Responsive Design', 'User Research'],
+    level: 90
   },
   {
     title: 'Graphic Design',
     description: 'Adobe Photoshop, Canva',
-    icon: <BookOpen className="w-7 h-7" />, gradient: 'from-pink-500 to-pink-700',
+    icon: <BookOpen className="w-7 h-7" />, 
+    gradient: 'from-blue-600 to-blue-800',
+    skills: ['Photoshop', 'Canva', 'Illustrator', 'Brand Design'],
+    level: 85
   },
   {
     title: 'Video Editing',
     description: 'DaVinci Resolve, Adobe Premiere Pro',
-    icon: <Briefcase className="w-7 h-7" />, gradient: 'from-yellow-500 to-yellow-700',
+    icon: <Briefcase className="w-7 h-7" />, 
+    gradient: 'from-blue-300 to-blue-500',
+    skills: ['DaVinci Resolve', 'Premiere Pro', 'Motion Graphics'],
+    level: 80
   },
   {
     title: 'Digital Marketing',
     description: 'Posters, content creation, brand campaigns',
-    icon: <Award className="w-7 h-7" />, gradient: 'from-green-500 to-green-700',
+    icon: <Award className="w-7 h-7" />, 
+    gradient: 'from-blue-700 to-blue-900',
+    skills: ['Content Creation', 'Social Media', 'Brand Strategy'],
+    level: 88
   },
   {
     title: 'Technical Support',
     description: 'Hardware troubleshooting, system servicing',
-    icon: <User className="w-7 h-7" />, gradient: 'from-gray-500 to-gray-700',
+    icon: <User className="w-7 h-7" />, 
+    gradient: 'from-blue-800 to-slate-700',
+    skills: ['Hardware Repair', 'System Maintenance', 'Troubleshooting'],
+    level: 92
   },
 ];
+
+const PersonalQuote = () => (
+  <SectionCard className="mb-10 text-center relative overflow-hidden" delay={0.18}>
+    {/* Decorative background */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-blue-100/50 to-blue-50/50 dark:from-blue-950/50 dark:via-blue-900/50 dark:to-blue-950/50" />
+    <div className="absolute top-0 left-1/4 w-32 h-32 bg-blue-200/20 dark:bg-blue-800/20 rounded-full blur-3xl" />
+    <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-blue-300/20 dark:bg-blue-700/20 rounded-full blur-2xl" />
+    
+    <div className="relative z-10 max-w-4xl mx-auto">
+      <motion.div
+        className="text-6xl mb-6 opacity-20"
+        initial={{ scale: 0, rotate: -180 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 0.8, type: "spring" }}
+      >
+        💭
+      </motion.div>
+      
+      <motion.blockquote 
+        className="text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300 mb-6 leading-relaxed italic"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        "I believe in the power of technology to transform lives and businesses. Every line of code I write, every design I create, and every problem I solve is driven by the passion to make a meaningful impact in the digital world."
+      </motion.blockquote>
+      
+      <motion.div
+        className="flex items-center justify-center gap-4"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-blue-400" />
+        <span className="text-blue-600 dark:text-blue-400 font-semibold">Ralph Matthew Punzalan</span>
+        <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-blue-400" />
+      </motion.div>
+      
+      <motion.div
+        className="mt-6 flex justify-center gap-6 text-sm text-gray-500 dark:text-gray-400"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <span className="flex items-center gap-1">
+          🎯 <span>Mission-Driven</span>
+        </span>
+        <span className="flex items-center gap-1">
+          💡 <span>Innovation-Focused</span>
+        </span>
+        <span className="flex items-center gap-1">
+          🤝 <span>User-Centric</span>
+        </span>
+      </motion.div>
+    </div>
+  </SectionCard>
+);
+
+const SkillsShowcase = () => (
+  <SectionCard className="mb-10" delay={0.2}>
+    <motion.h2 
+      className="text-3xl font-extrabold mb-8 text-blue-900 dark:text-blue-100 tracking-tight text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      🚀 Skills & Expertise
+    </motion.h2>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {expertise.map((skill, idx) => (
+        <motion.div
+          key={idx}
+          className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 * idx }}
+          whileHover={{ scale: 1.02, y: -5 }}
+        >
+          {/* Animated background gradient */}
+          <div className={`absolute inset-0 bg-gradient-to-r ${skill.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+          
+          {/* Icon with animated background */}
+          <motion.div 
+            className={`w-16 h-16 rounded-xl bg-gradient-to-r ${skill.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+            whileHover={{ rotate: 5, scale: 1.1 }}
+          >
+            <div className="text-white">
+              {skill.icon}
+            </div>
+          </motion.div>
+          
+          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            {skill.title}
+          </h3>
+          
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+            {skill.description}
+          </p>
+          
+          {/* Skills tags */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {skill.skills.map((tech, techIdx) => (
+              <motion.span
+                key={techIdx}
+                className="px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 + (0.1 * techIdx) }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+          
+          {/* Skill level bar */}
+          <div className="relative">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Proficiency</span>
+              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{skill.level}%</span>
+            </div>
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+              <motion.div
+                className={`h-full bg-gradient-to-r ${skill.gradient} rounded-full`}
+                initial={{ width: 0 }}
+                whileInView={{ width: `${skill.level}%` }}
+                transition={{ duration: 1, delay: 0.3 + (0.1 * idx), ease: "easeOut" }}
+              />
+            </div>
+          </div>
+          
+          {/* Hover effect shimmer */}
+          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+        </motion.div>
+      ))}
+    </div>
+  </SectionCard>
+);
 
 const experience = [
   {
@@ -153,13 +311,13 @@ const education = [
 
 const certificates = [
   {
-    icon: <User className="w-7 h-7 text-green-700 dark:text-green-300" />, border: 'border-green-100 dark:border-green-700', title: 'NC II – Computer System Servicing', subtitle: '', year: '2023'
+    icon: <User className="w-7 h-7 text-blue-700 dark:text-blue-300" />, border: 'border-blue-100 dark:border-blue-700', title: 'NC II – Computer System Servicing', subtitle: '', year: '2023'
   },
   {
-    icon: <Award className="w-7 h-7 text-yellow-700 dark:text-yellow-300" />, border: 'border-yellow-100 dark:border-yellow-700', title: 'Certificate of Appreciation – PSITE', subtitle: '4th ICITE', year: '2023'
+    icon: <Award className="w-7 h-7 text-blue-700 dark:text-blue-300" />, border: 'border-blue-100 dark:border-blue-700', title: 'Certificate of Appreciation – PSITE', subtitle: '4th ICITE', year: '2023'
   },
   {
-    icon: <Star className="w-7 h-7 text-purple-700 dark:text-purple-300" />, border: 'border-purple-100 dark:border-purple-700', title: 'Gawad San Luis Awardee', subtitle: 'Innovation, Creativity & Agility', year: '2024'
+    icon: <Star className="w-7 h-7 text-blue-700 dark:text-blue-300" />, border: 'border-blue-100 dark:border-blue-700', title: 'Gawad San Luis Awardee', subtitle: 'Innovation, Creativity & Agility', year: '2024'
   }
 ];
 
@@ -199,32 +357,106 @@ const AnimatedBackground = () => (
 );
 
 const AboutIntro = () => (
-  <SectionCard className="flex flex-col gap-8 items-center md:items-start text-center md:text-left mb-10" delay={0.05}>
-    <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 dark:text-blue-100 mb-4 tracking-tight leading-tight drop-shadow-lg">
-        About Me
-      </h2>
-      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-6">
-        <span className="font-bold text-blue-700 dark:text-blue-300">Ralph Matthew Delarosa Punzalan</span> - BSIT graduate passionate about crafting digital experiences through code and design. I specialize in creating intuitive interfaces and functional applications using modern technologies.
-      </p>
+  <SectionCard className="flex flex-col gap-8 items-center md:items-start text-center md:text-left mb-10 relative overflow-hidden" delay={0.05}>
+    {/* Floating particles background */}
+    <div className="absolute inset-0 pointer-events-none">
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [-20, 20, -20],
+            x: [-10, 10, -10],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-blue-400 dark:border-blue-700 rounded-xl p-5 shadow flex flex-col gap-1">
-        <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">Developer</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">Building responsive web & mobile apps with React, React Native, and modern JavaScript.</p>
-      </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-purple-400 dark:border-purple-700 rounded-xl p-5 shadow flex flex-col gap-1">
-        <h3 className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">Designer</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">Creating intuitive UI/UX designs that enhance user experience and engagement.</p>
-      </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-pink-400 dark:border-pink-700 rounded-xl p-5 shadow flex flex-col gap-1">
-        <h3 className="text-lg font-bold text-pink-700 dark:text-pink-300 mb-1">Creative</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">Bringing ideas to life through graphics, videos, and interactive content.</p>
-      </div>
-      <div className="bg-blue-50 dark:bg-blue-950 border-l-4 border-green-400 dark:border-green-700 rounded-xl p-5 shadow flex flex-col gap-1">
-        <h3 className="text-lg font-bold text-green-700 dark:text-green-300 mb-1">Problem Solver</h3>
-        <p className="text-gray-700 dark:text-gray-300 text-base">Finding efficient solutions to complex technical challenges.</p>
-      </div>
+    
+    <div className="relative z-10">
+      <motion.h2 
+        className="text-3xl md:text-4xl font-extrabold text-blue-900 dark:text-blue-100 mb-4 tracking-tight leading-tight drop-shadow-lg"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        About Me
+        <motion.span 
+          className="inline-block ml-2"
+          animate={{ rotate: [0, 10, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          👋
+        </motion.span>
+      </motion.h2>
+      <motion.p 
+        className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <span className="font-bold text-blue-700 dark:text-blue-300">Ralph Matthew Delarosa Punzalan</span> - A passionate BSIT graduate who transforms ideas into digital reality. I craft seamless user experiences through innovative code and thoughtful design, specializing in modern web and mobile technologies that make a difference.
+      </motion.p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full relative z-10">
+      {[
+        { 
+          title: "Full-Stack Developer", 
+          desc: "Building end-to-end solutions with React, React Native, and cutting-edge JavaScript frameworks",
+          color: "blue",
+          icon: "💻"
+        },
+        { 
+          title: "UI/UX Designer", 
+          desc: "Crafting beautiful, intuitive interfaces that users love and businesses need",
+          color: "blue",
+          icon: "🎨"
+        },
+        { 
+          title: "Creative Innovator", 
+          desc: "Bringing bold ideas to life through multimedia content and interactive experiences",
+          color: "blue",
+          icon: "✨"
+        },
+        { 
+          title: "Solution Architect", 
+          desc: "Solving complex challenges with elegant, scalable, and maintainable solutions",
+          color: "blue",
+          icon: "🚀"
+        }
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          className={`bg-gradient-to-br from-${item.color}-50 to-${item.color}-100 dark:from-${item.color}-950 dark:to-${item.color}-900 border-l-4 border-${item.color}-400 dark:border-${item.color}-700 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group relative overflow-hidden`}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 * idx }}
+          whileHover={{ scale: 1.02, y: -2 }}
+        >
+          <div className="absolute top-0 right-0 text-4xl opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+            {item.icon}
+          </div>
+          <h3 className={`text-lg font-bold text-${item.color}-700 dark:text-${item.color}-300 mb-2 flex items-center gap-2`}>
+            <span className="text-xl">{item.icon}</span>
+            {item.title}
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+            {item.desc}
+          </p>
+          <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-${item.color}-400 to-${item.color}-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+        </motion.div>
+      ))}
     </div>
   </SectionCard>
 );
@@ -259,7 +491,7 @@ const AboutHero = () => (
         Ralph Matthew Delarosa Punzalan
       </h1>
       <motion.div
-        className="inline-flex items-center gap-2 mb-4 px-6 py-2 rounded-full border border-blue-200 dark:border-blue-800 font-semibold text-lg shadow cursor-pointer bg-gradient-to-r from-blue-500 via-purple-500 to-blue-400 bg-clip-text text-transparent"
+        className="inline-flex items-center gap-2 mb-4 px-6 py-2 rounded-full border border-blue-200 dark:border-blue-800 font-semibold text-lg shadow cursor-pointer bg-gradient-to-r from-blue-500 via-blue-600 to-blue-400 bg-clip-text text-transparent"
         whileHover={{ scale: 1.07, boxShadow: '0 0 0 4px rgba(59,130,246,0.13)' }}
         transition={{ type: 'spring', stiffness: 300, damping: 18 }}
       >
@@ -269,39 +501,134 @@ const AboutHero = () => (
       <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-medium mb-5">
         I am an IT graduate from USL Tuguegarao, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
       </p>
-      <motion.a
-        href="/Resume Best 2.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Download Ralph's Resume PDF"
-        className="inline-block px-8 py-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white font-bold shadow-lg hover:bg-blue-700 transition-transform duration-200 border-2 border-blue-400 mt-2 focus:outline-none focus:ring-4 focus:ring-blue-300 text-base active:scale-95 relative overflow-hidden"
-        whileTap={{ scale: 0.97 }}
-        whileHover={{ boxShadow: '0 0 0 6px rgba(59,130,246,0.18)' }}
-      >
-        <span className="relative z-10">Download Resume</span>
-        <span className="absolute inset-0 pointer-events-none rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </motion.a>
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <motion.a
+          href="/Resume Punzalan Front End Developer.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download Ralph's Resume PDF"
+          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 text-white font-bold shadow-lg transition-all duration-300 border-2 border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-300 text-base relative overflow-hidden"
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: '0 10px 30px rgba(59,130,246,0.3)',
+            y: -2
+          }}
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            📄 Download Resume
+          </span>
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            initial={{ x: '-100%' }}
+            whileHover={{ x: '0%' }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.a>
+        
+        <motion.button
+          className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-blue-400 text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-blue-950/50 transition-all duration-300"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span>💬 Let's Connect</span>
+          <motion.span
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            →
+          </motion.span>
+        </motion.button>
+      </div>
     </div>
   </SectionCard>
 );
 
 const QuickStats = () => (
-  <SectionCard className="flex flex-wrap gap-7 justify-center items-center mb-8 py-7 bg-gradient-to-r from-blue-50 via-white to-blue-100 dark:from-blue-950 dark:via-slate-900 dark:to-blue-950" delay={0.15}>
-    <motion.div whileHover={{ scale: 1.12, boxShadow: '0 0 0 8px rgba(59,130,246,0.10)' }} className="flex flex-col items-center transition-transform cursor-pointer">
-      <Sparkles className="w-8 h-8 text-blue-500 mb-2 group-hover:animate-wiggle" />
-      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">3+ Years</span>
-      <span className="text-sm text-gray-500 dark:text-gray-400">Experience</span>
-    </motion.div>
-    <motion.div whileHover={{ scale: 1.12, boxShadow: '0 0 0 8px rgba(59,130,246,0.10)' }} className="flex flex-col items-center transition-transform cursor-pointer">
-      <Star className="w-8 h-8 text-blue-500 mb-2 group-hover:animate-wiggle" />
-      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">20+ Projects</span>
-      <span className="text-sm text-gray-500 dark:text-gray-400">Completed</span>
-    </motion.div>
-    <motion.div whileHover={{ scale: 1.12, boxShadow: '0 0 0 8px rgba(59,130,246,0.10)' }} className="flex flex-col items-center transition-transform cursor-pointer">
-      <Award className="w-8 h-8 text-blue-500 mb-2 group-hover:animate-wiggle" />
-      <span className="font-extrabold text-blue-800 dark:text-blue-200 text-2xl">6 Skills</span>
-      <span className="text-sm text-gray-500 dark:text-gray-400">Core Expertise</span>
-    </motion.div>
+  <SectionCard className="flex flex-wrap gap-7 justify-center items-center mb-8 py-8 bg-gradient-to-r from-blue-50 via-white to-blue-100 dark:from-blue-950 dark:via-slate-900 dark:to-blue-950 relative overflow-hidden" delay={0.15}>
+    {/* Animated background pattern */}
+    <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 animate-pulse" 
+           style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' }} />
+    </div>
+    
+    {[
+      { 
+        icon: Sparkles, 
+        value: "3+", 
+        unit: "Years", 
+        label: "Experience",
+        color: "from-blue-500 to-blue-600",
+        bgColor: "bg-blue-100 dark:bg-blue-900/50"
+      },
+      { 
+        icon: Star, 
+        value: "25+", 
+        unit: "Projects", 
+        label: "Completed",
+        color: "from-blue-400 to-blue-500",
+        bgColor: "bg-blue-100 dark:bg-blue-900/50"
+      },
+      { 
+        icon: Award, 
+        value: "6+", 
+        unit: "Skills", 
+        label: "Core Expertise",
+        color: "from-blue-600 to-blue-700",
+        bgColor: "bg-blue-100 dark:bg-blue-900/50"
+      },
+      { 
+        icon: Code, 
+        value: "100%", 
+        unit: "Passion", 
+        label: "Dedication",
+        color: "from-blue-700 to-blue-800",
+        bgColor: "bg-blue-100 dark:bg-blue-900/50"
+      }
+    ].map((stat, idx) => (
+      <motion.div
+        key={idx}
+        className={`flex flex-col items-center transition-all duration-300 cursor-pointer group relative ${stat.bgColor} rounded-2xl p-6 min-w-[140px]`}
+        whileHover={{ 
+          scale: 1.15, 
+          y: -8,
+          boxShadow: '0 20px 40px rgba(59,130,246,0.15)' 
+        }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 * idx }}
+      >
+        {/* Animated icon container */}
+        <motion.div 
+          className={`w-16 h-16 rounded-full bg-gradient-to-r ${stat.color} flex items-center justify-center mb-3 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+          whileHover={{ rotate: 360 }}
+          transition={{ duration: 0.6 }}
+        >
+          <stat.icon className="w-8 h-8 text-white" />
+        </motion.div>
+        
+        {/* Counter animation */}
+        <motion.span 
+          className="font-extrabold text-gray-800 dark:text-gray-200 text-3xl mb-1"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 + (0.1 * idx), type: "spring" }}
+        >
+          {stat.value}
+        </motion.span>
+        
+        <span className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-1">
+          {stat.unit}
+        </span>
+        <span className="text-sm text-gray-500 dark:text-gray-400 text-center">
+          {stat.label}
+        </span>
+        
+        {/* Hover effect overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`} />
+      </motion.div>
+    ))}
   </SectionCard>
 );
 
@@ -370,49 +697,140 @@ const EducationCertificates = () => (
 );
 
 const PersonalGallery = ({ onImageClick }) => (
-  <SectionCard className="max-w-2xl mx-auto flex flex-col items-center mb-10" delay={0.3}>
-    <h2 className="text-3xl font-extrabold mb-5 text-blue-900 dark:text-blue-100 tracking-tight">Personal Gallery</h2>
-    <div className="mb-8 w-full bg-blue-50/80 dark:bg-blue-950/80 rounded-xl p-7 flex items-start gap-4 shadow-inner">
-      <Star className="w-8 h-8 text-blue-500 dark:text-blue-300 mt-1 animate-pulse" />
-      <div>
-        <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">Boracay Research Presentation</h3>
-        <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed">
-          Presenting our groundbreaking study to a diverse audience of professionals and researchers in the beautiful setting of Boracay was a milestone in my academic journey. The experience not only honed my public speaking and research skills but also allowed me to connect with fellow researchers and professionals, making it a truly memorable event.
-        </p>
+  <SectionCard className="max-w-4xl mx-auto flex flex-col items-center mb-10 relative" delay={0.3}>
+    <motion.h2 
+      className="text-3xl font-extrabold mb-8 text-blue-900 dark:text-blue-100 tracking-tight text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      🌟 Personal Gallery & Achievements
+    </motion.h2>
+    
+    {/* Enhanced story section */}
+    <motion.div 
+      className="mb-10 w-full bg-gradient-to-r from-blue-50/80 via-blue-100/80 to-blue-50/80 dark:from-blue-950/80 dark:via-blue-900/80 dark:to-blue-950/80 rounded-2xl p-8 shadow-lg border border-blue-200/50 dark:border-blue-800/50 relative overflow-hidden"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-400/20 to-transparent rounded-full -translate-y-16 translate-x-16" />
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-full translate-y-12 -translate-x-12" />
+      
+      <div className="flex items-start gap-6 relative z-10">
+        <motion.div
+          className="flex-shrink-0"
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+            <Star className="w-8 h-8 text-white animate-pulse" />
+          </div>
+        </motion.div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold text-blue-700 dark:text-blue-300 mb-3 flex items-center gap-2">
+            🏆 Boracay Research Presentation Excellence
+          </h3>
+          <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-4">
+            A transformative experience presenting cutting-edge research to industry professionals and academics in the stunning backdrop of Boracay. This milestone event showcased my ability to communicate complex technical concepts effectively while building valuable professional networks.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {['Public Speaking', 'Research Excellence', 'Professional Networking', 'Academic Achievement'].map((tag, idx) => (
+              <motion.span
+                key={idx}
+                className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.4 + (0.1 * idx) }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+    </motion.div>
+    
+    {/* Enhanced gallery grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
       {galleryImages.map((image, idx) => (
         <motion.button
           key={idx}
-          className="relative group rounded-2xl overflow-hidden shadow-lg border-2 border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-950 hover:scale-105 transition-transform aspect-[4/3] cursor-pointer"
+          className="relative group rounded-3xl overflow-hidden shadow-xl border-2 border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-950 cursor-pointer aspect-[4/3] transform-gpu"
           onClick={() => onImageClick(image.src)}
           aria-label={`View ${image.title}`}
-          whileHover={{ scale: 1.09, boxShadow: '0 8px 32px 0 rgba(30,64,175,0.13)' }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, rotateY: -15 }}
+          whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 * idx, ease: 'easeOut' }}
+          transition={{ duration: 0.6, delay: 0.1 * idx, ease: 'easeOut' }}
+          whileHover={{ 
+            scale: 1.05, 
+            y: -8,
+            boxShadow: '0 25px 50px rgba(30,64,175,0.2)',
+            rotateY: 5
+          }}
         >
-          <img
-            src={image.src}
-            alt={image.title}
-            className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-110 rounded-xl aspect-[4/3]"
-            loading="lazy"
-          />
-          {image.featured && (
-            <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">Featured</span>
-          )}
-          <div className="absolute bottom-2 left-2 px-2 py-1 bg-blue-600/80 rounded text-white text-xs font-semibold opacity-90">
-            {image.title}
+          {/* Image with enhanced effects */}
+          <div className="relative w-full h-full overflow-hidden rounded-3xl">
+            <img
+              src={image.src}
+              alt={image.title}
+              className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+            
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            {/* Enhanced badges and labels */}
+            {image.featured && (
+              <motion.span 
+                className="absolute top-3 left-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg z-10 flex items-center gap-1"
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + (0.1 * idx) }}
+              >
+                ⭐ Featured
+              </motion.span>
+            )}
+            
+            <motion.div 
+              className="absolute bottom-3 left-3 right-3 px-4 py-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl text-gray-800 dark:text-gray-200 text-sm font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 + (0.1 * idx) }}
+            >
+              <div className="flex items-center justify-between">
+                <span>{image.title}</span>
+                <ExternalLink className="w-4 h-4 opacity-70" />
+              </div>
+            </motion.div>
           </div>
+          
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/0 via-blue-500/0 to-blue-400/0 group-hover:from-blue-400/20 group-hover:via-blue-500/20 group-hover:to-blue-400/20 transition-all duration-500" />
         </motion.button>
       ))}
     </div>
-    <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mt-7">
-      <ExternalLink className="w-5 h-5 animate-bounce" />
-      <span className="text-base font-medium">Click any image to view larger</span>
-    </div>
+    
+    {/* Enhanced call-to-action */}
+    <motion.div 
+      className="flex items-center gap-3 text-blue-600 dark:text-blue-400 mt-8 bg-blue-50/50 dark:bg-blue-950/50 px-6 py-3 rounded-full border border-blue-200/50 dark:border-blue-800/50"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+      >
+        <ExternalLink className="w-5 h-5" />
+      </motion.div>
+      <span className="text-base font-medium">Click any image to explore in detail</span>
+    </motion.div>
   </SectionCard>
 );
 
@@ -424,6 +842,25 @@ const About = () => {
   const handleImageClick = (image) => setSelectedImage(image);
   const handleCloseModal = () => setSelectedImage(null);
 
+  // Add keyboard support for modal
+  React.useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'Escape' && selectedImage) {
+        handleCloseModal();
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleKeyPress);
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   return (
     <motion.section
       id="about"
@@ -433,47 +870,109 @@ const About = () => {
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       <AnimatedBackground />
-      <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 flex flex-col gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 flex flex-col gap-10">
         <AboutIntro />
         <QuickStats />
+        <PersonalQuote />
+        <SkillsShowcase />
         <EducationCertificates />
         <PersonalGallery onImageClick={handleImageClick} />
       </div>
-      {/* Image Modal */}
+      {/* Enhanced Image Modal */}
       {selectedImage && (
         <motion.div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 backdrop-blur-2xl"
+          className="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4 backdrop-blur-3xl"
           onClick={handleCloseModal}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="relative max-w-4xl w-full max-h-full bg-white/20 dark:bg-slate-900/40 rounded-3xl shadow-2xl p-4 flex flex-col items-center border-2 border-blue-200 dark:border-blue-800 backdrop-blur-2xl"
+            className="relative max-w-5xl w-full max-h-full bg-white/10 dark:bg-slate-900/20 rounded-3xl shadow-2xl p-6 flex flex-col items-center border border-white/20 dark:border-blue-800/30 backdrop-blur-3xl"
             onClick={(e) => e.stopPropagation()}
-            initial={{ scale: 0.92, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.92, opacity: 0 }}
-            transition={{ duration: 0.35, type: 'spring', stiffness: 180, damping: 18 }}
+            initial={{ scale: 0.8, opacity: 0, rotateY: -15 }}
+            animate={{ scale: 1, opacity: 1, rotateY: 0 }}
+            exit={{ scale: 0.8, opacity: 0, rotateY: 15 }}
+            transition={{ duration: 0.4, type: 'spring', stiffness: 200, damping: 20 }}
           >
-            <img
-              src={selectedImage}
-              alt="Gallery"
-              className="max-w-full max-h-[70vh] object-contain rounded-2xl shadow-xl border-4 border-blue-200 dark:border-blue-800 aspect-[4/3]"
-              loading="lazy"
-            />
+            {/* Enhanced image container */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={selectedImage}
+                alt="Gallery"
+                className="max-w-full max-h-[75vh] object-contain rounded-2xl"
+                loading="lazy"
+              />
+              
+              {/* Image overlay with info */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                <h3 className="text-xl font-bold mb-2">Research Presentation Gallery</h3>
+                <p className="text-sm opacity-90">Academic excellence showcase from Boracay conference</p>
+              </div>
+            </div>
+            
+            {/* Enhanced close button */}
             <motion.button
               onClick={handleCloseModal}
-              className="absolute -top-5 -right-5 w-12 h-12 bg-blue-600/80 hover:bg-blue-700/90 text-white rounded-full flex items-center justify-center text-3xl shadow-lg border-2 border-white dark:border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 active:scale-90"
+              className="absolute -top-4 -right-4 w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full flex items-center justify-center text-2xl shadow-xl border-2 border-white/20 focus:outline-none focus:ring-4 focus:ring-red-400/50 group"
               aria-label="Close image modal"
-              whileTap={{ scale: 0.92, rotate: 10 }}
-              whileHover={{ scale: 1.08, boxShadow: '0 0 0 8px rgba(59,130,246,0.18)' }}
+              whileTap={{ scale: 0.9, rotate: 90 }}
+              whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(239,68,68,0.5)' }}
             >
-              ×
+              <motion.span
+                animate={{ rotate: [0, 180, 360] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="group-hover:animate-none"
+              >
+                ×
+              </motion.span>
             </motion.button>
+            
+            {/* Navigation hint */}
+            <motion.div
+              className="mt-4 text-white/70 text-sm flex items-center gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <span>💡 Click outside or press ESC to close</span>
+            </motion.div>
           </motion.div>
         </motion.div>
       )}
+
+      {/* Floating Quick Actions */}
+      <motion.div
+        className="fixed bottom-8 right-8 z-40 flex flex-col gap-3"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
+        <motion.button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.9 }}
+          title="Back to top"
+        >
+          <motion.span
+            animate={{ y: [-2, 2, -2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            ↑
+          </motion.span>
+        </motion.button>
+        
+        <motion.button
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.1, rotate: 15 }}
+          whileTap={{ scale: 0.9 }}
+          title="Contact me"
+        >
+          💬
+        </motion.button>
+      </motion.div>
     </motion.section>
   );
 };

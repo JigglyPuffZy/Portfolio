@@ -330,7 +330,7 @@ const Hero = () => {
 
             {/* My Resume Button */}
             <a
-              href={resumeAvailable ? "/Resume Best 2.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
+              href={resumeAvailable ? "/Resume Punzalan Front End Developer.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleResumeClick}
