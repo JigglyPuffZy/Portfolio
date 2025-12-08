@@ -287,14 +287,6 @@ const AboutHero = () => (
           className="w-full h-full object-cover object-top rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-white dark:border-dark-900 shadow-xl"
           loading="lazy"
         />
-        {/* Floating badge */}
-        <motion.div 
-          className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-gradient-to-r from-blue-600 to-accent-600 rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-glow"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-        </motion.div>
         
         {/* Orbiting particles */}
         {[...Array(3)].map((_, i) => (
