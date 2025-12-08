@@ -25,7 +25,6 @@ const Hero = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -37,7 +36,6 @@ const Hero = () => {
         y: (e.clientY / window.innerHeight - 0.5) * 2,
       });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -161,20 +159,24 @@ const Hero = () => {
             <div className={`absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] ${gradients.primary} animate-pulse`} />
             <div className={`absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_var(--tw-gradient-stops))] ${gradients.secondary} animate-pulse delay-500`} />
             <div className={`absolute inset-0 bg-[radial-gradient(circle_at_80%_40%,_var(--tw-gradient-stops))] ${gradients.tertiary} animate-pulse delay-1000`} />
+
             {/* Background Lines Pattern */}
             <div className="absolute inset-0 opacity-30">
               {/* Horizontal lines */}
               <div className="absolute top-1/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent transform -translate-y-1/2" />
               <div className="absolute top-3/4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-800/50 to-transparent transform -translate-y-1/2" />
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent transform -translate-y-1/2" />
+
               {/* Vertical lines */}
               <div className="absolute top-0 left-1/4 w-0.5 h-full bg-gradient-to-b from-transparent via-blue-400/50 to-transparent transform -translate-x-1/2" />
               <div className="absolute top-0 left-3/4 w-0.5 h-full bg-gradient-to-b from-transparent via-blue-800/50 to-transparent transform -translate-x-1/2" />
               <div className="absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-blue-300/50 to-transparent transform -translate-x-1/2" />
+
               {/* Diagonal lines */}
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400/20 via-transparent to-transparent" />
               <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-blue-800/20 via-transparent to-transparent" />
             </div>
+
             {/* Additional floating elements */}
             <div className="absolute inset-0">
               {/* Glowing orbs */}
@@ -182,12 +184,14 @@ const Hero = () => {
               <div className="absolute top-2/3 right-1/3 w-3 h-3 bg-blue-800/40 rounded-full blur-sm animate-pulse delay-1000" />
               <div className="absolute bottom-1/3 left-2/3 w-5 h-5 bg-blue-300/50 rounded-full blur-sm animate-pulse delay-500" />
             </div>
+
             {/* Geometric pattern overlay */}
             <div className="absolute inset-0 opacity-10">
               <div className={`absolute top-1/4 left-1/4 w-32 h-32 border ${geometricColors.blue} rounded-full animate-spin-slow`} />
               <div className={`absolute top-3/4 right-1/4 w-24 h-24 border ${geometricColors.purple} rounded-full animate-spin-slow-reverse`} />
               <div className={`absolute bottom-1/4 left-1/3 w-20 h-20 border ${geometricColors.cyan} rounded-full animate-bounce-slow`} />
             </div>
+
             {/* Floating particles */}
             <div className="absolute inset-0">
               {[...Array(6)].map((_, i) => (
@@ -203,10 +207,12 @@ const Hero = () => {
                 />
               ))}
             </div>
+
             {/* Mesh gradient overlay */}
             <div className={`absolute inset-0 ${meshGradient} opacity-60`} />
           </>
         )}
+
         {/* In light mode, only mesh and orbs, no lines or overlays */}
         {!isDark && (
           <>
@@ -214,15 +220,18 @@ const Hero = () => {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,_#e0f2fe_0%,_#60a5fa_40%,_#2563eb_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,_#dbeafe_0%,_#3b82f6_60%,_transparent_100%)] opacity-80" />
             <div className="absolute inset-0 bg-blue-100/50" />
+
             {/* Top and bottom white gradient overlays for glassy effect */}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/95 to-transparent pointer-events-none z-10" />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/95 to-transparent pointer-events-none z-10" />
+
             {/* Large, blurred, layered blue/white orbs */}
             <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-blue-200/70 rounded-full blur-[120px] animate-pulse" />
             <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-blue-400/60 rounded-full blur-[100px] animate-pulse delay-1000" />
             <div className="absolute top-2/3 left-2/3 w-48 h-48 bg-white/70 rounded-full blur-[90px] animate-pulse delay-500" />
             <div className="absolute top-1/2 left-1/5 w-40 h-40 bg-blue-300/60 rounded-full blur-[80px] animate-pulse delay-700" />
             <div className="absolute top-1/3 left-2/5 w-56 h-56 bg-white/50 rounded-full blur-[100px] animate-pulse delay-800" />
+
             {/* Animated sparkles */}
             {[...Array(8)].map((_, i) => (
               <div key={i} className="absolute w-2 h-2 rounded-full bg-white/80 blur-[2px] animate-pulse" style={{
@@ -293,6 +302,7 @@ const Hero = () => {
               <span className="block h-0.5 w-16 mx-auto mt-3 bg-blue-400 rounded-full opacity-80"></span>
             )}
           </motion.h1>
+
           <motion.h2
             variants={itemVariants}
             className={`text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-center tracking-widest uppercase opacity-90 font-sans ${isDark ? '!text-blue-200' : '!text-white'}`}
@@ -300,6 +310,7 @@ const Hero = () => {
           >
             Design-driven. Code-focused.
           </motion.h2>
+
           <motion.p
             variants={itemVariants}
             className={`text-xl sm:text-2xl md:text-3xl font-bold italic mb-8 max-w-2xl mx-auto text-center leading-snug tracking-tight px-4 py-3 rounded-lg shadow-md border font-sans bg-gradient-to-r from-blue-500 via-blue-400 to-blue-700 bg-clip-text text-transparent ${isDark ? 'bg-white/10 border-white/20' : 'bg-blue-50/80 border-blue-100/60'}`}
@@ -343,30 +354,32 @@ const Hero = () => {
             </a>
           </motion.div>
 
+          {/* Social Media Icons */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]"
+            className="flex items-center justify-center gap-4 sm:gap-5 mt-6"
           >
             {[
-              { icon: Github, href: "https://github.com/JigglyPuffZy", label: "GitHub" },
-              { icon: Facebook, href: "https://facebook.com/JigglypuffZy", label: "Facebook" },
-              { icon: Instagram, href: "https://www.instagram.com/jigglypufzzz", label: "Instagram" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/JigglyPuffZy", label: "GitHub", bgColor: "bg-[#333]", hoverColor: "hover:bg-[#24292e]" },
+              { icon: Facebook, href: "https://facebook.com/JigglypuffZy", label: "Facebook", bgColor: "bg-[#1877F2]", hoverColor: "hover:bg-[#0c63d4]" },
+              { icon: Instagram, href: "https://www.instagram.com/jigglypufzzz", label: "Instagram", bgColor: "bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737]", hoverColor: "hover:opacity-90" },
+              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", bgColor: "bg-[#0A66C2]", hoverColor: "hover:bg-[#004182]" },
             ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className={`group relative p-2.5 sm:p-3 md:p-4 rounded-full ${isDark ? 'bg-white/15' : 'bg-blue-100/60'} backdrop-blur-sm border ${isDark ? 'border-white/30' : 'border-blue-200/60'} hover:${isDark ? 'bg-white/25' : 'bg-blue-200/80'} transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/30`}
+                className={`group relative p-3 sm:p-3.5 rounded-full ${social.bgColor} ${social.hoverColor} transition-all duration-300 shadow-lg hover:shadow-xl`}
                 aria-label={social.label}
               >
-                <social.icon className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${isDark ? 'text-white' : 'text-blue-700'} group-hover:text-blue-500 transition-colors`} />
+                <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </motion.a>
             ))}
           </motion.div>
+
         </div>
       </motion.div>
 

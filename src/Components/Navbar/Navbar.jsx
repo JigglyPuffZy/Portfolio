@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, ArrowRight } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const navStagger = {
@@ -34,6 +34,7 @@ const Navbar = () => {
   useEffect(() => {
     if (location.pathname === '/') setActiveSection('home');
     else if (location.pathname === '/about') setActiveSection('about');
+    else if (location.pathname === '/service') setActiveSection('service');
     else if (location.pathname === '/projects') setActiveSection('projects');
     else if (location.pathname === '/experience') setActiveSection('work-experience');
   }, [location.pathname]);
@@ -71,115 +72,132 @@ const Navbar = () => {
         )}
       </AnimatePresence>
       <nav
-        className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${
-          scrolled ? 'backdrop-blur-md shadow-2xl border-b border-white/20 dark:border-neutral-800/40' : 'backdrop-blur-none shadow-none border-none'
-        }`}
-        style={{
-          background: isDark
-            ? 'linear-gradient(120deg, rgba(23,23,23,0.82) 80%, rgba(0,0,0,0.7) 100%)'
-            : 'linear-gradient(120deg, rgba(255,255,255,0.82) 80%, rgba(255,255,255,0.7) 100%)',
-          WebkitBackdropFilter: 'blur(16px)',
-          backdropFilter: 'blur(16px)',
-          boxShadow: scrolled
-            ? (isDark
-                ? '0 8px 32px 0 rgba(0,0,0,0.25) inset, 0 2px 16px 0 rgba(0,0,0,0.10)'
-                : '0 8px 32px 0 rgba(31,38,135,0.10) inset, 0 2px 16px 0 rgba(31,38,135,0.05)')
-            : 'none',
-        }}
+        className="fixed w-full z-50 top-4 transition-all duration-500"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 h-16 md:h-20">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="relative font-extrabold text-2xl md:text-3xl tracking-widest text-blue-600 dark:text-blue-400 select-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition-shadow duration-300"
-            onClick={scrollToTop}
-            aria-label="Go to home"
+        <div className="max-w-7xl mx-auto px-6 transition-all duration-500">
+          <div 
+            className="flex items-center justify-between h-16 rounded-2xl px-6 backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700/30 shadow-[0_8px_32px_0_rgba(59,130,246,0.15)] transition-all duration-500"
             style={{
-              textShadow: isDark
-                ? '0 2px 8px rgba(96,165,250,0.15)'
-                : '0 2px 8px rgba(37,99,235,0.10)',
+              background: isDark
+                ? 'linear-gradient(135deg, rgba(17,24,39,0.85) 0%, rgba(31,41,55,0.75) 100%)'
+                : 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(249,250,251,0.75) 100%)',
+              WebkitBackdropFilter: 'blur(20px)',
+              backdropFilter: 'blur(20px)',
             }}
           >
-            <span className="inline-block relative">
+          {/* Enhanced Logo */}
+          <Link
+            to="/"
+            className="relative font-black text-2xl md:text-3xl tracking-tight select-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg transition-all duration-300"
+            onClick={scrollToTop}
+            aria-label="Go to home"
+          >
+            <motion.span 
+              className="inline-block relative bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              style={{
+                textShadow: isDark
+                  ? '0 0 30px rgba(59,130,246,0.3)'
+                  : '0 0 30px rgba(37,99,235,0.2)',
+              }}
+            >
               R4lph
-              {/* Animated underline grows on hover */}
+              {/* Glow effect on hover */}
               <motion.span
-                layoutId="logo-underline"
-                className="absolute left-0 -bottom-1 h-1 rounded bg-blue-600 dark:bg-blue-400 opacity-30 group-hover:opacity-60"
-                initial={{ width: '40%' }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
-                style={{ width: '40%' }}
+                className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                style={{ zIndex: -1 }}
               />
-            </span>
+              {/* Animated underline */}
+              <motion.span
+                className="absolute left-0 -bottom-1 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600"
+                initial={{ width: '0%', left: '50%' }}
+                whileHover={{ width: '100%', left: '0%' }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </motion.span>
           </Link>
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Enhanced Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <motion.div
                 key={item.name}
-                whileHover={{ scale: 1.08, y: -2 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 className="relative"
               >
                 <Link
                   to={item.path}
-                  className={`relative text-base font-semibold tracking-wide px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 transition-colors duration-200 ${
+                  className={`relative text-sm font-bold tracking-wide px-4 py-2.5 rounded-xl transition-all duration-300 block ${
                     activeSection === item.id
-                      ? 'text-blue-600 dark:text-blue-400 shadow-sm'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400'
+                      ? 'text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-[0_4px_20px_rgba(59,130,246,0.4)]'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50/80 dark:hover:bg-blue-900/20'
                   }`}
                   onClick={item.onClick}
                   aria-current={activeSection === item.id ? 'page' : undefined}
                 >
-                  <span className="relative z-10">{item.name}</span>
-                  {/* Animated underline center-out */}
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute left-1/2 -bottom-1 h-0.5 rounded w-0 bg-blue-600 dark:bg-blue-400"
-                    animate={activeSection === item.id ? { width: '80%', left: '10%', opacity: 0.7 } : { width: 0, left: '50%', opacity: 0 }}
-                    transition={{ duration: 0.35, type: 'spring', stiffness: 260, damping: 20 }}
-                  />
+                  <span className="relative z-10 flex items-center gap-2">
+                    {item.name}
+                    {activeSection === item.id && (
+                      <motion.span
+                        layoutId="active-pill"
+                        className="w-1.5 h-1.5 rounded-full bg-white"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </span>
+                  {/* Hover glow effect */}
+                  {activeSection !== item.id && (
+                    <motion.span
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 to-blue-600/0 opacity-0"
+                      whileHover={{ 
+                        opacity: 0.1,
+                        background: 'linear-gradient(to right, rgba(59,130,246,0.1), rgba(37,99,235,0.1))'
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </Link>
               </motion.div>
             ))}
 
             <motion.button
               onClick={toggleTheme}
-              className="ml-2 p-2 rounded-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-sm"
+              className="ml-3 p-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/40 dark:hover:to-blue-700/30 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-lg backdrop-blur-xl border border-blue-200/50 dark:border-blue-700/30"
               aria-label="Toggle dark mode"
-              whileHover={{ scale: 1.1, boxShadow: '0 0 0 4px rgba(96,165,250,0.10)' }}
+              whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.95 }}
-              style={{ boxShadow: isDark ? '0 2px 8px rgba(96,165,250,0.10)' : '0 2px 8px rgba(37,99,235,0.08)' }}
             >
               <motion.span
                 key={isDark ? 'sun' : 'moon'}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ rotate: -180, opacity: 0, scale: 0.5 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 180, opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
                 className="block"
               >
                 {isDark ? <Sun className="w-5 h-5 text-blue-400" /> : <Moon className="w-5 h-5 text-blue-600" />}
               </motion.span>
             </motion.button>
           </div>
-          {/* Mobile Nav Button */}
-          <div className="md:hidden flex items-center">
+          {/* Enhanced Mobile Nav Button */}
+          <div className="md:hidden flex items-center gap-2">
             <motion.button
               onClick={toggleTheme}
-              className="mr-2 p-2 rounded-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-sm"
+              className="p-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-lg backdrop-blur-xl border border-blue-200/50 dark:border-blue-700/30"
               aria-label="Toggle dark mode"
-              whileHover={{ scale: 1.1, boxShadow: '0 0 0 4px rgba(96,165,250,0.10)' }}
+              whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.95 }}
-              style={{ boxShadow: isDark ? '0 2px 8px rgba(96,165,250,0.10)' : '0 2px 8px rgba(37,99,235,0.08)' }}
             >
               <motion.span
                 key={isDark ? 'sun-mobile' : 'moon-mobile'}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ rotate: -180, opacity: 0, scale: 0.5 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 180, opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
                 className="block"
               >
                 {isDark ? <Sun className="w-5 h-5 text-blue-400" /> : <Moon className="w-5 h-5 text-blue-600" />}
@@ -187,72 +205,76 @@ const Navbar = () => {
             </motion.button>
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="p-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 shadow-lg backdrop-blur-xl border border-blue-200/50 dark:border-blue-700/30"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <motion.span
                 key={isOpen ? 'close' : 'menu'}
-                initial={{ scale: 0.7, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.7, opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                initial={{ rotate: isOpen ? 0 : -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: isOpen ? 90 : -90, opacity: 0 }}
+                transition={{ duration: 0.3, type: "spring" }}
                 className="block"
               >
-                {isOpen ? <X className="w-7 h-7 text-blue-600 dark:text-blue-400" /> : <Menu className="w-7 h-7 text-blue-600 dark:text-blue-400" />}
+                {isOpen ? <X className="w-6 h-6 text-blue-600 dark:text-blue-400" /> : <Menu className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
               </motion.span>
             </motion.button>
           </div>
         </div>
-        {/* Mobile Nav Menu */}
+        </div>
+        {/* Enhanced Mobile Nav Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -32 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -32 }}
-              transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-              className="md:hidden fixed inset-x-4 top-20 z-40 rounded-2xl bg-white/95 dark:bg-dark-100/95 backdrop-blur-lg shadow-2xl border border-blue-100/20 dark:border-blue-900/20 mx-2"
-              style={{
-                boxShadow: isDark
-                  ? '0 8px 32px 0 rgba(0,0,0,0.25)'
-                  : '0 8px 32px 0 rgba(31,38,135,0.10)',
-              }}
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="md:hidden fixed inset-x-4 top-24 z-40 rounded-3xl backdrop-blur-2xl bg-white/90 dark:bg-gray-900/90 shadow-[0_20px_60px_rgba(59,130,246,0.3)] border border-blue-200/50 dark:border-blue-700/30 overflow-hidden"
               aria-modal="true"
               role="dialog"
             >
               <motion.div
-                className="flex flex-col items-center py-8 space-y-3"
+                className="flex flex-col items-stretch py-6 px-4 space-y-2"
                 variants={navStagger}
                 initial="hidden"
                 animate="show"
                 exit="hidden"
               >
-                {navItems.map((item) => (
-                  <motion.div key={item.name} variants={navItemAnim}>
+                {navItems.map((item, index) => (
+                  <motion.div 
+                    key={item.name} 
+                    variants={navItemAnim}
+                    custom={index}
+                  >
                     <Link
                       to={item.path}
-                      className={`relative text-lg font-semibold px-4 py-2 rounded transition-colors duration-200 w-full text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${
+                      className={`relative text-base font-bold px-6 py-4 rounded-2xl transition-all duration-300 flex items-center justify-between group ${
                         activeSection === item.id
-                          ? 'text-blue-600 dark:text-blue-400 shadow-sm'
-                          : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400'
+                          ? 'text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-[0_4px_20px_rgba(59,130,246,0.4)]'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50/80 dark:hover:bg-blue-900/20'
                       }`}
                       onClick={() => setIsOpen(false)}
                       aria-current={activeSection === item.id ? 'page' : undefined}
                     >
                       <span className="relative z-10">{item.name}</span>
-                      {/* Animated underline center-out */}
-                      <motion.span
-                        layoutId="nav-underline-mobile"
-                        className="absolute left-1/2 -bottom-1 h-0.5 rounded w-0 bg-blue-600 dark:bg-blue-400"
-                        animate={activeSection === item.id ? { width: '66%', left: '17%', opacity: 0.7 } : { width: 0, left: '50%', opacity: 0 }}
-                        transition={{ duration: 0.35, type: 'spring', stiffness: 260, damping: 20 }}
-                      />
+                      {activeSection === item.id && (
+                        <motion.span
+                          layoutId="active-pill-mobile"
+                          className="w-2 h-2 rounded-full bg-white"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
+                      {activeSection !== item.id && (
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" />
+                      )}
                     </Link>
                   </motion.div>
                 ))}
-
               </motion.div>
             </motion.div>
           )}

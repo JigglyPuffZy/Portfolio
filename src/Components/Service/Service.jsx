@@ -151,9 +151,11 @@ const Service = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 relative overflow-hidden">
+    <section id="services" className="section-padding container-padding bg-gradient-to-b from-white via-gray-50 to-white dark:from-dark-950 dark:via-dark-900 dark:to-dark-950 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+      <div className="absolute inset-0 bg-mesh dark:bg-mesh-dark opacity-40" />
+      <div className="absolute top-40 left-20 w-96 h-96 bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-40 right-20 w-96 h-96 bg-accent-500/5 dark:bg-accent-500/10 rounded-full blur-3xl" />
       
       <motion.div
         ref={ref}
@@ -163,16 +165,16 @@ const Service = () => {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <motion.div variants={itemVariants} className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-full border border-blue-200/50 dark:border-blue-700/50">
-            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">What I Offer</span>
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 rounded-full border border-primary-200/50 dark:border-primary-700/50">
+            <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+            <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">What I Offer</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 dark:from-white dark:via-blue-200 dark:to-blue-400">
-            My Services
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 gradient-text-premium">
+            Services & Expertise
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
-            I offer a comprehensive range of development services to help bring your ideas to life.
-            From web applications to mobile apps, I ensure high-quality solutions that meet your needs.
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
+            Comprehensive digital solutions crafted with precision and passion. 
+            From concept to deployment, I deliver <span className="font-semibold text-gray-900 dark:text-white">exceptional results</span> that exceed expectations.
           </p>
         </motion.div>
 
@@ -192,20 +194,21 @@ const Service = () => {
               className="relative group"
             >
               {/* Card background with gradient overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} dark:from-slate-800 dark:to-slate-700 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-accent-500/5 dark:from-primary-500/10 dark:via-transparent dark:to-accent-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500`} />
               
               {/* Main card */}
-              <div className={`relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${service.borderColor} dark:border-slate-700 h-full group-hover:border-opacity-50`}>
+              <div className={`relative bg-white/80 dark:bg-dark-800/80 backdrop-blur-xl p-6 lg:p-8 rounded-3xl shadow-premium hover:shadow-premium-lg transition-all duration-500 border border-gray-200/60 dark:border-gray-700/60 h-full group-hover:border-primary-300/50 dark:group-hover:border-primary-700/50`}>
                 
                 {/* Icon container */}
-                <div className={`inline-flex p-4 rounded-2xl ${service.iconBg} shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                  <div className="text-white">
+                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="text-white relative z-10">
                     {service.icon}
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className={`text-xl lg:text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${service.gradient} group-hover:scale-105 transition-transform duration-300`}>
+                <h3 className={`text-xl lg:text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300`}>
                   {service.title}
                 </h3>
 
@@ -223,10 +226,10 @@ const Service = () => {
                       whileHover={{ x: 8 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className={`flex-shrink-0 w-5 h-5 rounded-full ${service.iconBg} flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200`}>
+                      <div className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200 shadow-sm`}>
                         <CheckCircle className="w-3 h-3 text-white" />
                       </div>
-                      <span className="group-hover/item:text-gray-800 dark:group-hover/item:text-gray-100 transition-colors duration-200">
+                      <span className="group-hover/item:text-gray-900 dark:group-hover/item:text-white transition-colors duration-200 font-medium">
                         {feature}
                       </span>
                     </motion.li>
@@ -234,7 +237,10 @@ const Service = () => {
                 </ul>
 
                 {/* Hover effect overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500`} />
+                
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-3xl" />
               </div>
             </motion.div>
           ))}

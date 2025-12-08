@@ -8,6 +8,8 @@ import WebPortfolio5 from "../../assets/img/webportfolio5.png";
 import Marians from "../../assets/img/Marian's.png";
 import LaborLinkz from "../../assets/img/LaborLinkz.png";
 import QuizWhirl from "../../assets/img/QuizWHirl.png";
+import ARC from "../../assets/img/ARC.png";
+import ARCMobile from "../../assets/img/arc mobile.png";
 
 import ImageModal from "../ImageModal.jsx";
 import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
@@ -25,17 +27,6 @@ import DoctorSanti from "../../assets/img/doc santi.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
-  {
-    image: WebPortfolio1,
-    title: "Together WeComply",
-    description: "Developed a mobile-first school attendance system with QR scanning for fast event check-in and integrated sanction tracking features for administrators. (Mar 2024 – Jun 2024)",
-    tags: ["Front-End"],
-    category: "frontend",
-    categoryLabel: "Front-End",
-    platform: "Web",
-    tech: ["React", "Figma", "UI/UX Design", "QR Code System"],
-  },
-
   {
     image: WebPortfolio3,
     title: "TriReg Web & Mobile",
@@ -114,8 +105,9 @@ const PROJECTS = [
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
-    platform: "Mobile",
+    platform: "Web",
     tech: ["Node.js", "Express", "ChatGPT API", "AI Assistant", "RESTful APIs"],
+    link: "https://santi-doc-cy6n.vercel.app/",
   },
 
   // Insert UI/UX Design projects for Vtrack, Trireg, and LaborLinkz
@@ -188,6 +180,26 @@ const PROJECTS = [
     categoryLabel: "UX/UI Design",
     type: "Web UI/UX",
     figma: "https://www.figma.com/design/XVSqvw546Y7wON3PymZokB/Brioray?node-id=0-1&p=f&t=k9X840YzjxDVaPFx-0",
+  },
+  {
+    image: ARC,
+    title: "ARC - Australian Rewards Club (Web)",
+    description: "UI/UX design for the Australian Rewards Club web app, created in Figma. A comprehensive rewards platform with modern design and intuitive user experience. [View on Figma](https://www.figma.com/design/yMTyPxE0fDEwOBf3qAqPNP/ARC-WEB?node-id=0-1&p=f&t=Ko3FbWaPHcuRAI0D-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Web UI/UX",
+    figma: "https://www.figma.com/design/yMTyPxE0fDEwOBf3qAqPNP/ARC-WEB?node-id=0-1&p=f&t=Ko3FbWaPHcuRAI0D-0",
+  },
+  {
+    image: ARCMobile,
+    title: "Australian Rewards Club Mobile UI",
+    description: "UI/UX design for the Australian Rewards Club mobile app, created in Figma. A mobile-first rewards platform with intuitive navigation and seamless user experience. [View on Figma](https://www.figma.com/design/bNtCVbo3LXVZaoCEl3RtmV/WEB-APP-VIEW-OF-AUSTRALIAN-REWARDS-CLUB?node-id=66-6&t=fpFBPiDTn72vxUEY-0)",
+    tags: ["UI/UX Design"],
+    category: "uiux",
+    categoryLabel: "UX/UI Design",
+    type: "Mobile UI/UX",
+    figma: "https://www.figma.com/design/bNtCVbo3LXVZaoCEl3RtmV/WEB-APP-VIEW-OF-AUSTRALIAN-REWARDS-CLUB?node-id=66-6&t=fpFBPiDTn72vxUEY-0",
   },
   {
     image: Plantpal,
@@ -263,46 +275,68 @@ const Projects = () => {
 
   return (
     <section
-      className="min-h-screen py-24 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900"
+      className="min-h-screen py-24 relative overflow-hidden bg-white dark:bg-dark-950"
       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
     >
-      {/* Background decorative SVG dot pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40 pointer-events-none"></div>
+      {/* Ultra-Modern Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Animated gradient mesh */}
+        <div className="absolute inset-0 bg-mesh dark:bg-mesh-dark opacity-40" />
+        
+        {/* Floating gradient orbs */}
+        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-accent-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-tr from-accent-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px] dark:bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)]" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-full border border-blue-200/50 dark:border-blue-700/50 shadow-sm">
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Portfolio Showcase</span>
+          <div className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 bg-gradient-to-r from-blue-50 to-accent-50 dark:from-blue-900/20 dark:to-accent-900/20 rounded-full border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-xl shadow-lg">
+            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-accent-500 rounded-full animate-pulse" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-accent-600 dark:from-blue-400 dark:to-accent-400 bg-clip-text text-transparent">Portfolio Showcase</span>
+            <FaRocket className="w-4 h-4 text-blue-500 dark:text-blue-400" />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 dark:from-white dark:via-blue-200 dark:to-blue-400 tracking-tight">My Projects</h1>
-          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
-            Explore a curated selection of my most impactful work in front-end development and graphic design. Each project highlights my commitment to quality, creativity, and user experience.
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-accent-600 to-blue-600 dark:from-blue-400 dark:via-accent-400 dark:to-blue-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+              Featured Projects
+            </span>
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
+            Crafting exceptional digital experiences through innovative front-end development and stunning UI/UX design
           </p>
         </div>
-        {/* Filter Bar */}
-        <div className="flex flex-wrap gap-3 mb-12 justify-center">
+        {/* Modern Filter Bar */}
+        <div className="flex flex-wrap gap-4 mb-16 justify-center">
           {FILTERS.map((f) => (
             <button
               key={f.key}
-              className={`px-6 py-2 rounded-full font-semibold text-base transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400 focus-visible:ring-offset-2 border border-transparent shadow-md backdrop-blur-md flex items-center gap-2 ${
+              className={`group relative px-8 py-3.5 rounded-2xl font-semibold text-base transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400 focus-visible:ring-offset-2 flex items-center gap-3 overflow-hidden ${
                 activeFilter === f.key
-                  ? "bg-blue-600 text-white scale-105 shadow-2xl animate-pulse"
-                  : "bg-gray-100 text-gray-800 hover:bg-blue-50 hover:text-blue-700"
+                  ? "bg-gradient-to-r from-blue-600 to-accent-600 text-white scale-105 shadow-glow"
+                  : "bg-white/90 dark:bg-dark-800/90 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:scale-105 shadow-lg hover:shadow-xl"
               }`}
               onClick={() => setActiveFilter(f.key)}
               tabIndex={0}
               aria-pressed={activeFilter === f.key}
               aria-label={`Show ${f.label}`}
             >
-              {/* Add icons for each filter */}
-              {f.key === 'all' && <FaReact className="text-blue-400" />}
-              {f.key === 'frontend' && <FaReact className="text-blue-400" />}
-              {f.key === 'uiux' && <FaPalette className="text-pink-400" />}
-              {f.label}
+              {/* Shimmer effect on active */}
+              {activeFilter === f.key && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+              )}
+              <span className="relative z-10 flex items-center gap-2">
+                {f.key === 'all' && <FaReact className={activeFilter === f.key ? "text-white" : "text-blue-500"} />}
+                {f.key === 'frontend' && <FaReact className={activeFilter === f.key ? "text-white" : "text-blue-500"} />}
+                {f.key === 'uiux' && <FaPalette className={activeFilter === f.key ? "text-white" : "text-pink-500"} />}
+                {f.label}
+              </span>
             </button>
           ))}
         </div>
-        {/* Projects Grid */}
+        {/* Ultra-Modern Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.length === 0 && activeFilter === "uiux" && (
             <div className="col-span-3 text-center text-gray-400 text-lg py-24">No UX/UI Design projects yet. Upload coming soon.</div>
@@ -310,70 +344,128 @@ const Projects = () => {
           {filtered.map((project, idx) => (
             <div
               key={idx}
-              className="relative group bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md rounded-3xl shadow-md hover:shadow-xl border border-gray-200 dark:border-neutral-700 flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] focus-within:ring-2 focus-within:ring-gray-400 outline-none cursor-pointer"
+              className="group relative bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl rounded-3xl shadow-premium hover:shadow-premium-lg border border-gray-200/60 dark:border-gray-700/60 flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] focus-within:ring-2 focus-within:ring-blue-400 outline-none cursor-pointer"
               tabIndex={0}
               aria-label={`View details for ${project.title}`}
-              style={{ minHeight: "400px" }}
+              style={{ minHeight: "450px" }}
             >
-              {/* Card gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-blue-900 dark:via-blue-950 dark:to-blue-900 opacity-0 group-hover:opacity-60 transition-all duration-500 rounded-3xl z-10 pointer-events-none" />
+              {/* Animated gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-accent-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl pointer-events-none" />
+              
+              {/* Glow effect on hover */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-accent-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
+              
               <div className="relative z-10 flex-1 flex flex-col">
-                <div className="relative aspect-video bg-gray-100 dark:bg-neutral-800 flex items-center justify-center overflow-hidden rounded-t-3xl cursor-zoom-in group/image"
+                {/* Image Container */}
+                <div 
+                  className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-dark-700 dark:to-dark-600 flex items-center justify-center overflow-hidden cursor-zoom-in group/image"
                   onClick={() => setModalImage(project.image)}
                   title="Click to view full image"
                 >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="object-cover w-full h-48 sm:h-56 rounded-2xl transition-transform duration-300 group-hover/image:scale-105 shadow group-hover/image:shadow-lg"
+                    className="object-cover w-full h-56 transition-all duration-500 group-hover/image:scale-110 group-hover/image:rotate-1"
                   />
-                  {/* Category Label at top left */}
-                  <span
-                    className="absolute top-4 left-4 px-4 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-100 text-gray-700 border border-gray-300"
-                  >
+                  
+                  {/* Overlay gradient on image hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Category Label */}
+                  <span className="absolute top-4 left-4 px-4 py-2 rounded-xl font-semibold text-xs tracking-wide backdrop-blur-xl bg-white/90 dark:bg-dark-800/90 text-gray-800 dark:text-gray-200 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
                     {project.categoryLabel}
                   </span>
-                  {/* Platform/Type Badge - neutral style, no color */}
+                  
+                  {/* Platform/Type Badge */}
                   {project.platform && (
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-200 text-gray-700 border border-gray-300">
+                    <span className="absolute top-4 right-4 px-4 py-2 rounded-xl font-semibold text-xs tracking-wide backdrop-blur-xl bg-blue-500/90 text-white border border-blue-400/50 shadow-lg">
                       {project.platform}
                     </span>
                   )}
                   {project.type && (
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full font-semibold text-xs tracking-wide shadow bg-gray-200 text-gray-700 border border-gray-300">
+                    <span className="absolute top-4 right-4 px-4 py-2 rounded-xl font-semibold text-xs tracking-wide backdrop-blur-xl bg-pink-500/90 text-white border border-pink-400/50 shadow-lg">
                       {project.type}
                     </span>
                   )}
+                  
+                  {/* Zoom indicator */}
+                  <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-xl flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 shadow-lg">
+                    <svg className="w-4 h-4 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="flex-1 flex flex-col p-6 gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-base mb-2 line-clamp-3">{project.description.replace(/\[.*?\]\(.*?\)/g, '')}</p>
+
+                {/* Content */}
+                <div className="flex-1 flex flex-col p-6 gap-3">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-accent-600 dark:group-hover:from-blue-400 dark:group-hover:to-accent-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3 flex-1">
+                    {project.description.replace(/\[.*?\]\(.*?\)/g, '')}
+                  </p>
+                  
+                  {/* Live Link Button */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn inline-flex items-center justify-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg hover:shadow-glow transition-all duration-300 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 relative overflow-hidden"
+                      style={{ width: 'fit-content' }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        <FaExternalLinkAlt className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
+                        View Page
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" />
+                    </a>
+                  )}
+                  
                   {/* Figma Button */}
                   {project.figma && (
                     <a
                       href={project.figma}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 via-red-400 to-yellow-400 text-white font-semibold shadow hover:from-pink-600 hover:to-yellow-500 transition-all duration-200 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+                      className="group/btn inline-flex items-center justify-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 hover:from-pink-600 hover:via-red-600 hover:to-orange-600 text-white font-semibold shadow-lg hover:shadow-glow transition-all duration-300 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 relative overflow-hidden"
                       style={{ width: 'fit-content' }}
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <FaExternalLinkAlt className="w-4 h-4" />
-                      View on Figma
+                      <span className="relative z-10 flex items-center gap-2">
+                        <FaExternalLinkAlt className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
+                        View on Figma
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" />
                     </a>
                   )}
+                  
                   {/* Tech badges for front-end projects */}
                   {project.category === "frontend" && project.tech && (
                     <div className="flex flex-wrap gap-2 mt-2">
-                      {project.tech.map((tech, i) => (
-                        <span key={i} className="flex items-center gap-1 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-gray-300 shadow-sm">
+                      {project.tech.slice(0, 3).map((tech, i) => (
+                        <span 
+                          key={i} 
+                          className="flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-accent-50 dark:from-blue-900/30 dark:to-accent-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-blue-200/50 dark:border-blue-700/50 shadow-sm hover:shadow-md transition-all duration-200"
+                        >
                           {techIcons[tech] || null}
                           {tech}
                         </span>
                       ))}
+                      {project.tech.length > 3 && (
+                        <span className="flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 dark:bg-dark-700 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-gray-600/50">
+                          +{project.tech.length - 3} more
+                        </span>
+                      )}
                     </div>
                   )}
                 </div>
               </div>
+
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
