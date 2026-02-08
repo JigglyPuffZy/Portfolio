@@ -3,6 +3,8 @@ import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaCode, FaExternalLinkAlt }
 import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
+import ElementorLogo from '../assets/img/elementor.svg';
+import GoHighLevelLogo from '../assets/img/gohighlevel.png';
 
 // Skill data with proficiency levels and descriptions
 const techStacks = [
@@ -80,6 +82,16 @@ const techStacks = [
     name: 'Webflow', 
     icon: <SiWebflow color="#4353FF" size={38} />,
     url: 'https://webflow.com/'
+  },
+  { 
+    name: 'GoHighLevel', 
+    icon: <img src={GoHighLevelLogo} alt="GoHighLevel Logo" style={{ width: 38, height: 38, objectFit: 'contain' }} />,
+    url: 'https://www.gohighlevel.com/'
+  },
+  { 
+    name: 'Elementor', 
+    icon: <img src={ElementorLogo} alt="Elementor Logo" style={{ width: 38, height: 38, objectFit: 'contain' }} />,
+    url: 'https://elementor.com/'
   },
 ];
 

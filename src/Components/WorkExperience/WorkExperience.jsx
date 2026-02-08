@@ -7,6 +7,24 @@ import './WorkExperience.css';
 const workExperience = [
   {
     id: 1,
+    company: "One Over Zero Technologies, Inc.",
+    position: "Junior Front End Developer & UI/UX Designer",
+    location: "Remote",
+    duration: "Present",
+    description: "At One Over Zero Technologies, Inc. (Defining Infinite Possibilities), I develop and enhance web-based systems while maintaining and updating WordPress websites and plugins. I implement front-end features and layout improvements, ensuring website functionality, responsiveness, and usability. My role involves fixing website issues, bugs, and UI inconsistencies while coordinating with the team for system updates and improvements.",
+    responsibilities: [
+      "Developing and enhancing web-based systems",
+      "Maintaining and updating WordPress websites and plugins",
+      "Implementing front-end features and layout improvements",
+      "Fixing website issues, bugs, and UI inconsistencies",
+      "Ensuring website functionality, responsiveness, and usability",
+      "Coordinating with the team for system updates and improvements"
+    ],
+    technologies: ["WordPress", "Front-End Development", "UI/UX Design", "Web Development", "Plugin Development"],
+    achievements: [],
+  },
+  {
+    id: 2,
     company: "VA4U",
     position: "Front-End Developer (Project-Based)",
     location: "Remote",
@@ -22,7 +40,7 @@ const workExperience = [
     achievements: [],
   },
   {
-    id: 2,
+    id: 3,
     company: "Caribbean Led Solutions",
     position: "Front-End Developer, UI/UX Designer & Graphic Designer",
     location: "Remote",
@@ -38,7 +56,7 @@ const workExperience = [
     achievements: ["30% improvement in user onboarding", "45% increase in usability"],
   },
   {
-    id: 3,
+    id: 4,
     company: "DILG",
     position: "Secretary / Social Media Manager",
     location: "Philippines",
@@ -54,7 +72,7 @@ const workExperience = [
     achievements: ["40% increase in community engagement", "50% reduction in document retrieval times"],
   },
   {
-    id: 4,
+    id: 5,
     company: "LGU Sto. Tomas",
     position: "Social Media Manager / UI/UX Designer",
     location: "Sto. Tomas, Philippines",
