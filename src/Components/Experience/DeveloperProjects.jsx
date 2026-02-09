@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaReact, FaMobileAlt, FaDatabase, FaPalette, FaRocket, FaUserFriends, FaNodeJs } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase, SiExpress, SiOpenai, SiFlutter, SiDart } from 'react-icons/si';
+import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaNodeJs } from 'react-icons/fa';
+import { SiRedux, SiTailwindcss, SiExpress, SiOpenai, SiFlutter, SiDart } from 'react-icons/si';
 import WebPortfolio1 from '../../assets/img/webportfolio1.png';
 import WebPortfolio2 from '../../assets/img/webportfolio2.png';
 import WebPortfolio3 from '../../assets/img/webportfolio3.png';

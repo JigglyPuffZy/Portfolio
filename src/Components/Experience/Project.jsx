@@ -13,7 +13,7 @@ import ARCMobile from "../../assets/img/arc mobile.png";
 
 import ImageModal from "../ImageModal.jsx";
 import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiJavascript, SiFirebase } from 'react-icons/si';
+import { SiRedux, SiTailwindcss } from 'react-icons/si';
 
 import TriregMobile from "../../assets/img/Trireg.png";
 import VtrackMobile from "../../assets/img/Vtrack.png";
@@ -24,6 +24,8 @@ import Sas from "../../assets/img/Sas.png";
 import Planto from "../../assets/img/Planto.png";
 
 import DoctorSanti from "../../assets/img/doc santi.png";
+import NetworkHomeowners from "../../assets/img/Network.png";
+import Spiderman from "../../assets/img/Spiderman.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
@@ -108,6 +110,29 @@ const PROJECTS = [
     platform: "Web",
     tech: ["Node.js", "Express", "ChatGPT API", "AI Assistant", "RESTful APIs"],
     link: "https://santi-doc-cy6n.vercel.app/",
+  },
+  {
+    image: NetworkHomeowners,
+    title: "Network Homeowners",
+    description: "Network Homeowners helps homeowners find reliable design, renovation, and construction firms—without wasting hours searching, calling, and comparing on their own. Instead of homeowners hunting down contractors, the platform intelligently matches them with the right professionals based on their needs.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Figma", "UI/UX Design", "Matching Platform"],
+    link: "https://landing-funnel-iota.vercel.app/",
+    figma: "https://www.figma.com/design/Ml48WHNOP5jd8iP4PJBcb3/Untitled?node-id=0-1&p=f&t=5kgm0lhNTGbNuA5V-0",
+  },
+  {
+    image: Spiderman,
+    title: "Spider-Man Website",
+    description: "A themed Spider-Man website showcasing hero branding, visual storytelling, and clean frontend layout. The project focuses on strong visuals, engaging sections, and responsive design.",
+    tags: ["Front-End"],
+    category: "frontend",
+    categoryLabel: "Front-End",
+    platform: "Web",
+    tech: ["React", "Responsive Design", "Visual Storytelling", "Hero Branding"],
+    link: "https://spiderman-azure.vercel.app/",
   },
 
   // Insert UI/UX Design projects for Vtrack, Trireg, and LaborLinkz
@@ -269,8 +294,6 @@ const Projects = () => {
     'Tailwind CSS': <SiTailwindcss className="text-cyan-400" title="Tailwind CSS" />,
     'Modern UI/UX': <FaPalette className="text-blue-300" title="Modern UI/UX" />,
     'Performance': <FaRocket className="text-blue-300" title="Performance" />,
-    'JavaScript': <SiJavascript className="text-yellow-400" title="JavaScript" />,
-    'Firebase': <SiFirebase className="text-orange-400" title="Firebase" />,
   };
 
   return (
