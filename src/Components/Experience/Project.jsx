@@ -18,7 +18,7 @@ import { SiRedux, SiTailwindcss } from 'react-icons/si';
 import TriregMobile from "../../assets/img/Trireg.png";
 import VtrackMobile from "../../assets/img/Vtrack.png";
 import ProAssisting from "../../assets/img/proassisting.png";
-import Brioray from "../../assets/img/brioray.png";
+import Brioray from "../../assets/img/Brioray (2).png";
 import Plantpal from "../../assets/img/Plantpal.png";
 import Sas from "../../assets/img/Sas.png";
 import Planto from "../../assets/img/Planto.png";
