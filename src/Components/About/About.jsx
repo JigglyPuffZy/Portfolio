@@ -85,7 +85,7 @@ const PersonalQuote = () => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        "I believe in the power of technology to transform lives and businesses. Every line of code I write, every design I create, and every problem I solve is driven by the passion to make a meaningful impact in the digital world."
+        "With three years of experience in web development and design, I've learned that the best solutions come from continuous learning and collaboration. I'm grateful for every opportunity to grow, contribute to meaningful projects, and help bring ideas to life through thoughtful code and design."
       </motion.blockquote>
       
       <motion.div
@@ -341,7 +341,7 @@ const AboutHero = () => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        IT graduate from <span className="font-semibold text-blue-600 dark:text-blue-400">USL Tuguegarao</span>, passionate about React.js, React Native, and UI/UX. I turn digital ideas into reality through clean code, creative design, and a user-first mindset.
+        IT graduate from <span className="font-semibold text-blue-600 dark:text-blue-400">USL Tuguegarao</span> with 3 years of hands-on experience in front-end development and UI/UX design. I'm passionate about creating intuitive, user-centered digital experiences using React.js, React Native, and modern web technologies. Always eager to learn and collaborate on projects that make a difference.
       </motion.p>
 
       {/* CTA Buttons */}

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaCode, FaExternalLinkAlt } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter } from 'react-icons/si';
+import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaCode, FaExternalLinkAlt, FaPhp, FaLaravel } from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter, SiPhp, SiLaravel } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
 import ElementorLogo from '../assets/img/elementor.svg';
@@ -37,6 +37,16 @@ const techStacks = [
     name: 'Node.js', 
     icon: <FaNodeJs color="#3C873A" size={38} />,
     url: 'https://nodejs.org/'
+  },
+  { 
+    name: 'PHP', 
+    icon: <SiPhp color="#777BB4" size={38} />,
+    url: 'https://www.php.net/'
+  },
+  { 
+    name: 'Laravel', 
+    icon: <SiLaravel color="#FF2D20" size={38} />,
+    url: 'https://laravel.com/'
   },
   { 
     name: 'Express', 
