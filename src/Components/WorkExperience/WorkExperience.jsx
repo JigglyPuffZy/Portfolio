@@ -5,23 +5,39 @@ import { Briefcase, MapPin, Calendar, ChevronDown, ChevronUp } from 'lucide-reac
 import './WorkExperience.css';
 
 const workExperience = [
+  // {
+  //   id: 1,
+  //   company: "One Over Zero Technologies, Inc.",
+  //   position: "Junior Front End Developer & UI/UX Designer",
+  //   location: "Remote",
+  //   duration: "Present",
+  //   description: "At One Over Zero Technologies, Inc. (Defining Infinite Possibilities), I develop and enhance web-based systems while maintaining and updating WordPress websites and plugins. I implement front-end features and layout improvements, ensuring website functionality, responsiveness, and usability. My role involves fixing website issues, bugs, and UI inconsistencies while coordinating with the team for system updates and improvements.",
+  //   responsibilities: [
+  //     "Developing and enhancing web-based systems",
+  //     "Maintaining and updating WordPress websites and plugins",
+  //     "Implementing front-end features and layout improvements",
+  //     "Fixing website issues, bugs, and UI inconsistencies",
+  //     "Ensuring website functionality, responsiveness, and usability",
+  //     "Coordinating with the team for system updates and improvements"
+  //   ],
+  //   technologies: ["WordPress", "Front-End Development", "UI/UX Design", "Web Development", "Plugin Development"],
+  //   achievements: [],
+  // },
   {
-    id: 1,
-    company: "One Over Zero Technologies, Inc.",
-    position: "Junior Front End Developer & UI/UX Designer",
+    id: 3,
+    company: "Caribbean Led Solutions",
+    position: "Front-End Developer, UI/UX Designer & Graphic Designer",
     location: "Remote",
-    duration: "Present",
-    description: "At One Over Zero Technologies, Inc. (Defining Infinite Possibilities), I develop and enhance web-based systems while maintaining and updating WordPress websites and plugins. I implement front-end features and layout improvements, ensuring website functionality, responsiveness, and usability. My role involves fixing website issues, bugs, and UI inconsistencies while coordinating with the team for system updates and improvements.",
+    duration: "Feb 2025 – April 2026",
+    description: "At Caribbean Led Solutions, I designed the entire Brioray platform UI in Figma and developed it in React, achieving a 30% improvement in user onboarding and a 45% increase in usability. I also created marketing visuals, infographics, and branded materials that significantly boosted campaign engagement. My role required a balance between design precision and development efficiency, ensuring that the platform was responsive, accessible, and consistent across all devices.",
     responsibilities: [
-      "Developing and enhancing web-based systems",
-      "Maintaining and updating WordPress websites and plugins",
-      "Implementing front-end features and layout improvements",
-      "Fixing website issues, bugs, and UI inconsistencies",
-      "Ensuring website functionality, responsiveness, and usability",
-      "Coordinating with the team for system updates and improvements"
+      "Designed entire Brioray platform UI in Figma and developed in React",
+      "Achieved 30% improvement in user onboarding and 45% increase in usability",
+      "Created marketing visuals, infographics, and branded materials",
+      "Ensured platform responsiveness, accessibility, and cross-device consistency"
     ],
-    technologies: ["WordPress", "Front-End Development", "UI/UX Design", "Web Development", "Plugin Development"],
-    achievements: [],
+    technologies: ["React", "Figma", "UI/UX Design", "Graphic Design", "Marketing Materials"],
+    achievements: ["30% improvement in user onboarding", "45% increase in usability"],
   },
   {
     id: 2,
@@ -38,22 +54,6 @@ const workExperience = [
     ],
     technologies: ["React", "Tailwind CSS", "UI/UX Design", "Web Development"],
     achievements: [],
-  },
-  {
-    id: 3,
-    company: "Caribbean Led Solutions",
-    position: "Front-End Developer, UI/UX Designer & Graphic Designer",
-    location: "Remote",
-    duration: "Nov 2024 – June 2025",
-    description: "At Caribbean Led Solutions, I designed the entire Brioray platform UI in Figma and developed it in React, achieving a 30% improvement in user onboarding and a 45% increase in usability. I also created marketing visuals, infographics, and branded materials that significantly boosted campaign engagement. My role required a balance between design precision and development efficiency, ensuring that the platform was responsive, accessible, and consistent across all devices.",
-    responsibilities: [
-      "Designed entire Brioray platform UI in Figma and developed in React",
-      "Achieved 30% improvement in user onboarding and 45% increase in usability",
-      "Created marketing visuals, infographics, and branded materials",
-      "Ensured platform responsiveness, accessibility, and cross-device consistency"
-    ],
-    technologies: ["React", "Figma", "UI/UX Design", "Graphic Design", "Marketing Materials"],
-    achievements: ["30% improvement in user onboarding", "45% increase in usability"],
   },
   {
     id: 4,
