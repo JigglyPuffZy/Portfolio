@@ -6,6 +6,7 @@ import { ArrowRight, Github, Facebook, Instagram, Linkedin, FileText, Mail } fro
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
+import resumePdf from '../../assets/img/Punzalan Resume New.pdf';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Hero = () => {
 
   // Check if resume is available
   useEffect(() => {
-    fetch('/BEST.pdf')
+    fetch(resumePdf)
       .then(response => {
         if (response.ok) {
           setResumeAvailable(true);
@@ -341,7 +342,7 @@ const Hero = () => {
 
             {/* My Resume Button */}
             <a
-              href={resumeAvailable ? "/Resume Punzalan Front End Developer.pdf" : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
+              href={resumeAvailable ? resumePdf : "https://mail.google.com/mail/?view=cm&fs=1&to=ralphmatthewpunzalan23@gmail.com"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleResumeClick}
