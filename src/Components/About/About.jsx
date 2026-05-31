@@ -186,7 +186,7 @@ const experience = [
     duration: '4 months'
   },
   {
-    period: 'Feb 2025–Jan 2026',
+    period: 'Feb 2025–April 2026',
     company: 'Caribbean LED Solutions (Corporate)',
     role: 'Digital Marketing Assistant (Remote)',
     description: 'Designed promotional materials, edited videos for training and product showcases, and contributed to audience engagement through digital campaigns.',

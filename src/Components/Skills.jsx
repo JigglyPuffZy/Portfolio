@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaCode, FaExternalLinkAlt, FaPhp, FaLaravel } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiCanva, SiAdobephotoshop, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter, SiPhp, SiLaravel } from 'react-icons/si';
+import { FaReact, FaJs, FaNodeJs, FaFigma, FaGitAlt, FaCode, FaExternalLinkAlt, FaPhp, FaLaravel, FaImage } from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiCanva, SiDavinciresolve, SiMongodb, SiExpress, SiVite, SiGithub, SiWordpress, SiWebflow, SiFlutter, SiPhp, SiLaravel } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import CapcutLogo from '../assets/img/capcut.png';
 import ElementorLogo from '../assets/img/elementor.svg';
@@ -70,7 +70,7 @@ const techStacks = [
   },
   { 
     name: 'Photoshop', 
-    icon: <SiAdobephotoshop color="#31A8FF" size={38} />,
+    icon: <FaImage color="#31A8FF" size={38} />,
     url: 'https://www.adobe.com/products/photoshop.html'
   },
   { 
