@@ -17,7 +17,7 @@ const ImageModal = ({ image, onClose, modalClassName = '' }) => {
           initial={{ scale: 0.96, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.96, opacity: 0 }}
-          className={`modal-content bg-white/70 dark:bg-slate-800/80 backdrop-blur-2xl shadow-2xl border border-blue-100 dark:border-blue-700 rounded-2xl relative overflow-hidden ${modalClassName}`}
+          className={`modal-content bg-white/70 dark:bg-slate-800/80 backdrop-blur-2xl shadow-2xl border border-primary-100 dark:border-primary-700 rounded-2xl relative overflow-hidden ${modalClassName}`}
           style={{
             margin: 0,
             display: 'flex',
@@ -31,7 +31,7 @@ const ImageModal = ({ image, onClose, modalClassName = '' }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <button
-            className="absolute top-3 right-3 z-10 bg-slate-900/60 dark:bg-slate-800/80 hover:bg-blue-500/80 text-white rounded-full p-1 transition shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="absolute top-3 right-3 z-10 bg-slate-900/60 dark:bg-slate-800/80 hover:bg-primary-500/80 text-white rounded-full p-1 transition shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-400"
             onClick={onClose}
           >
             <X className="w-6 h-6" />

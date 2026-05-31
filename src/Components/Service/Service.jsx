@@ -53,10 +53,10 @@ const Service = () => {
         'E-commerce Solutions',
         'Mobile App Development'
       ],
-      gradient: 'from-blue-600 via-blue-500 to-blue-400',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600'
+      gradient: 'from-primary-600 via-primary-500 to-primary-400',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-500 to-primary-600'
     },
     {
       icon: <Code2 className="w-8 h-8" />,
@@ -68,10 +68,10 @@ const Service = () => {
         'Full-Stack Solutions',
         'Website Maintenance'
       ],
-      gradient: 'from-blue-700 via-blue-600 to-blue-500',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-600 to-blue-700'
+      gradient: 'from-primary-700 via-primary-600 to-primary-500',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-600 to-primary-700'
     },
     {
       icon: <Layout className="w-8 h-8" />,
@@ -83,10 +83,10 @@ const Service = () => {
         'Responsive Layouts',
         'Mobile-First Design'
       ],
-      gradient: 'from-blue-800 via-blue-700 to-blue-600',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-700 to-blue-800'
+      gradient: 'from-primary-800 via-primary-700 to-primary-600',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-700 to-primary-800'
     },
     {
       icon: <Image className="w-8 h-8" />,
@@ -98,10 +98,10 @@ const Service = () => {
         'Digital Advertising',
         'Publication Layouts'
       ],
-      gradient: 'from-blue-600 via-blue-500 to-blue-400',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600'
+      gradient: 'from-primary-600 via-primary-500 to-primary-400',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-500 to-primary-600'
     },
     {
       icon: <Video className="w-8 h-8" />,
@@ -113,10 +113,10 @@ const Service = () => {
         'Color Correction',
         'Audio Syncing'
       ],
-      gradient: 'from-blue-700 via-blue-600 to-blue-500',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-600 to-blue-700'
+      gradient: 'from-primary-700 via-primary-600 to-primary-500',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-600 to-primary-700'
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
@@ -128,10 +128,10 @@ const Service = () => {
         'Social Media Marketing',
         'Visual Content Strategy'
       ],
-      gradient: 'from-blue-800 via-blue-700 to-blue-600',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-700 to-blue-800'
+      gradient: 'from-primary-800 via-primary-700 to-primary-600',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-700 to-primary-800'
     },
     {
       icon: <Wrench className="w-8 h-8" />,
@@ -143,10 +143,10 @@ const Service = () => {
         'Technical Assistance',
         'Computer Servicing'
       ],
-      gradient: 'from-blue-600 via-blue-500 to-blue-400',
-      bgGradient: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
-      iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600'
+      gradient: 'from-primary-600 via-primary-500 to-primary-400',
+      bgGradient: 'from-primary-50 to-primary-100',
+      borderColor: 'border-primary-200',
+      iconBg: 'bg-gradient-to-br from-primary-500 to-primary-600'
     }
   ];
 

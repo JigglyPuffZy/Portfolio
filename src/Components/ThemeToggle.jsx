@@ -26,14 +26,14 @@ const ThemeToggle = () => {
         {isDark ? (
           <Sun className="w-5 h-5 text-yellow-400" />
         ) : (
-          <Moon className="w-5 h-5 text-blue-600" />
+          <Moon className="w-5 h-5 text-primary-600" />
         )}
       </motion.div>
       
       {/* Ripple effect */}
       <motion.div
         className={`absolute inset-0 rounded-full ${
-          isDark ? 'bg-yellow-400/20' : 'bg-blue-600/20'
+          isDark ? 'bg-yellow-400/20' : 'bg-primary-600/20'
         }`}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 0, opacity: 0 }}

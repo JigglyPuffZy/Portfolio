@@ -63,7 +63,7 @@ const PROJECTS = [
   {
     image: LaborLinkz,
     title: "LaborLinkz",
-    description: "Built a job-matching app for blue-collar workers using React.js and Figma. Designed role-based dashboards to streamline the matching process for admins, clients, and workers. (Nov 2023 – Jan 2024)",
+    description: "Built a job-matching app for primary-collar workers using React.js and Figma. Designed role-based dashboards to streamline the matching process for admins, clients, and workers. (Nov 2023 – Jan 2024)",
     tags: ["Front-End"],
     category: "frontend",
     categoryLabel: "Front-End",
@@ -265,7 +265,7 @@ const FILTERS = [
 ];
 
 const CATEGORY_COLORS = {
-  "Front-End": "text-blue-600 bg-blue-50",
+  "Front-End": "text-primary-600 bg-primary-50",
   "UX/UI Design": "text-pink-600 bg-pink-50",
 };
 
@@ -283,17 +283,17 @@ const Projects = () => {
 
   // Tech icon mapping
   const techIcons = {
-    'React': <FaReact className="text-blue-400" title="React" />, 
-    'React Native': <FaMobileAlt className="text-blue-400" title="React Native" />,
-    'Mobile UI/UX': <FaPalette className="text-blue-300" title="Mobile UI/UX" />,
+    'React': <FaReact className="text-primary-400" title="React" />, 
+    'React Native': <FaMobileAlt className="text-primary-400" title="React Native" />,
+    'Mobile UI/UX': <FaPalette className="text-primary-300" title="Mobile UI/UX" />,
     'Redux': <SiRedux className="text-purple-400" title="Redux" />,
-    'Performance Optimization': <FaRocket className="text-blue-300" title="Performance Optimization" />,
-    'Freelancing Platform': <FaUserFriends className="text-blue-300" title="Freelancing Platform" />,
-    'Job Matching': <FaUserFriends className="text-blue-300" title="Job Matching" />,
-    'Mobile Development': <FaMobileAlt className="text-blue-400" title="Mobile Development" />,
+    'Performance Optimization': <FaRocket className="text-primary-300" title="Performance Optimization" />,
+    'Freelancing Platform': <FaUserFriends className="text-primary-300" title="Freelancing Platform" />,
+    'Job Matching': <FaUserFriends className="text-primary-300" title="Job Matching" />,
+    'Mobile Development': <FaMobileAlt className="text-primary-400" title="Mobile Development" />,
     'Tailwind CSS': <SiTailwindcss className="text-cyan-400" title="Tailwind CSS" />,
-    'Modern UI/UX': <FaPalette className="text-blue-300" title="Modern UI/UX" />,
-    'Performance': <FaRocket className="text-blue-300" title="Performance" />,
+    'Modern UI/UX': <FaPalette className="text-primary-300" title="Modern UI/UX" />,
+    'Performance': <FaRocket className="text-primary-300" title="Performance" />,
   };
 
   return (
@@ -307,23 +307,23 @@ const Projects = () => {
         <div className="absolute inset-0 bg-mesh dark:bg-mesh-dark opacity-40" />
         
         {/* Floating gradient orbs */}
-        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-accent-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-tr from-accent-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-tr from-accent-500/20 to-primary-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px] dark:bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] bg-[size:64px_64px] dark:bg-[linear-gradient(rgba(34,197,94,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.05)_1px,transparent_1px)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 bg-gradient-to-r from-blue-50 to-accent-50 dark:from-blue-900/20 dark:to-accent-900/20 rounded-full border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-xl shadow-lg">
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-accent-500 rounded-full animate-pulse" />
-            <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-accent-600 dark:from-blue-400 dark:to-accent-400 bg-clip-text text-transparent">Portfolio Showcase</span>
-            <FaRocket className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+          <div className="inline-flex items-center gap-2 mb-6 px-5 py-2.5 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-full border border-primary-200/50 dark:border-primary-700/50 backdrop-blur-xl shadow-lg">
+            <div className="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full animate-pulse" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400 bg-clip-text text-transparent">Portfolio Showcase</span>
+            <FaRocket className="w-4 h-4 text-primary-500 dark:text-primary-400" />
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-            <span className="bg-gradient-to-r from-blue-600 via-accent-600 to-blue-600 dark:from-blue-400 dark:via-accent-400 dark:to-blue-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+            <span className="bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 dark:from-primary-400 dark:via-accent-400 dark:to-primary-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
               Featured Projects
             </span>
           </h1>
@@ -336,10 +336,10 @@ const Projects = () => {
           {FILTERS.map((f) => (
             <button
               key={f.key}
-              className={`group relative px-8 py-3.5 rounded-2xl font-semibold text-base transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400 focus-visible:ring-offset-2 flex items-center gap-3 overflow-hidden ${
+              className={`group relative px-8 py-3.5 rounded-2xl font-semibold text-base transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-400 focus-visible:ring-offset-2 flex items-center gap-3 overflow-hidden ${
                 activeFilter === f.key
-                  ? "bg-gradient-to-r from-blue-600 to-accent-600 text-white scale-105 shadow-glow"
-                  : "bg-white/90 dark:bg-dark-800/90 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:scale-105 shadow-lg hover:shadow-xl"
+                  ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white scale-105 shadow-glow"
+                  : "bg-white/90 dark:bg-dark-800/90 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 hover:scale-105 shadow-lg hover:shadow-xl"
               }`}
               onClick={() => setActiveFilter(f.key)}
               tabIndex={0}
@@ -351,8 +351,8 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
               )}
               <span className="relative z-10 flex items-center gap-2">
-                {f.key === 'all' && <FaReact className={activeFilter === f.key ? "text-white" : "text-blue-500"} />}
-                {f.key === 'frontend' && <FaReact className={activeFilter === f.key ? "text-white" : "text-blue-500"} />}
+                {f.key === 'all' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
+                {f.key === 'frontend' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
                 {f.key === 'uiux' && <FaPalette className={activeFilter === f.key ? "text-white" : "text-pink-500"} />}
                 {f.label}
               </span>
@@ -367,16 +367,16 @@ const Projects = () => {
           {filtered.map((project, idx) => (
             <div
               key={idx}
-              className="group relative bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl rounded-3xl shadow-premium hover:shadow-premium-lg border border-gray-200/60 dark:border-gray-700/60 flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] focus-within:ring-2 focus-within:ring-blue-400 outline-none cursor-pointer"
+              className="group relative bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl rounded-3xl shadow-premium hover:shadow-premium-lg border border-gray-200/60 dark:border-gray-700/60 flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] focus-within:ring-2 focus-within:ring-primary-400 outline-none cursor-pointer"
               tabIndex={0}
               aria-label={`View details for ${project.title}`}
               style={{ minHeight: "450px" }}
             >
               {/* Animated gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-accent-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-accent-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl pointer-events-none" />
               
               {/* Glow effect on hover */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-accent-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
               
               <div className="relative z-10 flex-1 flex flex-col">
                 {/* Image Container */}
@@ -401,7 +401,7 @@ const Projects = () => {
                   
                   {/* Platform/Type Badge */}
                   {project.platform && (
-                    <span className="absolute top-4 right-4 px-4 py-2 rounded-xl font-semibold text-xs tracking-wide backdrop-blur-xl bg-blue-500/90 text-white border border-blue-400/50 shadow-lg">
+                    <span className="absolute top-4 right-4 px-4 py-2 rounded-xl font-semibold text-xs tracking-wide backdrop-blur-xl bg-primary-500/90 text-white border border-primary-400/50 shadow-lg">
                       {project.platform}
                     </span>
                   )}
@@ -421,7 +421,7 @@ const Projects = () => {
 
                 {/* Content */}
                 <div className="flex-1 flex flex-col p-6 gap-3">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-accent-600 dark:group-hover:from-blue-400 dark:group-hover:to-accent-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-accent-600 dark:group-hover:from-primary-400 dark:group-hover:to-accent-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                     {project.title}
                   </h3>
                   
@@ -435,7 +435,7 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center justify-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg hover:shadow-glow transition-all duration-300 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 relative overflow-hidden"
+                      className="group/btn inline-flex items-center justify-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 text-white font-semibold shadow-lg hover:shadow-glow transition-all duration-300 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 relative overflow-hidden"
                       style={{ width: 'fit-content' }}
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -471,7 +471,7 @@ const Projects = () => {
                       {project.tech.slice(0, 3).map((tech, i) => (
                         <span 
                           key={i} 
-                          className="flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-accent-50 dark:from-blue-900/30 dark:to-accent-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-blue-200/50 dark:border-blue-700/50 shadow-sm hover:shadow-md transition-all duration-200"
+                          className="flex items-center gap-1.5 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/30 dark:to-accent-900/30 text-primary-700 dark:text-primary-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-primary-200/50 dark:border-primary-700/50 shadow-sm hover:shadow-md transition-all duration-200"
                         >
                           {techIcons[tech] || null}
                           {tech}
@@ -488,7 +488,7 @@ const Projects = () => {
               </div>
 
               {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>

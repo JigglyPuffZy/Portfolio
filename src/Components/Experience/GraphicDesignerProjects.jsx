@@ -16,7 +16,7 @@ const GeometricBg = () => (
   >
     <defs>
       <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4ade80" strokeWidth="0.5" />
       </pattern>
     </defs>
     <rect width="800" height="600" fill="url(#grid)" />
@@ -29,7 +29,7 @@ const GraphicDesignerProjects = () => {
       <div className="relative z-20 w-full flex flex-col items-center mb-10">
         <div className="relative flex flex-col items-center w-full">
           <div className="relative flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-lg px-6 py-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-blue-100 dark:border-blue-700 shadow-xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-lg px-6 py-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-primary-100 dark:border-primary-700 shadow-xl">
               Graphic Design Projects
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-300 mt-4 text-center max-w-2xl">

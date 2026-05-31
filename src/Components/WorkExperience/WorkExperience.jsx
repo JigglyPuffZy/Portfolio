@@ -41,11 +41,11 @@ const workExperience = [
   },
   {
     id: 3,
-    company: "Caribbean Led Solutions",
+    company: "Caribbean LED Solutions",
     position: "Front-End Developer, UI/UX Designer & Graphic Designer",
     location: "Remote",
-    duration: "Nov 2024 – June 2025",
-    description: "At Caribbean Led Solutions, I designed the entire Brioray platform UI in Figma and developed it in React, achieving a 30% improvement in user onboarding and a 45% increase in usability. I also created marketing visuals, infographics, and branded materials that significantly boosted campaign engagement. My role required a balance between design precision and development efficiency, ensuring that the platform was responsive, accessible, and consistent across all devices.",
+    duration: "Feb 2025 – January 2026",
+    description: "At Caribbean LED Solutions, I designed the entire Brioray platform UI in Figma and developed it in React, achieving a 30% improvement in user onboarding and a 45% increase in usability. I also created marketing visuals, infographics, and branded materials that significantly boosted campaign engagement. My role required a balance between design precision and development efficiency, ensuring that the platform was responsive, accessible, and consistent across all devices.",
     responsibilities: [
       "Designed entire Brioray platform UI in Figma and developed in React",
       "Achieved 30% improvement in user onboarding and 45% increase in usability",
@@ -95,7 +95,6 @@ const WorkExperience = () => {
 
   return (
     <section id="work-experience" className="section-padding container-padding bg-gradient-to-b from-gray-50 to-white dark:from-dark-900 dark:to-dark-950 relative overflow-hidden">
-      {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.15) 1px, transparent 0)',
@@ -103,7 +102,6 @@ const WorkExperience = () => {
         }} />
       </div>
 
-      {/* Header */}
       <div className="relative max-w-5xl mx-auto mb-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -150,9 +148,7 @@ const WorkExperience = () => {
         </motion.div>
       </div>
 
-      {/* Timeline */}
       <div className="relative max-w-5xl mx-auto">
-        {/* Vertical Line with Glow */}
         <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-600 transform md:-translate-x-1/2 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
 
         <div className="space-y-12">
@@ -166,7 +162,6 @@ const WorkExperience = () => {
               className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
             >
-              {/* Timeline Dot with Pulse */}
               <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1">
                 <motion.div
                   initial={{ scale: 0 }}
@@ -184,17 +179,14 @@ const WorkExperience = () => {
                 </motion.div>
               </div>
 
-              {/* Content Card */}
               <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   className="relative bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-200/50 dark:border-blue-700/30 cursor-pointer overflow-hidden group"
                   onClick={() => setExpanded(expanded === job.id ? null : job.id)}
                 >
-                  {/* Gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Duration Badge */}
                   <div className="relative flex items-center gap-2 text-sm mb-3">
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/40 rounded-full border border-blue-200/60 dark:border-blue-700/60">
                       <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
@@ -202,7 +194,6 @@ const WorkExperience = () => {
                     </div>
                   </div>
 
-                  {/* Position & Company */}
                   <h3 className="relative text-xl font-black text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {job.position}
                   </h3>
@@ -216,12 +207,10 @@ const WorkExperience = () => {
                     </div>
                   </div>
 
-                  {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                     {expanded === job.id ? job.description : `${job.description.substring(0, 150)}...`}
                   </p>
 
-                  {/* Technologies */}
                   <div className="relative flex flex-wrap gap-2 mb-4">
                     {job.technologies.slice(0, 4).map((tech, i) => (
                       <motion.span
@@ -234,7 +223,6 @@ const WorkExperience = () => {
                     ))}
                   </div>
 
-                  {/* Expand/Collapse */}
                   <AnimatePresence>
                     {expanded === job.id && (
                       <motion.div
@@ -244,7 +232,6 @@ const WorkExperience = () => {
                         transition={{ duration: 0.3 }}
                         className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4"
                       >
-                        {/* Responsibilities */}
                         <div className="mb-4">
                           <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Key Responsibilities</h5>
                           <ul className="space-y-2">
@@ -257,7 +244,6 @@ const WorkExperience = () => {
                           </ul>
                         </div>
 
-                        {/* Achievements */}
                         {job.achievements.length > 0 && (
                           <div>
                             <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Achievements</h5>
@@ -275,7 +261,6 @@ const WorkExperience = () => {
                     )}
                   </AnimatePresence>
 
-                  {/* Toggle Button */}
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

@@ -1,10 +1,10 @@
 /* Modern variables with extended color palette and design tokens */
 :root {
     /* Color palette - Light Mode */
-    --primary-blue: #3b82f6;
-    --secondary-blue: #2563eb;
-    --accent-blue: #1d4ed8;
-    --light-blue: #60a5fa;
+    --primary-blue: #22c55e;
+    --secondary-blue: #16a34a;
+    --accent-blue: #15803d;
+    --light-blue: #4ade80;
     --white: #ffffff;
     --off-white: #f8fafc;
     
@@ -63,7 +63,7 @@
 
 /* Dark mode enhanced variables */
 .dark {
-    --text-shadow: 0 2px 10px rgba(59, 130, 246, 0.4);
+    --text-shadow: 0 2px 10px rgba(34, 197, 94, 0.4);
     --card-shadow: 
       0 25px 80px rgba(0, 0, 0, 0.4),
       0 0 0 1px rgba(255, 255, 255, 0.1) inset;
@@ -264,8 +264,8 @@
   /* Light mode hero content */
   .hero-content:not(.dark) {
     background: rgba(255, 255, 255, 0.55);
-    box-shadow: 0 8px 40px 0 rgba(59, 130, 246, 0.10), 0 1.5px 8px 0 rgba(59, 130, 246, 0.08);
-    border: 2px solid rgba(59, 130, 246, 0.18);
+    box-shadow: 0 8px 40px 0 rgba(34, 197, 94, 0.10), 0 1.5px 8px 0 rgba(34, 197, 94, 0.08);
+    border: 2px solid rgba(34, 197, 94, 0.18);
     backdrop-filter: blur(32px) saturate(1.2);
     -webkit-backdrop-filter: blur(32px) saturate(1.2);
     transition: all 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
@@ -274,7 +274,7 @@
   .hero-content:not(.dark)::before {
     background: linear-gradient(
       135deg, 
-      rgba(59, 130, 246, 0.18) 0%, 
+      rgba(34, 197, 94, 0.18) 0%, 
       rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0.1) 100%
     );
