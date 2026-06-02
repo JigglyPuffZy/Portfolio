@@ -1,5 +1,7 @@
-const videoUrl = (filename) =>
-  `${import.meta.env.BASE_URL}videos/${encodeURIComponent(filename)}`;
+import task1Video from '../assets/img/Task 1.mp4';
+import task7Video from '../assets/img/Task 7.mp4';
+import task8Video from '../assets/img/Task 8.mp4';
+import weatherVideo from '../assets/img/WeatherNewsSampleTask (1).mp4';
 
 const TOOL_NAMES = {
   capcut: 'CapCut',
@@ -14,7 +16,7 @@ export const VIDEO_PROJECTS = [
     durationSeconds: 39,
     status: 'completed',
     lastEdited: '2025-05-18',
-    videoSrc: videoUrl('Task 1.mp4'),
+    videoSrc: task1Video,
     description:
       'Opening course video introducing LED lighting fundamentals, learning outcomes, and what students will build throughout the program.',
     tool: 'capcut',
@@ -25,7 +27,7 @@ export const VIDEO_PROJECTS = [
     durationSeconds: 48,
     status: 'completed',
     lastEdited: '2025-05-22',
-    videoSrc: videoUrl('Task 7.mp4'),
+    videoSrc: task7Video,
     description:
       'Educational deep-dive exposing industry gaps in LED training—bold storytelling, motion graphics, and chapter-style pacing for maximum retention.',
     tool: 'premiere',
@@ -35,7 +37,7 @@ export const VIDEO_PROJECTS = [
     title: "LED Technology Is Exploding—Don't Get Left Behind",
     status: 'in-progress',
     lastEdited: '2025-05-28',
-    videoSrc: videoUrl('Task 8.mp4'),
+    videoSrc: task8Video,
     description:
       'High-energy promotional edit highlighting rapid LED innovation, urgency-driven messaging, and dynamic cuts for social and course funnels.',
     tool: 'davinci',
@@ -45,7 +47,7 @@ export const VIDEO_PROJECTS = [
     title: 'Weather News',
     status: 'completed',
     lastEdited: '2025-04-12',
-    videoSrc: videoUrl('WeatherNewsSampleTask (1).mp4'),
+    videoSrc: weatherVideo,
     description:
       'News-style weather segment with lower-thirds, forecast graphics, and clean broadcast pacing for informational content.',
     tool: 'premiere',
