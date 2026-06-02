@@ -309,7 +309,7 @@ const Hero = () => {
             className={`text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-center tracking-widest uppercase opacity-90 font-sans ${isDark ? '!text-blue-200' : '!text-white'}`}
             style={isDark ? {} : { color: '#fff', textShadow: 'none' }}
           >
-            Design-driven. Code-focused.
+            Full Stack Developer
           </motion.h2>
 
           <motion.p

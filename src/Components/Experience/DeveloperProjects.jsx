@@ -130,7 +130,7 @@ const DeveloperProjects = () => {
           {/* Decorative blue gradient shape */}
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-80 h-24 bg-gradient-to-r from-primary-400/30 via-primary-200/40 to-primary-500/20 blur-2xl rounded-full opacity-70 pointer-events-none" />
           <div className="relative flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-lg px-6 py-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-primary-100 dark:border-primary-700 shadow-xl animate-fade-in-up" style={{boxShadow:'0 4px 32px 0 rgba(96,165,250,0.10)'}}>Front-End Developer Projects</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-lg px-6 py-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-primary-100 dark:border-primary-700 shadow-xl animate-fade-in-up" style={{boxShadow:'0 4px 32px 0 rgba(96,165,250,0.10)'}}>Full Stack Developer Projects</h1>
             <div className="mt-2 h-2 w-32 rounded-full bg-gradient-to-r from-primary-400 via-primary-500 to-primary-400 blur-sm opacity-60 animate-pulse" />
           </div>
         </div>

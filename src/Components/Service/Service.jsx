@@ -5,7 +5,7 @@ import {
   Smartphone, 
   Layout, 
   Image,
-  Video,
+  // Video,
   Wrench,
   ArrowRight,
   Sparkles,
@@ -43,21 +43,6 @@ const Service = () => {
   };
 
   const services = [
-    {
-      icon: <Code2 className="w-8 h-8" />,
-      title: 'React Development',
-      description: 'Building modern, responsive web and mobile applications using React.js and React Native.',
-      features: [
-        'React.js & React Native Development',
-        'Expo Router Implementation',
-        'E-commerce Solutions',
-        'Mobile App Development'
-      ],
-      gradient: 'from-primary-600 via-primary-500 to-primary-400',
-      bgGradient: 'from-primary-50 to-primary-100',
-      borderColor: 'border-primary-200',
-      iconBg: 'bg-gradient-to-br from-primary-500 to-primary-600'
-    },
     {
       icon: <Code2 className="w-8 h-8" />,
       title: 'Web Development',
@@ -103,30 +88,30 @@ const Service = () => {
       borderColor: 'border-primary-200',
       iconBg: 'bg-gradient-to-br from-primary-500 to-primary-600'
     },
-    {
-      icon: <Video className="w-8 h-8" />,
-      title: 'Video Editing',
-      description: 'Professional video editing for social media, presentations, and promotional content.',
-      features: [
-        'Social Media Videos',
-        'Promotional Content',
-        'Color Correction',
-        'Audio Syncing'
-      ],
-      gradient: 'from-primary-700 via-primary-600 to-primary-500',
-      bgGradient: 'from-primary-50 to-primary-100',
-      borderColor: 'border-primary-200',
-      iconBg: 'bg-gradient-to-br from-primary-600 to-primary-700'
-    },
+    // {
+    //   icon: <Video className="w-8 h-8" />,
+    //   title: 'Video Editing',
+    //   description: 'Professional video editing for social media, presentations, and promotional content.',
+    //   features: [
+    //     'Social Media Videos',
+    //     'Promotional Content',
+    //     'Color Correction',
+    //     'Audio Syncing'
+    //   ],
+    //   gradient: 'from-primary-700 via-primary-600 to-primary-500',
+    //   bgGradient: 'from-primary-50 to-primary-100',
+    //   borderColor: 'border-primary-200',
+    //   iconBg: 'bg-gradient-to-br from-primary-600 to-primary-700'
+    // },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: 'Digital Marketing',
-      description: 'Creating engaging digital content to boost brand awareness and audience engagement.',
+      title: 'App Developer',
+      description: 'Building cross-platform mobile and web apps with modern frameworks and clean architecture.',
       features: [
-        'Content Creation',
-        'Brand Awareness Campaigns',
-        'Social Media Marketing',
-        'Visual Content Strategy'
+        'React Native & Mobile Apps',
+        'Cross-Platform Development',
+        'App UI Implementation',
+        'Performance & Deployment'
       ],
       gradient: 'from-primary-800 via-primary-700 to-primary-600',
       bgGradient: 'from-primary-50 to-primary-100',

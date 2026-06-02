@@ -30,7 +30,7 @@ const Footer = () => {
               Ralph Punzalan
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Front-End Developer & Digital Creator
+              Full Stack Developer & Digital Creator
             </p>
           </motion.div>
 

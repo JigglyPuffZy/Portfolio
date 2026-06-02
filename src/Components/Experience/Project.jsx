@@ -12,8 +12,9 @@ import ARC from "../../assets/img/ARC.png";
 import ARCMobile from "../../assets/img/arc mobile.png";
 
 import ImageModal from "../ImageModal.jsx";
-import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt, FaVideo } from 'react-icons/fa';
-import VideoEditingWorkspace from './VideoEditingWorkspace';
+import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
+// import { FaVideo } from 'react-icons/fa';
+// import VideoEditingWorkspace from './VideoEditingWorkspace';
 import { SiRedux, SiTailwindcss } from 'react-icons/si';
 
 import TriregMobile from "../../assets/img/Trireg.png";
@@ -263,7 +264,7 @@ const FILTERS = [
   { key: "all", label: "All Projects" },
   { key: "frontend", label: "Front-End" },
   { key: "uiux", label: "UX/UI Design" },
-  { key: "video", label: "Video Editing" },
+  // { key: "video", label: "Video Editing" },
 ];
 
 const CATEGORY_COLORS = {
@@ -277,14 +278,12 @@ const CATEGORY_COLORS = {
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [modalImage, setModalImage] = useState(null);
-  const isVideoTab = activeFilter === "video";
+  // const isVideoTab = activeFilter === "video";
 
-  let filtered =
+  const filtered =
     activeFilter === "all"
       ? PROJECTS
-      : isVideoTab
-        ? []
-        : PROJECTS.filter((p) => p.category === activeFilter);
+      : PROJECTS.filter((p) => p.category === activeFilter);
 
   // Tech icon mapping
   const techIcons = {
@@ -333,9 +332,7 @@ const Projects = () => {
             </span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
-            {isVideoTab
-              ? 'Professional video edits for LED education, promotional content, and broadcast-style projects'
-              : 'Crafting exceptional digital experiences through innovative front-end development and stunning UI/UX design'}
+            Crafting exceptional digital experiences through full stack development and stunning UI/UX design
           </p>
         </div>
         {/* Modern Filter Bar */}
@@ -361,16 +358,16 @@ const Projects = () => {
                 {f.key === 'all' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
                 {f.key === 'frontend' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
                 {f.key === 'uiux' && <FaPalette className={activeFilter === f.key ? "text-white" : "text-pink-500"} />}
-                {f.key === 'video' && <FaVideo className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
+                {/* {f.key === 'video' && <FaVideo className={activeFilter === f.key ? "text-white" : "text-primary-500"} />} */}
                 {f.label}
               </span>
             </button>
           ))}
         </div>
+        {/* Video editing projects — hidden for now
         {isVideoTab ? (
           <VideoEditingWorkspace />
-        ) : (
-        /* Ultra-Modern Projects Grid */
+        ) : ( */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.length === 0 && activeFilter === "uiux" && (
             <div className="col-span-3 text-center text-gray-400 text-lg py-24">No UX/UI Design projects yet. Upload coming soon.</div>
@@ -503,7 +500,7 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        )}
+        {/* )} */}
       </div>
       {/* Image Modal */}
       <ImageModal image={modalImage} onClose={() => setModalImage(null)} />

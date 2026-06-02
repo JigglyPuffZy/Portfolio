@@ -13,11 +13,11 @@ import { Sparkles, User, Award, BookOpen, Briefcase, Code, Palette, ExternalLink
 // --- Static Data ---
 const expertise = [
   {
-    title: 'Front-End Development',
-    description: 'React.js, React Native, Vite, Expo Router',
+    title: 'Full Stack Development',
+    description: 'React, Node.js, APIs, and database-driven apps',
     icon: <Code className="w-7 h-7" />, 
     gradient: 'from-blue-500 to-blue-700',
-    skills: ['React.js', 'React Native', 'JavaScript', 'TypeScript', 'Vite'],
+    skills: ['React.js', 'Node.js', 'JavaScript', 'TypeScript', 'REST APIs'],
     level: 95
   },
   {
@@ -332,7 +332,7 @@ const AboutHero = () => (
         whileHover={{ scale: 1.05 }}
       >
         <Code className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="whitespace-nowrap">Front-End Developer & Digital Creator</span>
+        <span className="whitespace-nowrap">Full Stack Developer & Digital Creator</span>
       </motion.div>
 
       <motion.p 
@@ -341,7 +341,7 @@ const AboutHero = () => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        IT graduate from <span className="font-semibold text-blue-600 dark:text-blue-400">USL Tuguegarao</span> with 3 years of hands-on experience in front-end development and UI/UX design. I'm passionate about creating intuitive, user-centered digital experiences using React.js, React Native, and modern web technologies. Always eager to learn and collaborate on projects that make a difference.
+        IT graduate from <span className="font-semibold text-blue-600 dark:text-blue-400">USL Tuguegarao</span> with 3 years of hands-on experience as a full stack developer and UI/UX designer. I'm passionate about building end-to-end digital products—from responsive front ends to APIs and data—with React.js, React Native, Node.js, and modern web technologies. Always eager to learn and collaborate on projects that make a difference.
       </motion.p>
 
       {/* CTA Buttons */}
