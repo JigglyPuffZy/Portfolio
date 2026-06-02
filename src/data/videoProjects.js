@@ -1,7 +1,5 @@
-import task1Video from '../assets/img/Task 1.mp4';
-import task7Video from '../assets/img/Task 7.mp4';
-import task8Video from '../assets/img/Task 8.mp4';
-import weatherVideo from '../assets/img/WeatherNewsSampleTask (1).mp4';
+const weatherVideoSrc =
+  import.meta.env.VITE_WEATHER_VIDEO_URL || '/videos/weather-news.mp4';
 
 const TOOL_NAMES = {
   capcut: 'CapCut',
@@ -16,7 +14,8 @@ export const VIDEO_PROJECTS = [
     durationSeconds: 39,
     status: 'completed',
     lastEdited: '2025-05-18',
-    videoSrc: task1Video,
+    videoSrc: '/videos/led-intro-course.mp4',
+    aspectRatio: 9 / 16,
     description:
       'Opening course video introducing LED lighting fundamentals, learning outcomes, and what students will build throughout the program.',
     tool: 'capcut',
@@ -27,7 +26,8 @@ export const VIDEO_PROJECTS = [
     durationSeconds: 48,
     status: 'completed',
     lastEdited: '2025-05-22',
-    videoSrc: task7Video,
+    videoSrc: '/videos/led-education-industry.mp4',
+    aspectRatio: 9 / 16,
     description:
       'Educational deep-dive exposing industry gaps in LED training—bold storytelling, motion graphics, and chapter-style pacing for maximum retention.',
     tool: 'premiere',
@@ -37,7 +37,8 @@ export const VIDEO_PROJECTS = [
     title: "LED Technology Is Exploding—Don't Get Left Behind",
     status: 'in-progress',
     lastEdited: '2025-05-28',
-    videoSrc: task8Video,
+    videoSrc: '/videos/led-technology-exploding.mp4',
+    aspectRatio: 9 / 16,
     description:
       'High-energy promotional edit highlighting rapid LED innovation, urgency-driven messaging, and dynamic cuts for social and course funnels.',
     tool: 'davinci',
@@ -47,7 +48,8 @@ export const VIDEO_PROJECTS = [
     title: 'Weather News',
     status: 'completed',
     lastEdited: '2025-04-12',
-    videoSrc: weatherVideo,
+    videoSrc: weatherVideoSrc,
+    aspectRatio: 16 / 9,
     description:
       'News-style weather segment with lower-thirds, forecast graphics, and clean broadcast pacing for informational content.',
     tool: 'premiere',

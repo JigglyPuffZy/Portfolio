@@ -12,12 +12,15 @@ dist
 dist-ssr
 *.local
 
-# Large video files — keep locally in public/videos/, not in Git (GitHub 100MB limit)
+# Large video files outside public/videos (GitHub rejects files over 100MB)
 *.mp4
 *.mov
 *.webm
 *.mkv
+!public/videos/**
 !public/videos/.gitkeep
+# weather-news.mp4 is ~210MB — too large for GitHub; host via VITE_WEATHER_VIDEO_URL instead
+public/videos/weather-news.mp4
 
 # Editor directories and files
 .vscode/*
