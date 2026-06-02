@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Large video files — keep locally in public/videos/, not in Git (GitHub 100MB limit)
+*.mp4
+*.mov
+*.webm
+*.mkv
+!public/videos/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
