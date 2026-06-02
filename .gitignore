@@ -17,10 +17,17 @@ dist-ssr
 *.mov
 *.webm
 *.mkv
-!public/videos/**
-!public/videos/.gitkeep
-# weather-news.mp4 is ~210MB — too large for GitHub; host via VITE_WEATHER_VIDEO_URL instead
-public/videos/weather-news.mp4
+
+# Un-ignore deployable portfolio videos (must un-ignore directory, then files)
+!public/videos/
+!public/videos/*.mp4
+!public/videos/*.mov
+!public/videos/*.webm
+!public/videos/*.mkv
+!public/videos/**/*.mp4
+!public/videos/**/*.mov
+!public/videos/**/*.webm
+!public/videos/**/*.mkv
 
 # Editor directories and files
 .vscode/*
