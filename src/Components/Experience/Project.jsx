@@ -316,9 +316,9 @@ const PROJECTS = [
 
 const FILTERS = [
   { key: "all", label: "All Projects" },
+  { key: "cms", label: "CMS" },
   { key: "frontend", label: "Front-End" },
   { key: "uiux", label: "UX/UI Design" },
-  { key: "cms", label: "Content Management System (CMS)" },
   // { key: "video", label: "Video Editing" },
 ];
 
@@ -396,10 +396,11 @@ const Projects = () => {
           </p>
         </div>
         {/* Modern Filter Bar */}
-        <div className="flex flex-wrap gap-4 mb-16 justify-center">
+        <div className="mb-16 flex flex-wrap justify-center gap-3 sm:gap-4 px-2">
           {FILTERS.map((f) => (
             <button
               key={f.key}
+              title={f.key === 'cms' ? 'Content Management System (CMS)' : f.label}
               className={`group relative px-8 py-3.5 rounded-2xl font-semibold text-base transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-400 focus-visible:ring-offset-2 flex items-center gap-3 overflow-hidden ${
                 activeFilter === f.key
                   ? "bg-gradient-to-r from-primary-600 to-accent-600 text-white scale-105 shadow-glow"
