@@ -12,7 +12,7 @@ import ARC from "../../assets/img/ARC.png";
 import ARCMobile from "../../assets/img/arc mobile.png";
 
 import ImageModal from "../ImageModal.jsx";
-import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaReact, FaMobileAlt, FaPalette, FaRocket, FaUserFriends, FaExternalLinkAlt, FaWordpress } from 'react-icons/fa';
 // import { FaVideo } from 'react-icons/fa';
 // import VideoEditingWorkspace from './VideoEditingWorkspace';
 import { SiRedux, SiTailwindcss } from 'react-icons/si';
@@ -28,6 +28,10 @@ import Planto from "../../assets/img/Planto.png";
 import DoctorSanti from "../../assets/img/doc santi.png";
 import NetworkHomeowners from "../../assets/img/Network.png";
 import Spiderman from "../../assets/img/Spiderman.png";
+import UledThumbnail from "../../assets/img/uled thumbnail.png";
+import VertereThumbnail from "../../assets/img/vertere thumbnail.png";
+import A7Thumbnail from "../../assets/img/a7 thumbnail.png";
+import BriorayCmsThumbnail from "../../assets/img/brioray thumbnail.png";
 
 const PROJECTS = [
   // --- FRONT-END PROJECTS ---
@@ -258,18 +262,70 @@ const PROJECTS = [
     type: "Mobile UI/UX",
     figma: "https://www.figma.com/design/FhdXWVWA6blrVGY4r6k4AC/Planto?node-id=0-1&p=f&t=ZXxaDVWDVcUh0o4A-0",
   },
+
+  // --- CMS PROJECTS ---
+  {
+    image: UledThumbnail,
+    title: "Ultimate LED Course",
+    description:
+      "High-converting course sales funnel for professional LED installation training—showcasing the ABCDE framework, 48 video modules, testimonials, FAQ, and a structured training library. Built to drive enrollments with clear offer positioning and lifetime-access messaging.",
+    tags: ["CMS"],
+    category: "cms",
+    categoryLabel: "CMS",
+    platform: "Go High Level",
+    tech: ["Go High Level", "Landing Pages", "Course Funnel", "Lead Capture"],
+    link: "https://app.gohighlevel.com/v2/preview/D0RHH7qtq1TPIQeWRhlm?notrack=true",
+  },
+  {
+    image: VertereThumbnail,
+    title: "Vértere Global Solutions",
+    description:
+      "Corporate website for an IT staffing and outsourcing firm with 23+ years of experience—highlighting services, client track record, careers, team testimonials, and contact flows for talent requests and job seekers.",
+    tags: ["CMS"],
+    category: "cms",
+    categoryLabel: "CMS",
+    platform: "WordPress",
+    tech: ["WordPress", "Divi", "Corporate Site", "Lead Generation"],
+    link: "https://vertere-gs.com/",
+  },
+  {
+    image: A7Thumbnail,
+    title: "A7 Recruitment",
+    description:
+      "Recruitment agency site connecting employers and talent across the Philippines—featuring permanent placement, executive search, RPO services, industry expertise, client testimonials, and a careers hub.",
+    tags: ["CMS"],
+    category: "cms",
+    categoryLabel: "CMS",
+    platform: "WordPress",
+    tech: ["WordPress", "Elementor", "Recruitment", "Content Management"],
+    link: "https://a7recruitment.com/",
+  },
+  {
+    image: BriorayCmsThumbnail,
+    title: "Brioray",
+    description:
+      "Partner-focused landing page for a plug-and-sell LED tape light kiosk system—covering product bundles, retail benefits, FAQ, and partner registration CTAs for hardware and electrical stores.",
+    tags: ["CMS"],
+    category: "cms",
+    categoryLabel: "CMS",
+    platform: "Go High Level",
+    tech: ["Go High Level", "Product Marketing", "Landing Page", "Lead Capture"],
+    link: "https://sites.leadconnectorhq.com/preview/qBNYaLk0iHBBaPZomRvQ?notrack=true",
+  },
 ];
 
 const FILTERS = [
   { key: "all", label: "All Projects" },
   { key: "frontend", label: "Front-End" },
   { key: "uiux", label: "UX/UI Design" },
+  { key: "cms", label: "Content Management System (CMS)" },
   // { key: "video", label: "Video Editing" },
 ];
 
 const CATEGORY_COLORS = {
   "Front-End": "text-primary-600 bg-primary-50",
   "UX/UI Design": "text-pink-600 bg-pink-50",
+  CMS: "text-emerald-600 bg-emerald-50",
 };
 
 // Badge color maps
@@ -279,6 +335,8 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [modalImage, setModalImage] = useState(null);
   // const isVideoTab = activeFilter === "video";
+
+  const isCmsTab = activeFilter === "cms";
 
   const filtered =
     activeFilter === "all"
@@ -332,7 +390,9 @@ const Projects = () => {
             </span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
-            Crafting exceptional digital experiences through full stack development and stunning UI/UX design
+            {isCmsTab
+              ? 'WordPress and Go High Level sites built for lead generation, recruitment, corporate branding, and product marketing'
+              : 'Crafting exceptional digital experiences through full stack development and stunning UI/UX design'}
           </p>
         </div>
         {/* Modern Filter Bar */}
@@ -358,6 +418,7 @@ const Projects = () => {
                 {f.key === 'all' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
                 {f.key === 'frontend' && <FaReact className={activeFilter === f.key ? "text-white" : "text-primary-500"} />}
                 {f.key === 'uiux' && <FaPalette className={activeFilter === f.key ? "text-white" : "text-pink-500"} />}
+                {f.key === 'cms' && <FaWordpress className={activeFilter === f.key ? "text-white" : "text-emerald-500"} />}
                 {/* {f.key === 'video' && <FaVideo className={activeFilter === f.key ? "text-white" : "text-primary-500"} />} */}
                 {f.label}
               </span>
@@ -369,8 +430,10 @@ const Projects = () => {
           <VideoEditingWorkspace />
         ) : ( */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.length === 0 && activeFilter === "uiux" && (
-            <div className="col-span-3 text-center text-gray-400 text-lg py-24">No UX/UI Design projects yet. Upload coming soon.</div>
+          {filtered.length === 0 && (
+            <div className="col-span-3 text-center text-gray-400 text-lg py-24">
+              No projects in this category yet.
+            </div>
           )}
           {filtered.map((project, idx) => (
             <div
@@ -473,8 +536,8 @@ const Projects = () => {
                     </a>
                   )}
                   
-                  {/* Tech badges for front-end projects */}
-                  {project.category === "frontend" && project.tech && (
+                  {/* Tech badges for front-end and CMS projects */}
+                  {(project.category === "frontend" || project.category === "cms") && project.tech && (
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.tech.slice(0, 3).map((tech, i) => (
                         <span 
